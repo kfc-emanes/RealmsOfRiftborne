@@ -5,12 +5,12 @@ import java.util.Scanner;
 // Restriction on some functions
 // Correct the repetition in narration restrictions
 // Other function needed:
-// Shop
+// Shops
 // Inventory
 class Menu extends Narration {
     static Scanner scanner = new Scanner(System.in);
 
-    //Change these variables to private once encasulation is implemented
+    //Change these variables to private once encasulation is implemented (i think)
     static boolean hasVisitedShop = false;
     static boolean hasOpenedInventory = false;
     static boolean hasVisitedPrologue = false;
