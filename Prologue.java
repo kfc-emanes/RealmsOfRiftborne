@@ -1,9 +1,10 @@
 import java.util.Scanner;
 
 class Prologue {
+
+    static Scanner scanner = new Scanner(System.in);
+    
     public static void openingPrologue() {
-        Scanner scanner = new Scanner(System.in);
- 
         String[] prologue = {
             "Your days as a student have been a blur of half-hearted effort and quiet frustration. Lessons slip past you, faces blur together, and the weight of expectations presses down heavier with each passing week. Tonight feels no different—you collapse into bed, hoping that sleep might offer an escape, if only for a few hours.",
             "But this sleep is unlike any other.",
@@ -28,4 +29,18 @@ class Prologue {
         }
         scanner.close();
     }
+
+    public static void playSection(String[] section) {
+        System.out.println("\nPress ENTER to continue...");
+        
+        for (int i = 0; i < section.length; i++) {
+            scanner.nextLine();
+            System.out.println(section[i]);
+            
+        }
+        
+        System.out.println(); 
+        
+    }
+
 }
