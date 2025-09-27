@@ -353,7 +353,7 @@ class CharacterMenu extends Narration{
         System.out.println("|  2. Gunner                   |");
         System.out.println("|  3. Mage                     |");
         System.out.println("+------------------------------+");
-        System.out.print("  Enter your choice: ");
+        System.out.print("Enter your choice: ");
 
         char characterChoice = scanner.next().charAt(0);
 
