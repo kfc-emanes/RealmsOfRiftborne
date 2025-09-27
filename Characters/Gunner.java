@@ -1,4 +1,4 @@
-public class Gunner {
+public class Gunner extends Character {
     private int hp;
     private int attack;
     private int mana;

@@ -1,4 +1,4 @@
-public class Mage {
+public class Mage extends Character {
     private int hp;
     private int attack;
     private int mana;
