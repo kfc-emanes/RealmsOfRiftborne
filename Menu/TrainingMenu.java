@@ -1,11 +1,8 @@
 package Menu;
 
-import java.util.Scanner;
+import TrainingGround.Training;
 
-import GymBehavior.Arcane;
-import GymBehavior.BladeArt;
-import GymBehavior.Combat;
-import GymBehavior.Gun;
+import java.util.Scanner;
 
 public class TrainingMenu {
 
@@ -13,30 +10,27 @@ public class TrainingMenu {
     boolean continueSparring = true;
     
     public void trainingMenu(){
+        Training trainingHandler = new Training();
         boolean training = true;
-        BladeArt bladeArtHandler = new BladeArt();
-        Combat combatHandler = new Combat();
-        Gun gunHandler = new Gun();
-        Arcane arcaneHandler = new Arcane();
 
         while(training){
             System.out.println();
             System.out.println("+------------------------------------------------+");
             System.out.println("|            Choose Your Training Discipline     |");
             System.out.println("+------------------------------------------------+");
-            System.out.println("| 1. Blade Arts                                  |");
-            System.out.println("|    Master swordplay and sharpen your weapon    |");
-            System.out.println("|    skills in one-on-one duels.                 |");
-            System.out.println("| 2. Combat Conditioning                         |");
-            System.out.println("|    Refine your agility, endurance, and physical|");
-            System.out.println("|    technique through close-quarters sparring.  |");
-            System.out.println("| 3. Gunslinger Training                         |");
-            System.out.println("|    Train in precision shooting and mobility    |");
-            System.out.println("|    with arcane-forged firearms.                |");
-            System.out.println("| 4. Arcane Dueling                              |");
-            System.out.println("|    Harness your magical power and test your    |");
-            System.out.println("|    spellcasting in dynamic magical combat.     |");
-            System.out.println("| 4. Exit Training                               |");
+            System.out.println("| 1. Endurance                                    |");
+            System.out.println("|    Push your limits with stamina training and   |");
+            System.out.println("|    long-distance challenges.                    |");
+            System.out.println("| 2. Strength                                     |");
+            System.out.println("|    Build raw power through intense physical     |");
+            System.out.println("|    exercises and resistance training.           |");
+            System.out.println("| 3. Durability                                   |");
+            System.out.println("|    Fortify your body to withstand powerful      |");
+            System.out.println("|    blows and environmental hazards.             |");
+            System.out.println("| 4. Mana Refinement                              |");
+            System.out.println("|    Enhance magical control and efficiency by    |");
+            System.out.println("|    focusing on internal mana flow.              |");
+            System.out.println("| 5. Exit Training                                |");
             System.out.println("+------------------------------------------------+");
             System.out.print(">>> ");
 
@@ -45,22 +39,34 @@ public class TrainingMenu {
            while(continueSparring){
                 switch (choice) {
                     case "1":
-                        bladeArtHandler.bladeArt();
+                        System.out.println("Endurance Training"); // edit format
+
+                        trainingHandler.generalTrainingPrompt();
+
                         continueSparring = false;
                         break;
 
                     case "2":
-                        combatHandler.combatConditioning();
+                        System.out.println("Strength Training"); // edit format
+
+                        trainingHandler.generalTrainingPrompt();
+
                         continueSparring = false;
                         break;
 
                     case "3":
-                        gunHandler.gunslingerTraining();
+                        System.out.println("Durability"); // edit format
+
+                        trainingHandler.generalTrainingPrompt();
+
                         continueSparring = false;
                         break;
 
                     case "4":
-                        arcaneHandler.arcaneDuel();
+                        System.out.println("Mana Refinement"); // edit format
+
+                        trainingHandler.generalTrainingPrompt();
+
                         continueSparring = false;
                         break;
 

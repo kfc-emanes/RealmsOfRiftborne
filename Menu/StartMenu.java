@@ -8,12 +8,12 @@ public class StartMenu extends Narration {
     static Scanner scan = new Scanner(System.in);
     static boolean hasVisitedPrologue = false;
 
-    public void displayStartMenu(){
-        CharacterMenu charHandler = new CharacterMenu();
+    public boolean displayStartMenu(){
+        //CharacterMenu charHandler = new CharacterMenu();
 
-        boolean play = true;
+        //boolean play = true;
 
-        while(play){
+        while(true){
             System.out.println("+------------------------------+");
             System.out.println("|        Mystvale Academy      |");
             System.out.println("+------------------------------+");
@@ -45,17 +45,17 @@ public class StartMenu extends Narration {
                     System.out.println("│          Choose a character to play          │");
                     System.out.println("└──────────────────────────────────────────────┘");
                     
-                    charHandler.chooseCharacterMenu();
+                    //charHandler.chooseCharacterMenu();
                     //menuHandler.defaultMainMenu();
-                    break;
+
+                    return true;
 
                 case "2":
                     System.out.println();
                     System.out.println("┌───────────┐");
                     System.out.println("│  Goodbye! │");
                     System.out.println("└───────────┘");
-                    play = false;
-                    break;
+                    return false;
 
                 default:
                     System.out.println();

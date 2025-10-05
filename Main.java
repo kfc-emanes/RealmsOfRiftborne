@@ -1,14 +1,21 @@
-import Menu.StartMenu;
-import java.util.Scanner;
+import Menu.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
         StartMenu startMenu = new StartMenu();
-        
-        startMenu.displayStartMenu();
+        CharacterMenu characterMenu = new CharacterMenu();
+        Menu mainMenu = new Menu();
 
-        scan.close();
-        return;
+        boolean shouldStartGame = startMenu.displayStartMenu();
+
+        if (!shouldStartGame) {
+            return;
+        }
+
+        characterMenu.chooseCharacterMenu();
+
+        while (true) {
+            mainMenu.defaultMainMenu();
+        }
     }
 }
