@@ -1,16 +1,15 @@
-package GymBehavior;
+package TrainingGround;
+
+import Menu.TrainingMenu;
+import Menu.AcademyMenu;
 
 import java.util.Scanner;
-import Menu.AcademyMenu;
-import Menu.TrainingMenu;
 import java.util.Random;
 
-public class TrainingGround {
+public class Training {
 
-    static Scanner scanner = new Scanner(System.in);
-    boolean playTrainingGround = true;
+    Scanner scanner = new Scanner(System.in);
     Random random = new Random();
-    AcademyMenu academyMenuHandler = new AcademyMenu();
 
     public void trainingGround(){
         TrainingNarration narrationHandler = new TrainingNarration();
@@ -25,12 +24,15 @@ public class TrainingGround {
         System.out.println("└───────────────────────────────────────────┘");
         scanner.nextLine();
 
-        narrationHandler.trainingInstructions(); 
+        //narrationHandler.trainingInstructions(); 
         trainingMenuHandler.trainingMenu();
 
     }
 
     public void trainingAndQuests(){
+        AcademyMenu academyMenuHandler = new AcademyMenu();
+        TrainingMenu trainingMenuHandler = new TrainingMenu();
+
         boolean continueGeneralPrompt = true;
         int trainOrQuest = random.nextInt();
         int trainingTryOuts = 3;
@@ -49,7 +51,7 @@ public class TrainingGround {
 
                 if(acceptTraining.equals("y")){
                     if(trainingTryOuts > 0){
-                        generalTrainingPrompt();
+                        trainingMenuHandler.trainingMenu();
                         trainingTryOuts--;
                         continueGeneralPrompt = false;
                     } else {

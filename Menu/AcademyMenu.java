@@ -1,28 +1,25 @@
 package Menu;
 
-import GymBehavior.TrainingGround;
+import TrainingGround.Training;
 
 public class AcademyMenu extends Menu{
 
     private boolean hasVisitedLibrary = false; // not used. was used in academy
-    private boolean hasVisitedCanteen = false; // not used. was used in academy
     private boolean hasVisitedGym = false; // not used. was used in academy
     private boolean hasVisitedOffice = false; // not used. was used in academy
 
     public void academyMapMenu() {
         boolean academyMapMenu = true;
-        TrainingGround trainingGroundHandler = new TrainingGround();
+        Training trainingGroundHandler = new Training();
 
         while (academyMapMenu) {
             System.out.println("+-------------------------------------+");
             System.out.println("|  --- MYSTVALE ACADEMY MAP MENU ---  |");
             System.out.println("+-------------------------------------+");
-            System.out.println("| 1. Library                          |");
-            System.out.println("| 2. Canteen                          |");
-            System.out.println("| 3. Gym                              |");
-            System.out.println("| 4. Principal's Office               |");
-            System.out.println("| 5. Exit Current Location            |");
-            System.out.println("| 6. Main Menu                        |");
+            System.out.println("| [1] Library                         |");
+            System.out.println("| [2] Gym                             |");
+            System.out.println("| [3] Principal's Office              |");
+            System.out.println("| [4] Exit Current Location           |");
             System.out.println("+-------------------------------------+");
             System.out.print(">>> ");
 
@@ -46,7 +43,7 @@ public class AcademyMenu extends Menu{
                     System.out.println();
                     break;
                  
-                case "2":
+                /*case "2":
                     if (!hasVisitedCanteen) {
                         canteenNarration();
                         hasVisitedCanteen = true;
@@ -62,8 +59,9 @@ public class AcademyMenu extends Menu{
                     System.out.println();
 
                     break;
+                    */
 
-                case "3":
+                case "2":
 
                     System.out.println();
                     System.out.println("┌──────────────────────────────────────────────┐");
@@ -117,7 +115,7 @@ public class AcademyMenu extends Menu{
                     
                     break;
 
-                case "4":
+                case "3":
                     
                     // add restrictions
                     
@@ -136,7 +134,7 @@ public class AcademyMenu extends Menu{
                     System.out.println();
                     break;
 
-                case "5":
+                case "4":
                     System.out.println();
                     System.out.println("┌───────────────────────────────────────────┐");
                     System.out.println("│    You have left your current location    │");
@@ -147,11 +145,6 @@ public class AcademyMenu extends Menu{
                     // Polish this part
                     //defaultMainMenu();
                     //academyMapMenu();
-                    break;
-                    
-                case "6":
-                    academyMapMenu = false;
-                    //defaultMainMenu();
                     break;
                 
 
