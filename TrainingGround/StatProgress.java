@@ -5,10 +5,10 @@ import Hero.*;
 public class StatProgress {
 
     public void endurance(Hero hero){
-        hero.setHp(hero.getHp() + 2);
+        hero.setHp(hero.getHp() + 2); // hero.setMaxHp()
         hero.setDefense(hero.getDefense() + 2);
         hero.setMana(hero.getMana() + 3);
-        hero.setSpeed(hero.getSpeed() + 1);
+        hero.setSpeed(hero.getSpeed() + 1); 
 
     }
 
@@ -33,15 +33,17 @@ public class StatProgress {
     }
     
     public void displayXPandLevel(Hero hero, int xpReward) {
-        hero.setExperience(hero.getExperience() + xpReward);
-        hero.setLevel(hero.getExperience() / 100);
+        hero.setExperience(hero.getExperience() + xpReward); // remove all level up related code replace it with hero.levelUp(xpReward)
+        hero.setLevel(hero.getExperience() / 100); // remove
+
+        // just do hero.levelUp(xpReward); whenever the player/hero gain exp
 
         System.out.println();
         System.out.printf(">>> You gained +%d experience points!%n", xpReward);
         System.out.printf(">>> Current Level: %d%n", hero.getLevel());
 
         displayStats(hero);
-        checkHpValidation(hero);
+        checkHpValidation(hero); // checkLevelValidation
     }
 
     public void displayStats(Hero hero){
@@ -52,7 +54,7 @@ public class StatProgress {
         System.out.printf("Mana:    %d%n", hero.getMana());
         System.out.printf("Speed:   %d%n", hero.getSpeed());
         System.out.println("===============================");
-
+        //polish table where it also shows its old stats and new stats
     }
 
     public void checkHpValidation(Hero hero){

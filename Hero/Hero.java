@@ -1,4 +1,5 @@
 package Hero;
+import java.text.DecimalFormat;
 
 public class Hero {
     private int hp;
@@ -7,7 +8,7 @@ public class Hero {
     private int defense;
     private int speed;
     private int level;
-    private int experience;
+    private int experience = 0;
     private String name;
     private String charClass;
     private String weapon;
@@ -23,20 +24,19 @@ public class Hero {
     private int skillCd1;
     private int skillCd2;
     private int skillCdU;
-    private int maxMana;
+    private int manaCap;
 
     public Hero(){ 
 
     }
 
-    public Hero(int hp, int attack, int mana, int defense, int speed, int level, int experience, String name, String charClass, String weapon, String skill1, String skill2, String ultimate, int manaCostSkill1, int manaCostSkill2, int manaCostUltimate, int skillCd1, int skillCd2, int skillCdU) {
+    public Hero(int hp, int attack, int mana, int defense, int speed, int level, String name, String charClass, String weapon, String skill1, String skill2, String ultimate, int manaCostSkill1, int manaCostSkill2, int manaCostUltimate, int skillCd1, int skillCd2, int skillCdU, int maxAtk, int maxMana, int maxDef) {
         this.hp = hp;
         this.attack = attack;
         this.mana = mana;
         this.defense = defense;
         this.speed = speed;
         this.level = level;
-        this.experience = experience;
         this.name = name;
         this.charClass = charClass;
         this.weapon = weapon;
@@ -46,19 +46,20 @@ public class Hero {
         this.manaCostSkill1 = manaCostSkill1;
         this.manaCostSkill2 = manaCostSkill2;
         this.manaCostUltimate = manaCostUltimate;
-        this.maxMana = mana;
         this.skillCd1 = skillCd1;
         this.skillCd2 = skillCd2;
         this.skillCdU = skillCdU;
+        setBaseStats(hp, attack, mana, defense);
+        setMaxStats(maxAtk, maxMana, maxDef);
     }
 
     public int basicAttack() {
         int damage = multiplierB(getAttack(), getLevel());
         
-        double manaRecovery = maxMana * 0.2;
+        double manaRecovery = manaCap * 0.2;
 
-        if(manaRecovery+getMana() > maxMana){
-            setMana(maxMana);
+        if(manaRecovery+getMana() > manaCap){
+            setMana(manaCap);
         } else {
             int addMana = (int) manaRecovery + getMana();
             setMana(addMana);
@@ -72,7 +73,9 @@ public class Hero {
 
         int damage = multiplier1(getAttack(), getLevel());
 
-        int manaReduce = getMana() - manaCostSkill1;
+        int scaledCost = (int)(manaCostSkill1 * (1 + 0.005 * (level - 1)));
+
+        int manaReduce = getMana() - scaledCost;
         setMana(manaReduce);
 
         return damage;
@@ -83,7 +86,9 @@ public class Hero {
 
         int damage = multiplier2(getAttack(), getLevel());
 
-        int manaReduce = getMana() - manaCostSkill2;
+        int scaledCost = (int)(manaCostSkill2 * (1 + 0.005 * (level - 1)));
+        
+        int manaReduce = getMana() - scaledCost;
         setMana(manaReduce);
 
         return damage;
@@ -94,7 +99,9 @@ public class Hero {
 
         int damage = multiplierU(getAttack(), getLevel());
 
-        int manaReduce = getMana() - manaCostUltimate;
+        int scaledCost = (int)(manaCostUltimate * (1 + 0.005 * (level - 1)));
+
+        int manaReduce = getMana() - scaledCost;
         setMana(manaReduce);
 
         return damage;
@@ -253,6 +260,143 @@ public class Hero {
 
     public void setCooldownU(int cdU) {
         cooldownU = cdU;
+    }
+
+    // level mechanism
+    public void levelUp(int gainedExp){
+        DecimalFormat df = new DecimalFormat("#,##0");
+
+        int totalExp = this.experience + gainedExp;
+
+        if(level >= 60){
+            System.out.println("┌────────────────────────────────────┐");
+            System.out.println("│     ALREADY AT MAX LEVEL [60]!     │");
+            System.out.println("└────────────────────────────────────┘");
+
+            this.experience = 0;
+            
+            return;
+        }
+
+        if(totalExp < 100) {
+            this.experience = totalExp;
+            return;
+        }
+
+        int levelGained = totalExp / 100;
+        level += levelGained;
+
+        if (level >= 60) {
+            level = 60;
+            totalExp = 0;
+        } else {
+            totalExp = totalExp % 100;
+        }
+
+        this.experience = totalExp;
+        
+
+        int newHp = calculateStat(getBaseHp(), getMaxHp(), level);
+        int newAtk = calculateStat(getBaseAtk(), getMaxAtk(), level);
+        int newMana = calculateStat(getBaseMana(), getMaxMana(), level);
+        int newDef = calculateStat(getBaseDef(), getMaxDef(), level);
+
+        System.out.println();
+        System.out.println("┌──────────────────────────┐");
+        System.out.println("│     Level Increased!     │");
+        System.out.println("└──────────────────────────┘");
+        System.err.println();
+        System.out.println(">>>>>    Current Level: " + level + "    <<<<<");
+        System.out.println();
+        System.out.println(String.format("> Health :  %7s   ->  %7s", df.format(getHp()), df.format(newHp)));
+        System.out.println(String.format("> Attack :  %7s   ->  %7s", df.format(getAttack()), df.format(newAtk)));
+        System.out.println(String.format("> Mana   :  %7s   ->  %7s", df.format(getMana()), df.format(newMana)));
+        System.out.println(String.format("> Defense:  %7s   ->  %7s", df.format(getDefense()), df.format(newDef)));
+        System.out.println();
+        System.out.println(">>>>> Current Experience: " + this.experience + " <<<<<");
+        System.out.println();
+
+        setHp(newHp);
+        setAttack(newAtk);
+        setMana(newMana);
+        setDefense(newDef);
+    }
+
+    // stats multiplier
+    private int maxHp = 22000;
+    private int maxAtk;
+    private int maxMana;
+    private int maxDef;
+    private int baseHp;
+    private int baseAtk;
+    private int baseMana;
+    private int baseDef;
+
+    public void setBaseStats(int baseHp, int baseAtk, int baseMana, int baseDef){
+        this.baseHp = baseHp;
+        this.baseAtk = baseAtk;
+        this.baseMana = baseMana;
+        this.baseDef = baseDef;
+    }
+
+    public void setMaxStats(int maxAtk, int maxMana, int maxDef){
+        this.maxAtk = maxAtk;
+        this.maxMana = maxMana;
+        this.maxDef = maxDef;
+    }
+
+    public void setMaxHp(int maxHp){
+        this.maxHp = maxHp;
+    }
+
+    public void setMaxAtk(int maxAtk){
+        this.maxAtk = maxAtk;
+    }
+
+    public void setMaxMana(int maxMana){
+        this.maxMana = maxMana;
+    }
+
+    public void setMaxDef(int maxDef){
+        this.maxDef = maxDef;
+    }
+
+    public int getBaseHp(){
+        return baseHp;
+    }
+
+    public int getBaseAtk(){
+        return baseAtk;
+    }
+
+    public int getBaseMana(){
+        return baseMana;
+    }
+
+    public int getBaseDef(){
+        return baseDef;
+    }
+
+    public int getMaxHp(){
+        return maxHp;
+    }
+
+    public int getMaxAtk(){
+        return maxAtk;
+    }
+
+    public int getMaxMana(){
+        return maxMana;
+    }
+
+    public int getMaxDef(){
+        return maxDef;
+    }
+
+    public static int calculateStat(int base, int max, int level) {
+        double k = 1.3; // growth exponent
+        int stat = (int) (base + (max - base) * Math.pow((double)(level - 1) / 59, k));
+        return stat;
     }
 
     // Javines _________________________________________________________________________________________
