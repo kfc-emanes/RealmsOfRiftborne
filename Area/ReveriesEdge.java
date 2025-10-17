@@ -1,50 +1,53 @@
 package Area;
 import BattleMechanics.BattleMechanic;
-import java.util.Random;
-import java.util.Scanner;
+import Boss.*;
+import Hero.*;
+import java.util.*;
 
 public class ReveriesEdge {
     static Random rand = new Random();
     static Scanner scan = new Scanner(System.in);
+    static Boss enemyBoss = new Morgrath();
 
-    public void enter() {
+    public void enter(Hero hero) {
         System.out.println();
         System.out.println("┌────────────────────────────────────────────┐");
-        System.out.println("│       You have entered Reverie's Edge      │");
+        System.out.println("│       You have entered the Reverie's Edge  │");
         System.out.println("└────────────────────────────────────────────┘");
         System.out.println();
 
-        exploreEntry();
+        exploreEntry(hero);
     }
 
-    public void exploreEntry() {
-        System.out.print("\nDo you want to explore Reverie's Edge? (y/n): ");
+    public void exploreEntry(Hero hero) {
+        System.out.print("\nDo you want to explore the Reverie's Edge? (y/n): ");
         char choice = scan.next().toLowerCase().charAt(0);
         System.out.println();
 
         if (choice == 'y') {
-            System.out.println("You step forward into the mysterious boundary of dreams and shadows...");
-            exploreOutsideArea();
+            System.out.println("Venturing cautiously into the dark borderlands of Reverie's Edge...");
+            exploreOutsideArea(hero);
         } else if (choice == 'n') {
-            System.out.println("You chose not to explore Reverie's Edge.");
+            System.out.println("You chose not to explore the Reverie's Edge.");
             exit();
         } else {
             System.out.println("Invalid choice. Please enter 'y' or 'n'.");
             System.out.println();
-            exploreEntry();
+            exploreEntry(hero);
         }
     }
 
-    public void exploreOutsideArea() {
+    public void exploreOutsideArea(Hero hero) {
         boolean valid = true;
         boolean explore = true;
 
         System.out.println();
         if (explore) {
             if (rand.nextBoolean()) {
-                System.out.println("As you walk along the faintly glowing mist, a strange creature emerges from the fog!");
+                System.out.println("As you wander near the edge of the forest, strange whispers echo in the mist...");
+                System.out.println("A dark creature emerges from the shadows to attack!");
             } else {
-                System.out.println("You wander along the shimmering horizon, the air quiet but heavy with tension.");
+                System.out.println("You tread carefully through the dim forest border. The air feels heavy, but calm... for now.");
             }
         }
         System.out.println();
@@ -54,12 +57,12 @@ public class ReveriesEdge {
             char choice = scan.next().toLowerCase().charAt(0);
 
             if (choice == 'y') {
-                exploreMiddleArea();
+                exploreMiddleArea(hero);
                 valid = false;
             } else if (choice == 'n') {
-                System.out.println("\nYou decide to step back toward the dream's entrance.");
+                System.out.println("\nYou chose to head back and return to the edge entrance.");
                 valid = false;
-                exploreEntry();
+                exploreEntry(hero);
             } else {
                 System.out.println("Invalid choice. Please enter 'y' or 'n'.");
                 System.out.println();
@@ -67,16 +70,17 @@ public class ReveriesEdge {
         }
     }
 
-    public void exploreMiddleArea() {
+    public void exploreMiddleArea(Hero hero) {
         boolean valid = true;
         boolean explore = true;
 
         System.out.println();
         if (explore) {
             if (rand.nextBoolean()) {
-                System.out.println("You feel a ripple in the air — a shadowy entity materializes before you!");
+                System.out.println("The deeper you go, the less life you see. Faint growls surround you...");
+                System.out.println("A corrupted beast leaps from the dark brush to strike!");
             } else {
-                System.out.println("The wind whispers faint voices; the path ahead is still, almost frozen in time.");
+                System.out.println("The path grows darker and colder. The trees twist unnaturally, and silence fills the air.");
             }
         }
         System.out.println();
@@ -86,12 +90,12 @@ public class ReveriesEdge {
             char choice = scan.next().toLowerCase().charAt(0);
 
             if (choice == 'y') {
-                exploreInnerArea();
+                exploreInnerArea(hero);
                 valid = false;
             } else if (choice == 'n') {
-                System.out.println("\nYou choose to retreat and return to the calmer outskirts.");
+                System.out.println("\nYou chose to head back and return to the previous area.");
                 valid = false;
-                exploreOutsideArea();
+                exploreOutsideArea(hero);
             } else {
                 System.out.println("Invalid choice. Please enter 'y' or 'n'.");
                 System.out.println();
@@ -99,7 +103,7 @@ public class ReveriesEdge {
         }
     }
 
-    public void exploreInnerArea() {
+    public void exploreInnerArea(Hero hero) {
         boolean valid = true;
         boolean explore = true;
         BattleMechanic battle = new BattleMechanic();
@@ -107,26 +111,26 @@ public class ReveriesEdge {
         System.out.println();
         if (explore) {
             if (rand.nextBoolean()) {
-                System.out.println("As you step onto the crystalline cliff of Reverie's Edge,\n"
-                        + "a surge of dark energy bursts forth—an ELITE foe emerges from the rift!");
+                System.out.println("You enter the heart of Reverie's Edge, where light barely pierces the canopy...");
+                System.out.println("\nSuddenly, a powerful ELITE-type creature emerges from the darkness!");
             } else {
-                System.out.println("You gaze over the edge—beyond lies only darkness and fragments of dreams lost to time.");
+                System.out.println("The air here is suffocating. You feel eyes watching from the shadows — the calm before something dreadful.");
             }
         }
         System.out.println();
 
         String[] morgrath = {
-            "\nThe air begins to distort around you...",
-            "You hear faint echoes of voices calling your name.",
-            "A shape forms out of the swirling mist—it carries a blade woven from dreams themselves.",
-            "The ground trembles as the creature steps forward.",
-            "The Guardian of the Edge, Morgrath, reveals itself!"
+            "\nThe atmosphere grows unnaturally still...",
+            "A black mist begins to swirl around you, distorting your senses.",
+            "Out from the veil of shadows steps a towering figure draped in torn robes.",
+            "The creature's eyes burn crimson — a remnant of pure malice.",
+            "It's the Dread Warden of the Edge — Morgrath!"
         };
 
         playSection(morgrath);
 
         while (valid) {
-            System.out.print("Do you want to fight the Guardian, Morgrath? (y/n): ");
+            System.out.print("Do you want to fight the Dread Warden, Morgrath? (y/n): ");
             char choice = scan.next().toLowerCase().charAt(0);
 
             if (choice == 'y') {
@@ -134,12 +138,12 @@ public class ReveriesEdge {
                 System.out.println("┌────────────────────┐");
                 System.out.println("│       BATTLE       │");
                 System.out.println("└────────────────────┘");
-                battle.fight();
+                battle.fight(hero, enemyBoss);
                 valid = false;
             } else if (choice == 'n') {
-                System.out.println("\nYou decide to step away from Morgrath and return to safer grounds.");
+                System.out.println("\nYou chose to flee from Morgrath's presence and return to the previous area.");
                 valid = false;
-                exploreMiddleArea();
+                exploreMiddleArea(hero);
             } else {
                 System.out.println("Invalid choice. Please enter 'y' or 'n'.");
                 System.out.println();
@@ -149,12 +153,11 @@ public class ReveriesEdge {
 
     public static void playSection(String[] section) {
         System.out.println("Press ENTER to continue...");
-
-        for (int i = 0; i < section.length; i++) {
+        scan.nextLine(); 
+        for (String line : section) {
             scan.nextLine();
-            System.out.println(section[i]);
+            System.out.println(line);
         }
-
         System.out.println();
     }
 
@@ -162,10 +165,8 @@ public class ReveriesEdge {
         System.out.println();
         System.out.println("┌────────────────────────────────────────────┐");
         System.out.println("│           <<< Location Exited >>>          │");
-        System.out.println("│        You have left Reverie's Edge.       │");
+        System.out.println("│     You have exited the Reverie's Edge.    │");
         System.out.println("└────────────────────────────────────────────┘");
         System.out.println();
     }
-
-
 }

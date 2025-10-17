@@ -12,6 +12,8 @@ public class Menu extends Narration {
     public void mainMenu(Hero hero){
         AcademyMenu handler = new AcademyMenu();
         ForestOfReverie forest = new ForestOfReverie();
+        ReveriesEdge reverieEdge = new ReveriesEdge();
+        ForsakenLands forsakenLands = new ForsakenLands();
         
         while(true){
             System.out.println("+------------------------------------------+");
@@ -135,7 +137,8 @@ public class Menu extends Narration {
                         System.out.println("│    Beware of swamp entities    │");
                         System.out.println("└────────────────────────────────┘");
 
-                        // Code to enter Area 2 goes here
+                        reverieEdge.enter(hero);
+
                     } else {
                         System.out.println();
                         System.out.println("┌──────────────────────────────────────────────────────────────┐");
@@ -164,7 +167,8 @@ public class Menu extends Narration {
                         System.out.println("│    Warning! You may or may not come out alive    │");
                         System.out.println("└──────────────────────────────────────────────────┘");
 
-                        // Code to enter Area 3 goes here
+                        forsakenLands.enter(hero);
+
                     } else {
                         System.out.println();
                         System.out.println("┌──────────────────────────────────────────────────────────────┐");
