@@ -1,7 +1,6 @@
 package BattleMechanics;
 
 import Hero.*;
-
 import java.util.*;
 // This only works for mob
 public class MobBattleMechanic {
@@ -67,6 +66,7 @@ public class MobBattleMechanic {
                 System.out.println();
 
                 restoreStats(player);
+                break;
             }
         }
         return false;

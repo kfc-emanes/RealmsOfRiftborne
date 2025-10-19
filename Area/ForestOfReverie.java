@@ -1,12 +1,8 @@
 package Area;
-import BattleMechanics.BattleMechanic;
-import BattleMechanics.EliteBattleMechanic;
-import BattleMechanics.MobBattleMechanic;
+import BattleMechanics.*;
 import Boss.*;
 import Hero.*;
-import Mobs.Goblin;
-import Mobs.MudLurker;
-import Mobs.Slime;
+import Mobs.*;
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -50,6 +46,7 @@ public class ForestOfReverie {
                 exit = true;
             }
         }
+        exit = false;
     }
 
     public void exploreEntry(Hero hero) {
@@ -93,7 +90,6 @@ public class ForestOfReverie {
             if(rand.nextBoolean()){
                 System.out.println("You are exploring the forest then suddenly a wild creature appears to attack!");
                 mobBattle.fight(hero, randomMob());
-                eliteBattle.fight(hero, new MudLurker());
             } else {
                 System.out.println("The forest feels calm and serene as you wander among the tall trees.");
             }
@@ -103,8 +99,6 @@ public class ForestOfReverie {
             if(rand.nextBoolean()){
                 System.out.println("You see the forest entrance ahead, but an angry mob blocks your way!");
                 mobBattle.fight(hero, randomMob());
-                eliteBattle.fight(hero, randomMob());
-
             } else {
                 System.out.println("You reach the forest entrance without any problems.");
             }
@@ -198,7 +192,7 @@ public class ForestOfReverie {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("You venture into the innermost part of the forest... \n\nSuddenly, a strong creature appears to attack!");
-                mobBattle.fight(hero, randomMob());
+                eliteBattle.fight(hero, new MudLurker());
             } else {
                 System.out.println("You are peacefully exploring the innermost part of the forest \n\nand noticed that the forest has clawed trees and dark atmosphere.");
             }
@@ -289,15 +283,13 @@ public class ForestOfReverie {
     }
     
     public Entity randomMob(){
-        int choice = rand.nextInt(3);
+        boolean choice = rand.nextBoolean();
 
-        if(choice == 0){
+        if(choice){
             return new Goblin();
-        } else if(choice == 1) {
-            return new Slime();
         } else {
-            return new MudLurker();
-        }
+            return new Slime();
+        } 
     }
 
     public void exit() {

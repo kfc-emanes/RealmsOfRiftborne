@@ -1,13 +1,8 @@
 package Area;
-import BattleMechanics.BattleMechanic;
-import BattleMechanics.EliteBattleMechanic;
-import BattleMechanics.MobBattleMechanic;
+import BattleMechanics.*;
 import Boss.*;
 import Hero.*;
-import Mobs.FadingWarden;
-import Mobs.HollowKing;
-import Mobs.SwampRat;
-import Mobs.VeilSerpent;
+import Mobs.*;
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -52,6 +47,7 @@ public class ReveriesEdge {
                     exit = true;
             }
         }
+        exit = false;
     }
 
     public void exploreEntry(Hero hero) {
@@ -93,7 +89,6 @@ public class ReveriesEdge {
             if(rand.nextBoolean()){
                 System.out.println("A corrupted beast emerges from the shadows!");
                 mobBattle.fight(hero, randomMob());
-                eliteBattle.fight(hero, new FadingWarden());
             } else {
                 System.out.println("You hear whispers carried by the wind, but nothing appears.");
             }
@@ -103,7 +98,6 @@ public class ReveriesEdge {
             if(rand.nextBoolean()){
                 System.out.println("You try to leave, but a lurking shade attacks!");
                 mobBattle.fight(hero, randomMob());
-                eliteBattle.fight(hero, new FadingWarden());
             } else {
                 System.out.println("You safely return to the forest boundary.");
             }
@@ -147,7 +141,6 @@ public class ReveriesEdge {
             if(rand.nextBoolean()){
                 System.out.println("A shadowy creature blocks your path!");
                 mobBattle.fight(hero, randomMob());
-                eliteBattle.fight(hero, new FadingWarden());
             } else {
                 System.out.println("You walk through the dim mist, hearing distant growls...");
             }
@@ -157,7 +150,6 @@ public class ReveriesEdge {
             if(rand.nextBoolean()){
                 System.out.println("Something follows you as you retreat, preparing to strike!");
                 mobBattle.fight(hero, randomMob());
-                eliteBattle.fight(hero, new FadingWarden());
             } else {
                 System.out.println("You carefully retrace your steps to the outer edge.");
             }
@@ -195,7 +187,6 @@ public class ReveriesEdge {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("You walk through an eerie clearing... and the ground trembles!");
-                mobBattle.fight(hero, randomMob());
                 eliteBattle.fight(hero, new FadingWarden());
             } else {
                 System.out.println("The place feels corrupted — twisted roots and ash cover the ground.");
@@ -281,15 +272,13 @@ public class ReveriesEdge {
     }
     
     public Entity randomMob(){
-        int choice = rand.nextInt(3);
+        boolean choice = rand.nextBoolean();
 
-        if(choice == 0){
+        if(choice){
             return new SwampRat();
-        } else if(choice == 1) {
-            return new VeilSerpent();
         } else {
-            return new HollowKing();
-        }
+            return new VeilSerpent();
+        } 
     }
 
     public void exit() {

@@ -1,7 +1,6 @@
 package BattleMechanics;
 
 import Hero.*;
-
 import java.util.*;
 // This only works for elite mobs
 public class EliteBattleMechanic {
@@ -67,6 +66,7 @@ public class EliteBattleMechanic {
                 System.out.println();
 
                 restoreStats(player);
+                break;
             }
         }
         return false;
