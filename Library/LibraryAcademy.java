@@ -13,56 +13,63 @@ public class LibraryAcademy {
     private LibraryQuest questHandler = new LibraryQuest();
     private LibraryNarration narrationHandler = new LibraryNarration();
 
-    public void libraryAcademy (Hero hero){
+    public void libraryAcademy(Hero hero) {
         boolean isRoam = true;
 
         while (isRoam) {
-            System.out.println();
-            System.out.println("┌───────────────────────────────────────────────┐");
-            System.out.println("│      Do you want to roam around? (y/n)        │");
-            System.out.println("└───────────────────────────────────────────────┘");
-            System.out.print(">>> ");
-            String roam = scanner.nextLine();
-
-            if (roam.equalsIgnoreCase("y")) {
+            try {
                 System.out.println();
+                System.out.println("┌───────────────────────────────────────┐");
+                System.out.println("│   Do you want to roam around? (y/n)   │");
+                System.out.println("└───────────────────────────────────────┘");
+                System.out.print("-->| ");
+                String roam = scanner.nextLine();
 
-                System.out.println();
-                System.out.println("┌───────────────────────────────┐");
-                System.out.println("│     Press enter to continue   │");
-                System.out.println("└───────────────────────────────┘");
+                if (roam.equalsIgnoreCase("y")) {
+                    System.out.println();
 
-                String[] timeDelay = {
-                    ">>> You are now roaming around... <<<", 
-                    ">>> You are now roaming around... <<<", 
-                    ">>> You are now roaming around... <<<", 
-                    ">>> You are now roaming around... <<<", 
-                    ">>> You are now roaming around... <<<"
-                };
+                    System.out.println();
+                    System.out.println("┌─────────────────────────────┐");
+                    System.out.println("│   Press Enter to continue   │");
+                    System.out.println("└─────────────────────────────┘");
 
-                for(int i = 0; i < timeDelay.length; i++){
-                    scanner.nextLine();
-                    System.out.println(timeDelay[i]);
+                    String[] timeDelay = {
+                        "-- >>> You are now roaming around... <<< --", 
+                        "-- >>> You are now roaming around... <<< --", 
+                        "-- >>> You are now roaming around... <<< --", 
+                        "-- >>> You are now roaming around... <<< --", 
+                        "-- >>> You are now roaming around... <<< --"
+                    };
+
+                    for (int i = 0; i < timeDelay.length; i++) {
+                        scanner.nextLine();
+                        System.out.println(timeDelay[i]);
+                    }
+
+                    libraryQuests(hero);
+
+                } else if (roam.equalsIgnoreCase("n")) {
+                    System.out.println();
+                    System.out.println("┌───────────────────────────────────┐");
+                    System.out.println("│   >>> Departing the library. <<<  │");
+                    System.out.println("└───────────────────────────────────┘");
+                    return;
+                } else {
+                    System.out.println();
+                    System.out.println("┌────────────────────────────────────────┐");
+                    System.out.println("│   Choice unclear! Enter 'y' or 'n'.    │");
+                    System.out.println("└────────────────────────────────────────┘");
                 }
-
-                libraryQuests(hero);
-
-            } else if (roam.equalsIgnoreCase("n")) {
+            } catch (Exception e) {
                 System.out.println();
-                System.out.println("┌───────────────────────────────┐");
-                System.out.println("│   Exiting from the Library... │");
-                System.out.println("└───────────────────────────────┘");
-                return;
-            } else {
-                System.out.println();
-                System.out.println("┌─────────────────────────────┐");
-                System.out.println("│  Invalid input! Try again.  │");
-                System.out.println("└─────────────────────────────┘");
-
+                System.out.println("┌─────────────────────────────────────────────┐");
+                System.out.println("│   Error occurred during input. Try again.   │");
+                System.out.println("└─────────────────────────────────────────────┘");
+                scanner.nextLine(); 
             }
         }
-
     }
+
 
     public void libraryQuests(Hero hero){
 
@@ -70,9 +77,9 @@ public class LibraryAcademy {
 
         if (!hasAvailableQuest) {
             System.out.println();
-            System.out.println("┌────────────────────────────────────────────────────────┐");
-            System.out.println("│ You\'ve completed all available quests in the library!  │");
-            System.out.println("└────────────────────────────────────────────────────────┘");
+            System.out.println("┌──────────────────────────────────────────────────────────────────┐");
+            System.out.println("│   + Congratrulations! You\'ve completed every library quest. +    │");
+            System.out.println("└──────────────────────────────────────────────────────────────────┘");
             return;
         }
 
@@ -92,12 +99,6 @@ public class LibraryAcademy {
                 narrationHandler.riddlesNarration();
                 acceptQuest(hero, 2);
                 break;
-
-            default:
-                System.out.println();
-                System.out.println("┌────────────────────────────────────────────────────────────┐");
-                System.out.println("│  Something's wrong with the quest system. Come back later. │");
-                System.out.println("└────────────────────────────────────────────────────────────┘");
         }
 
     }
@@ -106,45 +107,53 @@ public class LibraryAcademy {
         boolean validInput = false;
 
         while (!validInput) {
-            System.out.println();
-            System.out.println("┌──────────────────────────────────────────────┐");
-            System.out.println("│  Do you want to accept this quest? (y/n)     │");
-            System.out.println("└──────────────────────────────────────────────┘");
-            System.out.print(">>> ");
+            try {
+                System.out.println();
+                System.out.println("┌────────────────────────────────────────────┐");
+                System.out.println("│   Do you dare to accept the quest? (y/n)   │");
+                System.out.println("└────────────────────────────────────────────┘");
+                System.out.print("-->| ");
 
-            String isAccept = scanner.nextLine();
+                String isAccept = scanner.nextLine();
 
-            if (isAccept.equalsIgnoreCase("y")) {
-                switch (questType) {
-                    case 1:
-                        questHandler.findTheLostBook(hero);
-                        hero.setLibraryQuest1Done(true);
-                        break;
-                    case 2:
-                        questHandler.riddles(hero); 
+                if (isAccept.equalsIgnoreCase("y")) {
+                    switch (questType) {
+                        case 1:
+                            questHandler.findTheLostBook(hero);
+                            hero.setLibraryQuest1Done(true);
+                            break;
+                        case 2:
+                            questHandler.riddles(hero);
 
-                        if(hero.isAllRiddlesDone()){
-                            hero.setLibraryQuest2Done(true); 
-                        }
+                            if (hero.isAllRiddlesDone()) {
+                                hero.setLibraryQuest2Done(true);
+                            }
 
-                        break;
+                            break;
+                    }
+                    validInput = true;
+
+                    //displayStats(hero);
+
+                } else if (isAccept.equalsIgnoreCase("n")) {
+                    System.out.println();
+                    System.out.println("┌─────────────────────────────────────────────┐");
+                    System.out.println("│   >>> Quest skipped. Maybe next time! <<<   │");
+                    System.out.println("└─────────────────────────────────────────────┘");
+                    validInput = true;
+
+                } else {
+                    System.out.println();
+                    System.out.println("┌────────────────────────────────────────┐");
+                    System.out.println("│   Choice unclear! Enter 'y' or 'n'.    │");
+                    System.out.println("└────────────────────────────────────────┘");
                 }
-                validInput = true;
-
-                //displayStats(hero);
-
-            } else if (isAccept.equalsIgnoreCase("n")) {
+            } catch (Exception e) {
                 System.out.println();
-                System.out.println("┌───────────────────────────┐");
-                System.out.println("│      Quest Declined!      │");
-                System.out.println("└───────────────────────────┘");
-                validInput = true;
-
-            } else {
-                System.out.println();
-                System.out.println("┌────────────────────────────────────┐");
-                System.out.println("│     Invalid input. Try again!      │");
-                System.out.println("└────────────────────────────────────┘");
+                System.out.println("┌─────────────────────────────────────────────┐");
+                System.out.println("│   Error occurred during input. Try again.   │");
+                System.out.println("└─────────────────────────────────────────────┘");
+                scanner.nextLine(); 
             }
         }
     }

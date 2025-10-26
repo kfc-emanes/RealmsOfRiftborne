@@ -649,13 +649,34 @@ public class Hero {
         canEnterArea3 = true; 
     }
 
+    // Modified Area Progress _________________________________________________________________________
+
+    private boolean haveDefeatedArea1Boss = true; // default for checking
+    private boolean haveDefeatedArea2Boss = true; // default for checking
+
+    public void setHaveDefeatedArea1Boss(boolean haveDefeatedArea1Boss) {
+        this.haveDefeatedArea1Boss = haveDefeatedArea1Boss;
+    }
+
+    public void setHaveDefeatedArea2Boss(boolean haveDefeatedArea2Boss) {
+        this.haveDefeatedArea2Boss = haveDefeatedArea2Boss;
+    }
+
+    public boolean getHaveDefeatedArea1Boss() {
+        return haveDefeatedArea1Boss;
+    }
+
+    public boolean getHaveDefeatedArea2Boss () {
+        return haveDefeatedArea2Boss;
+    }
+
     // Training progress_______________________________________________________________________________
     private boolean finishedEndurance = false;
     private boolean finishedStrength = false;
     private boolean finishedDurability = false;
     private boolean finishedManaRefinement = false;
     private int numberOfTrainingFinished = 0;
-    private boolean finishedAllTraining = false;
+    private boolean finishedAllTraining = true; // default for checking
     private boolean haveExploredButExited = false;
     private boolean haveAcceptedButExited = false;
 

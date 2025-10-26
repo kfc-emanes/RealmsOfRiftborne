@@ -16,7 +16,7 @@ public class Narration{
             
             "As you take a cautious step forward, a presence brushes against you. Weightless, yet undeniable. \nA wandering spirit materializes from the air itself, its form shifting like smoke caught in a breeze. \nIts voice is calm, distant, but warm enough to ease the unease clawing at your chest.",
             
-            "\"Welcome, lost one,\" it says. \"This is Mystvale Academy… a place where magic is studied, honed, \nand wielded against the forces beyond these walls. You now stand on the threshold of its trials.\"",
+            "\"Welcome, lost one. Please to meet you, I am Louraine Aetherlight, the wandering spirit it says.\" it says \"This is Mystvale Academy… a place where magic is studied, honed, \nand wielded against the forces beyond these walls. You now stand on the threshold of its trials.\"",
             
             "\"The academy rests at the edge of a vast forest, shielding its students from the dangers beyond.\"",
             
@@ -24,13 +24,13 @@ public class Narration{
             
             "\"The middle region stretches into treacherous swamplands, where stronger beings test the skill of even seasoned students.\"",
             
-            "\"And far beyond lies the outer region—the dominion of entities. Few dare tread there, \nfor it is said the most fearsome of them all awaits in its shadowed heart.\"",
+            "\"And far beyond lies the outer region - the dominion of entities. Few dare tread there, \nfor it is said the most fearsome of them all awaits in its shadowed heart.\"",
             
-            "The spirit\'s gaze lingers on you, sharp and knowing.",
+            "Louraine's gaze lingers on you, sharp and knowing.",
             
             "\"Why you were brought here, only time will reveal. But your path begins now. \nLearn, survive, and perhaps... you may one day stand against what lies beyond the forest.\"",
             
-            "The spirit fades, leaving only silence and the academy\'s looming silhouette in the distance.",
+            "Louraine, the wandering spirit, fades, leaving only silence and the academy\'s looming silhouette in the distance.",
             
             "Your story has begun."
         };
@@ -46,23 +46,23 @@ public class Narration{
             
             "You pause, taking it all in, when a sudden chill brushes your shoulder...",
             
-            "You nearly stumble back in shock.",
+            "You nearly stumble back in shock. It's Louraine again!",
             
             "\"I didn't expect you again,\" you mutter under your breath.",
             
-            "The spirit's form flickers faintly, its voice calm and patient.",
+            "The Louraine's form flickers faintly, its voice calm and patient.",
             
             "\"Do not be alarmed. Mystvale Academy is vast...\"",
             
-            "It gestures toward the campus...",
+            "She gestures toward the campus...",
             
             "\"The Library, a hall of ancient knowledge...\"",
             
             "\"Canteen, though filled with chatter...\"",
             
-            "\"The Gym, where strength is forged...\"",
+            "\"The Training Ground, where strength is forged...\"",
             
-            "\"And finally\" the spirit's form stills...",
+            "\"And finally\" the Louraine's form stills...",
             
             "Its glow dims slightly as the explanations end.",
             
@@ -80,23 +80,23 @@ public class Narration{
         String[] library = {
             "As you step into the library, the air grows still...",
             
-            "The wandering spirit flickers into view...",
+            "The Louraine, the wandering spirit, flickers into view...",
             
-            "\"This is Mystvale's Library...\"",
+            "\"This is Mystvale's Library. May knowledge guide you...\"",
             
-            "The spirit fades, leaving only the quiet rustle of unseen pages."
+            "Then she fades out of your sight, leaving only the quiet rustle of unseen pages."
         };
 
         // Array Iteration
         playSection(library);
     }
 
-    // Canteen Narration
+    // Canteen Narration | Not used
     public static void canteenNarration() {
         String[] canteen = {
             "The canteen hums with the chatter of students...",
             
-            "The wandering spirit appears at your side.",
+            "The wandering spirit, Louraine, appears at your side.",
             
             "\"This is no ordinary canteen...\"",
             
@@ -110,11 +110,11 @@ public class Narration{
     // Gym Narration
     public static void gymNarration() {
         String[] gym = {
-            "The gym resounds with the clash of practice weapons...",
+            "The Training Ground resounds with the clash of practice weapons...",
             
-            "The wandering spirit flickers into view.",
+            "Louraine, as expected, flickers into view.",
             
-            "\"This is where strength is forged...\"",
+            "\"This is where strength is forged. Accept the challenge, and recieve the gift of strength, precision, and courage...\"",
             
             "The spirit fades, leaving the echoes of steel and determination behind."
         };
@@ -128,11 +128,11 @@ public class Narration{
         String[] principalOffice = {
             "The doors of the Principal\'s Office stand tall and unyielding...",
             
-            "The wandering spirit appears at your side...",
+            "Louraine appears at your side...",
             
-            "\"This office is the gateway...\"",
+            "\"This office is the gateway through end of this vast land. May the odds be in your favor...\"",
             
-            "The spirit fades, and the silence around the doorway feels heavier..."
+            "Louraine fades, and the silence around the doorway feels heavier..."
         };
 
         //Array Iteration
@@ -143,9 +143,9 @@ public class Narration{
     public static void area1Narration() {
         String[] area1 = {
             "The trees of the inner forest rise around you...",
-            "The wandering spirit drifts into view...",
-            "\"This is the inner forest...\"",
-            "The spirit fades, leaving you with the quiet but uneasy rhythm..."
+            "Louraine, then drifts into view...",
+            "\"This is the inner forest, where you\'d be able to meet the lowest of lows entities.\"",
+            "Before fading away, she looked at you with a meaningful look before vanishing out of your sight,\nleaving you with the quiet but uneasy rhythm..."
         };
 
         playSection(area1);
@@ -154,10 +154,10 @@ public class Narration{
     // Area 2 Narration
     public static void area2Narration() {
         String[] area2 = {
-            "The air thickens as you step into the swamp...",
-            "The wandering spirit flickers beside you.",
-            "\"This is the middle region...\"",
-            "The spirit fades into the mist..."
+            "The air thickens as you step into the swamp area. Muddy, stinky, and lacks of life. You felt a sudden chill down your spines.",
+            "Louraine, as expected, flickers beside you.",
+            "\"This is the middle region, the Swamp, where much stronger entities lives. Be careful, they may seem not strong, but they are more blood thirsty\"",
+            "Before fading away, she touched your shoulder, giving you the look of encouragement.\n Before you could even say a thing, she then vanished into the mist..."
         };
 
         playSection(area2);
@@ -166,10 +166,10 @@ public class Narration{
     // Area 3 Narration
     public static void area3Narration() {
         String[] area3 = {
-            "Stone ruins and jagged towers stretch across the horizon...",
-            "The wandering spirit appears one final time...",
-            "\"This is the outer region...\"",
-            "The spirit lingers for a moment longer..."
+            "Stone ruins and jagged towers stretch across the horizon. Suprisingly, it has more life than the previous areas you have been.\nBut you cannot seem to shake off the eerie feeling, your test tighten as you feel like suffocated with the how heavy the feeling is.",
+            "Louraine then appears, her face radiates something you cannot pinpoint.",
+            "\"This is the outer region, the Forsaken Lands where all strong entities lives. But at the end of this land, there lies the strongest of them all.\nMy only advice to you is to never let your guard down, and may the odds be in your favor...\"",
+            "Louraine lingers for a moment longer before fading away from your sight.\nBut as her presence left the area, you felt the wind lingers onto your skin, feeling like she is still there, not quite present, but watching over you."
         };
 
         playSection(area3);
@@ -178,7 +178,7 @@ public class Narration{
     // Shop Narration
     public static void shopNarration() {
         String[] shop = {
-            "The spirit appears beside you, its form calm against the quiet sway of trees.",
+            "Louraine appears beside you, its form calm against the quiet sway of trees.",
             
             "\"This is the academy\'s supply shop,\" it says. \"Here, students exchange earned coin for tools of survival \n- weapons, potions, and the occasional rarity.\"",
             
@@ -188,18 +188,32 @@ public class Narration{
             
             "\"Your currency is merit earned - through trials, tasks, and time. \nSpend it with intention. Not everything you need will be here twice.\"",
             
-            "The spirit\'s gaze lingers on the door before fading again into the still air.",
+            "Louraine's gaze lingers on the door before fading again into the still air.",
             
             "You step forward. The scent of old leather, steel, \nand something faintly herbal greets you as the shop door creaks open."
         };
     
-    playSection(shop);
+        playSection(shop);
     }
 
-    // Inventory Narration
+    public static void shopConversationNarration() { // narration not used | to be followed
+        String[] shopOwner = {
+            "You push open the creaking door, and the scent of herbs and aged wood fills the air. Sunlight glints off shelves stacked with mysterious trinkets and glowing vials.",
+
+            "A small bell jingles. Behind the counter, the shopkeeper peers over his spectacles.",
+
+            "\"Ah! A new face,\" he says. \"Welcome to Mystic Curiosities! I\'m Kabang Cobbleton. Handle the items wisely—they have stories… and secrets.\"",
+
+            "You nod, heart racing with curiosity. Your adventure in the shop has begun."
+        };
+
+        playSection(shopOwner);
+    }
+
+    // Inventory Narration | Not Used
     public static void inventoryNarration() {
         String[] inventory = {
-            "The spirit emerges without a sound, its form quiet and steady beside you.",
+            "Louraine emerges without a sound, its form quiet and steady beside you.",
 
             "\"All that you carry tells a story,\" it begins. \"Not just of what you\'ve gathered - but of what you\'ve chosen to keep.\"",
             
@@ -217,21 +231,24 @@ public class Narration{
 
     //box format
     public static void choiceSwordsman(){
-        System.out.println("┌────────────────────┐");
-        System.out.println("│  Player Character  │");
-        System.out.println("└────────────────────┘");
-        System.out.println("┌────────────────────────────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│                                     Kael Solmere                                           │");
-        System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────┤");
-        System.out.println("│ Age: 15                                                                                    │");
-        System.out.println("│ Personality: Intense, Brooding, Fiercely Loyal                                             │");
-        System.out.println("│ Grade Level: First Year Student                                                            │");
-        System.out.println("│ Fun Fact: Siblings with Aria Caelith                                                       │");
-        System.out.println("│                                                                                            │");
-        System.out.println("│ The siblings aim to master their respective skills, uncover the truth about their family's │");
-        System.out.println("│ past, and bring the “Kim Morvain” to justice. They rely on each other's strengths to       │");
-        System.out.println("│ overcome challenges and support each other in their quest for revenge and redemption.      │");
-        System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────┘");
+        System.out.println("┌────────────────────┐(_ _)");
+        System.out.println("│  Player Character  │  \\/)");
+        System.out.println("└────────────────────┘___||");
+        System.out.println("┌────────────────────────────────────────────────────────────┐");
+        System.out.println("│                      Kael Solmere - Details                │");
+        System.out.println("├────────────────────────────────────────────────────────────┤");
+        System.out.println("│ Name: Kael Solmere                                         │");
+        System.out.println("│ Age: 15                                                    │");
+        System.out.println("│ Personality: Intense, Brooding, Fiercely Loyal             │");
+        System.out.println("│ Grade Level: First Year                                    │");
+        System.out.println("│ Fun Facts:                                                 │");
+        System.out.println("│   - Siblings with Aria Caelith                             │");
+        System.out.println("│   - Talks to his shadow when thinking                      │");
+        System.out.println("│   - Collects old maps and mysterious relics                │");
+        System.out.println("│   - Can\'t resist chocolate during stressful situations    │");
+        System.out.println("│   - Has a soft spot for stray animals                      │");
+        System.out.println("└────────────────────────────────────────────────────────────┘");
+
 
         System.out.println("┌───────────────────────────────────────────┐");
         System.out.println("│  Swordsman (MAX LVL: 60)                  │");
@@ -246,15 +263,24 @@ public class Narration{
         System.out.println("│  DEF (Defence):       350                 │");
         System.out.println("│  SPD (Speed):         200                 │");
         System.out.println("└───────────────────────────────────────────┘");
-        
-        System.out.println("┌──────────────┐");
-        System.out.println("│  Backstory   │");
-        System.out.println("└──────────────┘");
-        System.out.println("┌────────────────────────────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│ Driven by a desire for revenge against the Kim Morvain,                                    │");
-        System.out.println("│ The Dark Sorcerer” who destroyed their family's reputation and killed their parents.       │");
-        System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────┘");
-        System.out.println();
+
+        System.out.println("┌───────────────────────────────────────────────────────────────────────────────┐");
+        System.out.println("│                                  Backstory                                    │");
+        System.out.println("├───────────────────────────────────────────────────────────────────────────────┤");
+        System.out.println("│ Kael Solmere was born into a family burdened with a dark legacy. The Solmeres │");
+        System.out.println("│ were once the guardians of the Kim Morvain, a forbidden artifact of immense   │");
+        System.out.println("│ power. Centuries ago, a treacherous betrayal shattered the family, scattering │");
+        System.out.println("│ its members and leaving a lingering curse upon their bloodline.               │");
+        System.out.println("│                                                                               │");
+        System.out.println("│ Now, Kael and his sister Aria are the last heirs. Their path is not only about│");
+        System.out.println("│ mastering their extraordinary abilities but also unraveling the secrets       │");
+        System.out.println("│ haunting their family. Bound by loyalty and shared struggle, the siblings     │");
+        System.out.println("│ rely on each other to survive trials, uncover hidden truths, and confront the │");
+        System.out.println("│ forces behind the Kim Morvain. Every step they take brings them closer to     │");
+        System.out.println("│ breaking the curse—if they can withstand the shadows of their bloodline.      │");
+        System.out.println("└───────────────────────────────────────────────────────────────────────────────┘");
+
+
 }
     
     public static void choiceGunner() {
@@ -262,18 +288,21 @@ public class Narration{
         System.out.println("┌────────────────────┐");
         System.out.println("│  Player Character  │");
         System.out.println("└────────────────────┘");
-        System.out.println("┌────────────────────────────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│                                 Aria Caelith (Mother's Surname)                            │");
-        System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────┤");
-        System.out.println("│ Age: 15                                                                                    │");
-        System.out.println("│ Personality: Quick-Witted, Resourceful, Fiercely Protective of Kael                        │");
-        System.out.println("│ Grade Level: First Year Student                                                            │");
-        System.out.println("│ Fun Fact: Siblings with Kael Solmere                                                       │");
-        System.out.println("│                                                                                            │");
-        System.out.println("│ The siblings aim to master their respective skills, uncover the truth about their family's │");
-        System.out.println("│ past, and bring the “Kim Morvain” to justice. They rely on each other's strengths to       │");
-        System.out.println("│ overcome challenges and support each other in their quest for revenge and redemption.      │");
-        System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────┘");
+        System.out.println("┌────────────────────────────────────────────────────────────────────────────────┐");
+        System.out.println("│                          Aria Caelith (Mother's Surname)                       │");
+        System.out.println("├────────────────────────────────────────────────────────────────────────────────┤");
+        System.out.println("│ Age: 15                                                                        │");
+        System.out.println("│ Personality: Quick-Witted, Resourceful, Fiercely Protective of Kael            │");
+        System.out.println("│ Grade Level: First Year Student                                                │");
+        System.out.println("│ Fun Facts:                                                                     │");
+        System.out.println("│   - Siblings with Kael Solmere                                                 │");
+        System.out.println("│   - Skilled gunner and inventor                                                │");
+        System.out.println("│   - Always carries a small notebook for invention ideas                        │");
+        System.out.println("│   - Loves collecting rare crystals and gemstones                               │");
+        System.out.println("│   - Has a habit of whistling when nervous                                      │");
+        System.out.println("│   - Can memorize complex mechanisms after seeing them once                     │");
+        System.out.println("│   - Prefers fast-paced games over slow strategy games                          │");
+        System.out.println("└───────────────────────────────────────────────────────────────────────────────┘");
 
         System.out.println("┌───────────────────────────────────────────┐");
         System.out.println("│  Gunner (MAX LVL: 60)                     │");
@@ -289,13 +318,18 @@ public class Narration{
         System.out.println("│  SPD (Speed):         200                 │");
         System.out.println("└───────────────────────────────────────────┘");
             
-        System.out.println("┌──────────────┐");
-        System.out.println("│  Backstory   │");
-        System.out.println("└──────────────┘");
         System.out.println("┌────────────────────────────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│ A skilled gunner with a talent for inventing and modifying firearms.                       │");
+        System.out.println("│                                        Backstory                                           │");
+        System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────┤");
+        System.out.println("│ Aria Caelith shares the burden of her family\'s cursed legacy alongside her brother Kael.  │");
+        System.out.println("│ As the last heirs of the Solmere lineage, the siblings train tirelessly to master their    │");
+        System.out.println("│ skills and uncover the secrets of the forbidden artifact known as the Kim Morvain.         │");
+        System.out.println("│ Fiercely loyal to each other, Aria uses her quick wit and resourcefulness to protect Kael  │");
+        System.out.println("│ and navigate the dangerous path left by centuries of betrayal. Together, they strive to    │");
+        System.out.println("│ break the curse, restore their family\'s honor, and bring justice to those who threaten    │");
+        System.out.println("│ the legacy of the Kim Morvain.                                                             │");
         System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────┘");
-        System.out.println();
+
 }
     
     public static void choiceMage() {
@@ -303,14 +337,20 @@ public class Narration{
         System.out.println("┌────────────────────┐");
         System.out.println("│  Player Character  │");
         System.out.println("└────────────────────┘");
-        System.out.println("┌────────────────────────────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│                                    Selene Arclight                                         │");
-        System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────┤");
-        System.out.println("│ Age: 15                                                                                    │");
-        System.out.println("│ Personality: Prideful                                                                      │");
-        System.out.println("│ Grade Level: First Year Student                                                            │");
-        System.out.println("│ Fun Fact: To be followed...                                                                │");
-        System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────┘");
+        System.out.println("┌───────────────────────────────────────────────────────────────────────────────┐");
+        System.out.println("│                                  Selene Arclight                              │");
+        System.out.println("├───────────────────────────────────────────────────────────────────────────────┤");
+        System.out.println("│ Age: 15                                                                       │");
+        System.out.println("│ Personality: Prideful                                                         │");
+        System.out.println("│ Grade Level: First Year Student                                               │");
+        System.out.println("│ Fun Facts:                                                                    │");
+        System.out.println("│   - Always practices spells under moonlight                                   │");
+        System.out.println("│   - Can memorize complex incantations after hearing them once                 │");
+        System.out.println("│   - Has a secret love for herbal teas                                         │");
+        System.out.println("│   - Often talks to magical familiars when thinking                            │");
+        System.out.println("│   - Collects rare magical crystals                                            │");
+        System.out.println("└───────────────────────────────────────────────────────────────────────────────┘");
+
 
         System.out.println("┌───────────────────────────────────────────┐");
         System.out.println("│  Mage (MAX LVL: 60)                       │");
@@ -326,63 +366,77 @@ public class Narration{
         System.out.println("│  SPD (Speed):         200                 │");
         System.out.println("└───────────────────────────────────────────┘");
             
-        System.out.println("┌──────────────┐");
-        System.out.println("│  Backstory   │");
-        System.out.println("└──────────────┘");
-        System.out.println("┌────────────────────────────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│ Born into the prestigious mage family, Arclight, as the legitimate eldest child, Selene    │");
-        System.out.println("│ was expected to inherit the family head\'s mantle. Until her father brought home a young   │");
-        System.out.println("│ boy claiming that he is her brother, and that she should support him in becoming the next  │");
-        System.out.println("│ head of the family.                                                                        │");
-        System.out.println("│                                                                                            │");
-        System.out.println("│ Determined to reclaim her status as heir, she enrolled in the academy. Her goal? To learn  │");
-        System.out.println("│ everything the academy has to offer and achieve something so great that even her father    │");
-        System.out.println("│ can\'t deny her worth. And killing the “Kim Morvain” seems just right for that.            │");
-        System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────┘");
+        System.out.println("┌────────────────────────────────────────────────────────────────────────────────┐");
+        System.out.println("│                                  Backstory                                     │");
+        System.out.println("├────────────────────────────────────────────────────────────────────────────────┤");
+        System.out.println("│ Born into the prestigious Arclight family, Selene was destined to inherit her  │");
+        System.out.println("│ family's mantle as the head of the lineage. A prodigy in the arcane arts, her  │");
+        System.out.println("│ every day was filled with rigorous training, mastering spells that could bend  │");
+        System.out.println("│ starlight and summon cosmic energies.                                          │");
+        System.out.println("│                                                                                │");
+        System.out.println("│ Everything changed when her father introduced a boy claiming to be her brother,│");
+        System.out.println("│ a contender for the very inheritance Selene was meant to claim. Pride and      │");
+        System.out.println("│ ambition ignited, fueling her determination to surpass him in every way.       │");
+        System.out.println("│                                                                                │");
+        System.out.println("│ To prove her worth, Selene enrolled in the academy, immersing herself in every │");
+        System.out.println("│ spell, ritual, and fragment of forbidden knowledge it offered. Her goal: to    │");
+        System.out.println("│ achieve feats so extraordinary that even her father cannot deny her as the true│");
+        System.out.println("│ heir. Along the way, confronting the mysterious Kim Morvain may cement her     │");
+        System.out.println("│ legacy.                                                                        │");
+        System.out.println("└────────────────────────────────────────────────────────────────────────────────┘");
         System.out.println();
     }
 
     // Array Iteration in order to avoid for loop usage repitition
     public static void playSection(String[] section) {
         while (true) {
-            System.out.println();
-            System.out.println("┌──────────────────────────────────────────────┐");
-            System.out.println("│     Do you want to skip narration? (y/n):    │");
-            System.out.println("└──────────────────────────────────────────────┘");
-            System.out.print(">>> ");
+            try {
+                System.out.println();
+                System.out.println("┌───────────────────────────────────────────┐");
+                System.out.println("│   Do you want to skip narration? (y/n):   │");
+                System.out.println("└───────────────────────────────────────────┘");
+                System.out.print("-->| ");
 
-            String input = scanner.nextLine().trim();
-            if (input.isEmpty()) input = " ";
-            char skipChoice = input.charAt(0);
+                String input = scanner.nextLine().trim();
+                if (input.isEmpty()) input = " ";
+                char skipChoice = input.charAt(0);
 
-            switch (skipChoice) {
-                case 'y':
-                    System.out.println("┌────────────────────────────┐");
-                    System.out.println("│      Narration skipped.    │");
-                    System.out.println("└────────────────────────────┘");
-                    return;
+                switch (skipChoice) {
+                    case 'y':
+                        System.out.println("┌───────────────────────┐");
+                        System.out.println("│   Narration skipped   │");
+                        System.out.println("└───────────────────────┘");
+                        return;
 
-                case 'n':
-                    System.out.println();
-                    System.out.println("┌───────────────────────────────────────────┐");
-                    System.out.println("│        Press Enter to continue...         │");
-                    System.out.println("└───────────────────────────────────────────┘");
+                    case 'n':
+                        System.out.println();
+                        System.out.println("┌─────────────────────────────┐");
+                        System.out.println("│   Press Enter to continue   │");
+                        System.out.println("└─────────────────────────────┘");
 
-                    for (String line : section) {
-                        scanner.nextLine();
-                        System.out.println(line);
-                    }
-                    System.out.println(); 
-                    return; // exit after narration
-                
-                default:
-                    System.out.println();
-                    System.out.println("┌──────────────────────────────────────────────┐");
-                    System.out.println("│   Invalid choice! Please enter 'y' or 'n'    │");
-                    System.out.println("└──────────────────────────────────────────────┘");
-                    break;
+                        for (String line : section) {
+                            scanner.nextLine();
+                            System.out.println(line);
+                        }
+                        System.out.println(); 
+                        return; 
+                    
+                    default:
+                        System.out.println();
+                        System.out.println("┌────────────────────────────────────────┐");
+                        System.out.println("│   Choice unclear! Enter 'y' or 'n'.    │");
+                        System.out.println("└────────────────────────────────────────┘");
+                        break;
+                }
+            } catch (Exception e) {
+                System.out.println();
+                System.out.println("┌──────────────────────────────────────────────┐");
+                System.out.println("│   An unexpected error occurred. Try again.   │");
+                System.out.println("└──────────────────────────────────────────────┘");
+                scanner.nextLine(); 
             }
         }
     }
+
 }
 

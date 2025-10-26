@@ -13,49 +13,60 @@ public class LibraryQuest extends LibraryNarration{
     private static int whichShelf = new Random().nextInt(5) + 1;
     private StatsProgressLibrary progressHandler = new StatsProgressLibrary();
 
-    public void findTheLostBook(Hero hero){
+    public void findTheLostBook(Hero hero) {
         System.out.println();
-        System.out.println("┌───────────────────────────────┐");
-        System.out.println("│       Find The Lost Book      │");
-        System.out.println("└───────────────────────────────┘");
+        System.out.println("┌────────────────────────────┐");
+        System.out.println("│   + Find The Lost Book +   │");
+        System.out.println("└────────────────────────────┘");
 
         boolean found = false;
 
-        while(!found){
+        while (!found) {
+            try {
+                System.out.println("+-------------------------------------+");
+                System.out.println("|   The lost book could be here...    |");
+                System.out.println("+-------------------------------------+");
+                System.out.println("| [1] Shelf Fiction                   |");
+                System.out.println("| [2] Shelf Science                   |");
+                System.out.println("| [3] Shelf Mythology                 |");
+                System.out.println("| [4] Shelf Magic and Spells          |");
+                System.out.println("| [5] Shelf History                   |");
+                System.out.println("+-------------------------------------+");
+                System.out.print("-->| ");
 
-            System.out.println();
-            System.out.println("+-------------------------------------+");
-            System.out.println("|   The lost book could be here...    |");
-            System.out.println("+-------------------------------------+");
-            System.out.println("| [1] Shelf Fiction                   |");
-            System.out.println("| [2] Shelf Science                   |");
-            System.out.println("| [3] Shelf Mythology                 |");
-            System.out.println("| [4] Shelf Magic and Spells          |");
-            System.out.println("| [5] Shelf History                   |");
-            System.out.println("+-------------------------------------+");
-            System.out.print(">>> ");
+                int shelfChoice = Integer.parseInt(scanner.nextLine());
 
-            String shelf = scanner.nextLine();
+                if (shelfChoice < 1 || shelfChoice > 5) {
+                    System.out.println();
+                    System.out.println("┌───────────────────────────────────────────────────────────┐");
+                    System.out.println("│   Hmmm...That's not valid. Choose a number between 1-5   │");
+                    System.out.println("└───────────────────────────────────────────────────────────┘");
+                } else if (shelfChoice == whichShelf) {
+                    System.out.println();
+                    System.out.println("┌───────────────────────────────────────────────────────┐");
+                    System.out.println("│   You've uncovered the lost book. Well done, hero!    │");
+                    System.out.println("└───────────────────────────────────────────────────────┘");
 
-            if (!shelf.matches("[1-5]")) {
+                    ifQuest1Success();
+                    progressHandler.randomStatsProgress(hero);
+                    found = true;
+                } else {
+                    System.out.println();
+                    System.out.println("┌──────────────────────────────────────────────────────┐");
+                    System.out.println("│   No luck here, brave seeker. Continue your quest.   │");
+                    System.out.println("└──────────────────────────────────────────────────────┘");
+                }
+            } catch (NumberFormatException e) {
                 System.out.println();
-                System.out.println("┌────────────────────────────────────┐");
-                System.out.println("│ Invalid input! Please enter 1 - 5  │");
-                System.out.println("└────────────────────────────────────┘");
-            } else if (shelf.equals(String.valueOf(whichShelf))) {
+                System.out.println("┌──────────────────────────────────────────────┐");
+                System.out.println("│   Invalid input! Please enter a number 1-5.  │");
+                System.out.println("└──────────────────────────────────────────────┘");
+            } catch (Exception e) {
                 System.out.println();
-                System.out.println("┌──────────────────────────────────────────────────────────┐");
-                System.out.println("│    You have found the missing book. Congratulations!     │");
-                System.out.println("└──────────────────────────────────────────────────────────┘");
-
-                ifQuest1Success();
-                progressHandler.randomStatsProgress(hero);
-                found = true;
-            } else {
-                System.out.println();
-                System.out.println("┌──────────────────────────────────────────────────────────┐");
-                System.out.println("│    Incorrect shelf. The book is not here. Try again.     │");
-                System.out.println("└──────────────────────────────────────────────────────────┘");
+                System.out.println("┌──────────────────────────────────────────────┐");
+                System.out.println("│   An unexpected error occurred. Try again.   │");
+                System.out.println("└──────────────────────────────────────────────┘");
+                scanner.nextLine();
             }
         }
     }
@@ -63,14 +74,14 @@ public class LibraryQuest extends LibraryNarration{
     public void riddles(Hero hero){
 
         System.out.println();
-        System.out.println("┌───────────────────────────────┐");
-        System.out.println("│      Decode The Riddles       │");
-        System.out.println("└───────────────────────────────┘");
+        System.out.println("┌────────────────────────────┐");
+        System.out.println("│   + Decode The Riddles +   │");
+        System.out.println("└────────────────────────────┘");
 
         if(hero.isRiddle1Done() && hero.isRiddle2Done() && hero.isRiddle3Done()) {
-            System.out.println("┌──────────────────────────────────────────────────────────┐");
-            System.out.println("│      You have solved all riddles! Congratulations!       │");
-            System.out.println("└──────────────────────────────────────────────────────────┘");
+            System.out.println("┌───────────────────────────────────────────────────┐");
+            System.out.println("│   + Victory! All riddles have been conquered! +   │");
+            System.out.println("└───────────────────────────────────────────────────┘");
 
             return;
         }

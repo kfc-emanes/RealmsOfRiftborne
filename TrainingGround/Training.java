@@ -28,51 +28,62 @@ public class Training {
         if(hero.hasFinishedAllTraining()){
 
                 System.out.println();
-                System.out.println("┌──────────────────────────────────────────────┐");
-                System.out.println("│     You have completed your training quest   │");
-                System.out.println("│        Exiting from training ground...       │");
-                System.out.println("└──────────────────────────────────────────────┘");
+                System.out.println("┌─────────────────────────────────────────────┐");
+                System.out.println("│    You have completed your training quest   │");
+                System.out.println("│       Exiting from Training Ground...       │");
+                System.out.println("└─────────────────────────────────────────────┘");
                 return;
         }
 
         boolean isValid = true;
 
         while (isValid) {
-            System.out.println();
-            System.out.println("┌──────────────────────────────────────────────────────┐");
-            System.out.println("│    Do you want to accept the training offer? (y/n)   │");
-            System.out.println("└──────────────────────────────────────────────────────┘");
-            System.out.print(">>> ");
+            try {
+                System.out.println();
+                System.out.println("┌────────────────────────────────────────────────┐");
+                System.out.println("│    Will you accept the training offer? (y/n)   │");
+                System.out.println("└────────────────────────────────────────────────┘");
+                System.out.print("-->| ");
 
-            String wouldAccept = scanner.nextLine();
+                String wouldAccept = scanner.nextLine();
 
-            if(!hero.haveAcceptedButExited()){
-                narrationHandler.acceptedTraining();
-                hero.setHaveAcceptedButExited(true);
-            }
+                if (wouldAccept.equalsIgnoreCase("y")) {
 
-            if (wouldAccept.equalsIgnoreCase("y")) {
-                startTrainingLoop(hero);
-                isValid = false; 
-            } else if (wouldAccept.equalsIgnoreCase("n")) {
+                    if(!hero.haveAcceptedButExited()){
+                        narrationHandler.acceptedTraining();
+                        hero.setHaveAcceptedButExited(true);
+                    }
+
+                    startTrainingLoop(hero);
+                    isValid = false; 
+
+                } else if (wouldAccept.equalsIgnoreCase("n")) {
+                    System.out.println();
+                    System.out.println("┌───────────────────────────────────────┐");
+                    System.out.println("│        Training offer declined        │");
+                    System.out.println("│   Exiting from the Training Ground    │");
+                    System.out.println("└───────────────────────────────────────┘");
+
+                    isValid = false;
+                    return;
+                } else {
+                    System.out.println();
+                    System.out.println("┌────────────────────────────────────────┐");
+                    System.out.println("│   Choice unclear! Enter 'y' or 'n'.    │");
+                    System.out.println("└────────────────────────────────────────┘");
+                }
+            } catch (Exception e) {
                 System.out.println();
                 System.out.println("┌──────────────────────────────────────────────┐");
-                System.out.println("│           Training offer declined            │");
-                System.out.println("│           Exiting from the Gym...            │");
+                System.out.println("│   An unexpected error occurred. Try again.   │");
                 System.out.println("└──────────────────────────────────────────────┘");
-
-                isValid = false;
-                return;
-            } else {
-                System.out.println();
-                System.out.println("┌──────────────────────────────────────────────┐");
-                System.out.println("│        Invalid input! Try again...           │");
-                System.out.println("└──────────────────────────────────────────────┘");
+                scanner.nextLine(); 
             }
         }
 
         return;
     }
+
 
     public void startTrainingLoop(Hero hero) {
         boolean continueTraining = true;
@@ -87,13 +98,11 @@ public class Training {
 
         while (continueTraining) {
 
-            //trainingAccepted(hero);
-
             if(hero.getNumberOfTrainingFinished() == 4){
                 System.out.println();
-                System.out.println("┌──────────────────────────────────────────────────────┐");
-                System.out.println("│  You have finished your training. Congratulations!   │");
-                System.out.println("└──────────────────────────────────────────────────────┘");
+                System.out.println("┌───────────────────────────────────────────────────────────┐");
+                System.out.println("│   + You have finished your training. Congratulations! +   │");
+                System.out.println("└───────────────────────────────────────────────────────────┘");
 
                 statProgressHandler.displayXPandLevel(hero, 2500);
 
@@ -104,96 +113,109 @@ public class Training {
             boolean isValidInput = false;
 
             while (!isValidInput) {
-                System.out.println();
-                System.out.println("┌──────────────────────────────────────────────┐");
-                System.out.println("│    Do you want to continue training? (y/n)   │");
-                System.out.println("└──────────────────────────────────────────────┘");
-                System.out.print(">>> ");
-
-                String continueChoice = scanner.nextLine();
-
-                if (continueChoice.equalsIgnoreCase("y")) {
-                    trainingMenuHandler.trainingMenu(hero);
-                    isValidInput = true; 
-                } 
-                else if (continueChoice.equalsIgnoreCase("n")) {
+                try {
                     System.out.println();
-                    System.out.println("┌───────────────────────────────────────────────────┐");
-                    System.out.println("│        Are you sure you want to quit? (y/         │");
-                    System.out.println("│    Any training progress will not be recorded     │");
-                    System.out.println("└───────────────────────────────────────────────────┘");
+                    System.out.println("┌─────────────────────────────────────────────┐");
+                    System.out.println("│   Do you want to continue training? (y/n)   │");
+                    System.out.println("└─────────────────────────────────────────────┘");
+                    System.out.print("-->| ");
 
-                    System.out.print(">>> ");
-                    String confirmQuit = scanner.nextLine();
+                    String continueChoice = scanner.nextLine();
 
-                    if (confirmQuit.equalsIgnoreCase("y")) {
-                        System.out.println();
-                        System.out.println("┌──────────────────────────────────────────┐");
-                        System.out.println("│ You decided to end your training session │");
-                        System.out.println("└──────────────────────────────────────────┘");
-
-                        if (!hero.hasFinishedAllTraining()) {
-                            hero.setHp(originalHp);
-                            hero.setAttack(originalAtk);
-                            hero.setDefense(originalDef);
-                            hero.setMana(originalMana);
-                            hero.setSpeed(originalSpeed);
-                            hero.setExperience(originalExperience); 
-                            hero.setLevel(originalLevel);
-
-                            hero.setFinishedEndurance(false);
-                            hero.setFinishedStrength(false);
-                            hero.setFinishedDurability(false);
-                            hero.setFinishedManaRefinement(true);
-                            hero.setNumberOfTrainingFinished(0);
-                            hero.setFinishedAllTraining(false);
-                            
-                            System.out.println("┌───────────────────────────────────────┐");
-                            System.out.println("│       Your progress was reset         │");
-                            System.out.println("└───────────────────────────────────────┘");
-
-                        }
-                    
-                        System.out.println("┌──────────────────────────────────────────────┐");
-                        System.out.println("│     Exiting from the Training Ground...      │");
-                        System.out.println("│            Exiting from the Gym              │");
-                        System.out.println("└──────────────────────────────────────────────┘");
-
-                        return; 
+                    if (continueChoice.equalsIgnoreCase("y")) {
+                        trainingMenuHandler.trainingMenu(hero);
+                        isValidInput = true; 
                     } 
-                    else if (confirmQuit.equalsIgnoreCase("n")) {
+                    else if (continueChoice.equalsIgnoreCase("n")) {
                         System.out.println();
-                        System.out.println("┌──────────────────────────────────────────────┐");
-                        System.out.println("│          Continuing your training...         │");
-                        System.out.println("└──────────────────────────────────────────────┘");
+                        System.out.println("┌───────────────────────────────────────────────────┐");
+                        System.out.println("│        Are you sure you want to quit? (y/n)       │");
+                        System.out.println("│    Any training progress will not be recorded     │");
+                        System.out.println("└───────────────────────────────────────────────────┘");
+                        System.out.print("-->| ");
 
-                        isValidInput = true;
+                        try {
+                            String confirmQuit = scanner.nextLine();
+
+                            if (confirmQuit.equalsIgnoreCase("y")) {
+                                System.out.println();
+                                System.out.println("┌───────────────────────────────────────────────────┐");
+                                System.out.println("│   + You decided to end your training session +    │");
+                                System.out.println("└───────────────────────────────────────────────────┘");
+
+                                if (!hero.hasFinishedAllTraining()) {
+                                    hero.setHp(originalHp);
+                                    hero.setAttack(originalAtk);
+                                    hero.setDefense(originalDef);
+                                    hero.setMana(originalMana);
+                                    hero.setSpeed(originalSpeed);
+                                    hero.setExperience(originalExperience); 
+                                    hero.setLevel(originalLevel);
+
+                                    hero.setFinishedEndurance(false);
+                                    hero.setFinishedStrength(false);
+                                    hero.setFinishedDurability(false);
+                                    hero.setFinishedManaRefinement(true);
+                                    hero.setNumberOfTrainingFinished(0);
+                                    hero.setFinishedAllTraining(false);
+                                    
+                                    System.out.println("┌──────────────────────────────────────┐");
+                                    System.out.println("│   >>> Your progress was reset <<<    │");
+                                    System.out.println("└──────────────────────────────────────┘");
+
+                                }
+                            
+                                System.out.println("┌──────────────────────────────────────────────┐");
+                                System.out.println("│   >>> Exiting from the Training Ground <<<   │");
+                                System.out.println("└──────────────────────────────────────────────┘");
+
+                                return; 
+                            } 
+                            else if (confirmQuit.equalsIgnoreCase("n")) {
+                                System.out.println();
+                                System.out.println("┌─────────────────────────────────────┐");
+                                System.out.println("│   >>> Your training continues <<<   │");
+                                System.out.println("└─────────────────────────────────────┘");
+
+                                isValidInput = true;
+                            } 
+                            else {
+                                System.out.println();
+                                System.out.println("┌───────────────────────────────────────────────────┐");
+                                System.out.println("│   Invalid input! Continuing training by default   │");
+                                System.out.println("└───────────────────────────────────────────────────┘");
+
+                                isValidInput = true;
+                            }
+                        }  catch (Exception e) {
+                            System.out.println();
+                            System.out.println("┌──────────────────────────────────────────────┐");
+                            System.out.println("│   An unexpected error occurred. Try again.   │");
+                            System.out.println("└──────────────────────────────────────────────┘");
+                            scanner.nextLine(); 
+                        }
                     } 
                     else {
                         System.out.println();
-                        System.out.println("┌───────────────────────────────────────────────────────────┐");
-                        System.out.println("│       Invalid input! Continuing training by default       │");
-                        System.out.println("└───────────────────────────────────────────────────────────┘");
-
-                        isValidInput = true;
+                        System.out.println("┌────────────────────────────────────────┐");
+                        System.out.println("│   Choice unclear! Enter 'y' or 'n'.    │");
+                        System.out.println("└────────────────────────────────────────┘");
                     }
-                } 
-                else {
+                } catch (Exception e) {
                     System.out.println();
                     System.out.println("┌──────────────────────────────────────────────┐");
-                    System.out.println("│           Invalid input! Try again           │");
+                    System.out.println("│   An unexpected error occurred. Try again.   │");
                     System.out.println("└──────────────────────────────────────────────┘");
-
+                    scanner.nextLine(); 
                 }
             }
         }
- 
-        System.out.println("┌──────────────────────────────────────────────┐");
-        System.out.println("│     Exiting from the Training Ground...      │");
-        System.out.println("│            Exiting from the Gym              │");
-        System.out.println("└──────────────────────────────────────────────┘");
 
+        System.out.println("┌──────────────────────────────────────────────┐");
+        System.out.println("│   >>> Exiting from the Training Ground <<<   │");
+        System.out.println("└──────────────────────────────────────────────┘");
     }
+
 
     public void sparringMechanism(Hero hero, String trainingType){
         int chanceofWin = random.nextInt(10);
@@ -202,9 +224,9 @@ public class Training {
         if(chanceofWin < 7){
             hero.setNumberOfTrainingFinished(hero.getNumberOfTrainingFinished() + 1);
             System.out.println();
-            System.out.println("┌───────────────────────────────┐");
-            System.out.println("│     Success! You did well!    │");
-            System.out.println("└───────────────────────────────┘");
+            System.out.println("┌────────────────────────────┐");
+            System.out.println("│     Success! Well done!    │");
+            System.out.println("└────────────────────────────┘");
 
             switch(trainingType.toLowerCase()){
                 case "endurance":
@@ -232,7 +254,8 @@ public class Training {
         } else {
             System.out.println();
             System.out.println("┌───────────────────────────────────┐");
-            System.out.println("│    Defeated. You still did well   │");
+            System.out.println("│      You\'ve fallen this time      │");
+            System.out.println("│    Ready to give it another go?   │");
             System.out.println("└───────────────────────────────────┘");
 
         }
@@ -241,17 +264,17 @@ public class Training {
     public void generalTrainingPrompt(Hero hero, String trainingType){
 
         System.out.println();
-        System.out.println("┌──────────────────────────────────────────────┐");
-        System.out.println("│            Training is on-going...           │");
-        System.out.println("│          Press enter to continue...          │");
-        System.out.println("└──────────────────────────────────────────────┘");
+        System.out.println("┌───────────────────────────────────┐");
+        System.out.println("│   >>> Training is on-going <<<    │");
+        System.out.println("│      Press Enter to continue      │");
+        System.out.println("└───────────────────────────────────┘");
 
         String[] timeDelay = {
-            ">>> Battle is on going... Please wait... <<<", 
-            ">>> Battle is on going... Please wait... <<<", 
-            ">>> Battle is on going... Please wait... <<<", 
-            ">>> Battle is on going... Please wait... <<<", 
-            ">>> Battle is on going... Please wait... <<<"
+            "-- >>> Battle is on going... Please wait... <<< --", 
+            "-- >>> Battle is on going... Please wait... <<< --", 
+            "-- >>> Battle is on going... Please wait... <<< --", 
+            "-- >>> Battle is on going... Please wait... <<< --", 
+            "-- >>> Battle is on going... Please wait... <<< --"
         };
 
         for(int i = 0; i < timeDelay.length; i++){
