@@ -23,10 +23,6 @@ public class StartMenu extends Narration {
             startMenuHandler.startMenuRevised();
             //startMenuHandler.trainingMenu();
             System.out.print("-->| ");
-            */
-
-            startMenuHandler.startMenu();
-            System.out.print("-->| ");
 
             try {
                 int startMenuChoice = Integer.parseInt(scan.nextLine());

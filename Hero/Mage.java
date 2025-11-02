@@ -6,7 +6,11 @@ public class Mage extends Hero {
     private int skillCd1, skillCd2, skillCdU;
 
     public Mage() {
-        super(4000, 550, 1000, 180, 90, 1, "Selene Arclight", "Mage", "Wooden Staff", "Stellar Shard", "Chains of Starlight", "Astral Cataclysm", 275, 545, 850, 2000, 2500, 570);
+        super(4000, 550, 1000, 180, 90, 1, 
+            "Selene Arclight", "Mage", "Wooden Staff", 
+            "Stellar Shard", "Chains of Starlight", "Astral Cataclysm", 
+            275, 545, 850, 
+            2000, 2500, 570);
         this.skillCd1 = 6;
         this.skillCd2 = 8;
         this.skillCdU = 12;

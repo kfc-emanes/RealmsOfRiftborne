@@ -89,7 +89,17 @@ public class ForsakenLands {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("A wandering husk of a fallen warrior approaches!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You are rescued by fellow adventurers and taken back to the academy.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You walk among desolate plains, feeling unseen eyes upon you...");
             }
@@ -98,7 +108,17 @@ public class ForsakenLands {
         if(retreat){
             if(rand.nextBoolean()){
                 System.out.println("Something crawls from the ashes to block your retreat!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You are rescued by fellow adventurers and taken back to the academy.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You turn back and leave the lifeless wasteland behind.");
             }
@@ -141,7 +161,17 @@ public class ForsakenLands {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("From the ruins, a twisted wraith rises and attacks!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You are rescued by fellow adventurers and taken back to the academy.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You step through the remains of a forgotten kingdom...");
             }
@@ -150,7 +180,17 @@ public class ForsakenLands {
         if(retreat){
             if(rand.nextBoolean()){
                 System.out.println("A cursed spirit follows you as you retreat!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You are rescued by fellow adventurers and taken back to the academy.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You quietly leave the ruined city behind.");
             }
@@ -188,7 +228,17 @@ public class ForsakenLands {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("The air grows thick... the ground trembles beneath your feet...");
-                eliteBattle.fight(hero, new HollowKing());
+                boolean heroWon = eliteBattle.fight(hero, new HollowKing());
+                if(EliteBattleMechanic.run) {
+                    EliteBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You are rescued by fellow adventurers and taken back to the academy.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You reach the heart of desolation, where no life stirs...");
             }
@@ -219,31 +269,38 @@ public class ForsakenLands {
                 explore = true;
                 retreat = false;
                 boolean heroWon = battle.fight(hero, new Azrael());
-
-                if(heroWon){
-                    goldGained = (int) Math.round(3200 * rand.nextDouble(1.50, 1.60));
-                    expGained = (int) Math.round(600 * rand.nextDouble(1.20, 1.30));
-
+                if(BattleMechanic.run) {
+                    BattleMechanic.run = false;
+                } else if (heroWon) {
+                    goldGained = (int) Math.round(2500 * rand.nextDouble(1.50, 1.60)); // random multiplier 1.50 - 1.59
+                    expGained = (int) Math.round(450 * rand.nextDouble(1.20, 1.30)); // random multiplier 1.20 - 1.29
+                    //temp design for drop
                     System.out.println("┌────────────────────────────────────────────────┐");
                     System.out.println("│                CONGRATULATIONS!!!              │");
                     System.out.println("│                                                │");
+                    System.out.println("│                                                │");
                     System.out.println("│    You have obtained:                          │");
+                    System.out.println("│                                                │");
                     System.out.println("│               Gold: " + df.format(goldGained) + "                      │");
                     System.out.println("│               Exp : " + df.format(expGained) + "                        │");
                     System.out.println("│                                                │");
+                    System.out.println("│                                                │");
                     System.out.println("└────────────────────────────────────────────────┘");
-
                     hero.levelUp(expGained);
                     System.out.println("Azrael falls... his wings crumble to dust, and the land grows silent once more.");
+                    System.out.println();
                     System.out.println("You have conquered the Forsaken Lands.");
                     System.out.println();
+                    currentArea = 0; // automatically exits the FORSAKEN LANDS
+                    exit = true;
+                    break;
                 } else {
                     System.out.println("Azrael's divine scythe strikes true — darkness consumes you...");
                     System.out.println("You are rescued by fellow adventurers and taken back to the academy.");
+                    currentArea = 0; // automatically exits the FORSAKEN LANDS
+                    exit = true;
+                    break;
                 }
-                currentArea = 0;
-                exit = true;
-                break;
             } else if (choice == 'n'){
                 System.out.println("\nYou feel the overwhelming dread and choose to flee before Azrael notices you.");
                 retreat = true;

@@ -6,7 +6,11 @@ public class Swordsman extends Hero {
     private int skillCd1, skillCd2, skillCdU;
 
     public Swordsman() {
-        super(4000, 500, 700, 350, 100, 1, "Kael Solmere", "Swordsman", "Wooden Sword", "Blade Dance", "Blinding Silhouette", "Shattered Sun", 285, 345, 565, 1450, 1700, 725);
+        super(4000, 500, 700, 350, 100, 1, 
+            "Kael Solmere", "Swordsman", "Wooden Sword", 
+            "Blade Dance", "Blinding Silhouette", "Shattered Sun", 
+            285, 345, 565, 
+            1450, 1700, 725);
         this.skillCd1 = 5;
         this.skillCd2 = 8;
         this.skillCdU = 10;

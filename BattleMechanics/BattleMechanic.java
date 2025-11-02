@@ -11,6 +11,7 @@ public class BattleMechanic {
     private int origHp;
     private int origMana;
     int round = 1;
+    public static boolean run = false;
     DecimalFormat df = new DecimalFormat("#,##0");
 
     public boolean fight(Hero player, Entity enemy){
@@ -30,19 +31,20 @@ public class BattleMechanic {
             System.out.println("+--------------------------------   ROUND " + round + "  ------------------------------------+");
             System.out.println("Choose your attack:");
             System.out.println();
-            System.out.println("1. Basic Attack");
-            System.out.println("2. Skill 1 - "+ player.getSkill1() + " (Mana Cost: " + player.scaledCost(player.getManaCostSkill1()) + ") (Cooldown: " + player.getCooldown1() + ")");
-            System.out.println("3. Skill 2 - "+ player.getSkill2() + " (Mana Cost: " + player.scaledCost(player.getManaCostSkill2()) + ") (Cooldown: " + player.getCooldown2() + ")");
-            System.out.println("4. Ultimate - "+ player.getUltimate() + " (Mana Cost: " + player.scaledCost(player.getManaCostUltimate()) + ") (Cooldown: " + player.getCooldownU() + ")");
+            System.out.println("[ 1 ] Basic Attack");
+            System.out.println("[ 2 ] Skill 1 - "+ player.getSkill1() + " (Mana Cost: " + player.scaledCost(player.getManaCostSkill1()) + ") (Cooldown: " + player.getCooldown1() + ")");
+            System.out.println("[ 3 ] Skill 2 - "+ player.getSkill2() + " (Mana Cost: " + player.scaledCost(player.getManaCostSkill2()) + ") (Cooldown: " + player.getCooldown2() + ")");
+            System.out.println("[ 4 ] Ultimate - "+ player.getUltimate() + " (Mana Cost: " + player.scaledCost(player.getManaCostUltimate()) + ") (Cooldown: " + player.getCooldownU() + ")");
+            System.out.println("[ 5 ] Run Away!");
             System.out.println("+--------------------------------------------------------------------------------+");
             System.out.print(">>> ");
 
                 try {
                     choice = Integer.parseInt(scanner.nextLine().trim());
-                    if (choice >= 1 && choice <= 4) break;
-                    else System.out.println("\nPlease select a valid choice [1-4]");
+                    if (choice >= 1 && choice <= 5) break;
+                    else System.out.println("\nPlease select a valid choice [1-5]");
                 } catch (Exception e) {
-                    System.out.println("\nInvalid input! Please enter a number between 1 and 4.");
+                    System.out.println("\nInvalid input! Please enter a number between 1 and 5.");
                 }
             }
 
@@ -51,6 +53,13 @@ public class BattleMechanic {
 
             System.out.println("Player's Turn:");
             if (player.getStunned() <= 0) {
+                if(choice == 5) {
+                    if (runAway(player, enemy)) {
+                        restoreStats(player);
+                        return false;
+                    }
+                }
+
                 valid = castAttack(player, enemy, choice);
 
                 if (!valid) {
@@ -148,6 +157,10 @@ public class BattleMechanic {
                     System.out.println("Ultimate (" + player.getUltimate() + ") is on cooldown for " + player.getCooldownU() + " more turn(s).");
                     return false;
                 }
+                break;
+            
+            case 5:
+                // run away
                 break;
 
             default:
@@ -276,4 +289,26 @@ public class BattleMechanic {
         if (enemy.getStunned() < 0) enemy.setStun(0);
         if (enemy.getDisabled() < 0) enemy.setDisabled(0);
     }
+
+    public boolean runAway(Hero player, Entity enemy) {
+        System.out.println(">>> " + player.getName() + " attempts to run away! <<<");
+
+        // Example formula: speed difference + randomness
+        double baseChance = 30; // base 30% success rate
+        double speedFactor = (player.getSpeed() - enemy.getSpeed()) * 0.5; // 0.5% per speed point difference
+        double successChance = Math.min(90, Math.max(10, baseChance + speedFactor)); // clamp between 10–90%
+
+        double roll = Math.random() * 100;
+
+        if (roll <= successChance) {
+            System.out.println("You successfully escaped from " + enemy.getName() + "!");
+            System.out.println();
+            run = true;
+            return true;
+        } else {
+            System.out.println("Failed to escape! " + enemy.getName() + " blocks your path!");
+            return false;
+        }
+    }
+
 }

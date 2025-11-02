@@ -2,18 +2,18 @@ package Hero;
 
 import java.text.DecimalFormat;
 
-public class Gunner extends Hero {
+public class Test extends Hero {
     private int skillCd1, skillCd2, skillCdU;
 
-    public Gunner() {
-        super(4000, 535, 600, 125, 150, 1, 
-        "Aria Caelith", "Gunner", "Rusty Dual Pistol", 
-        "Crimson Barrage", "Frostwind Bullet", "Judgement Phantom", 
-        150, 275, 450, 
-        1500, 1530, 650);
-        this.skillCd1 = 4;
-        this.skillCd2 = 7;
-        this.skillCdU = 10;
+    public Test() {
+        super(999999, 999999, 999999, 999999, 100, 60, 
+        "Unknown", "Unknown", "Unknown", 
+        "Delete", "Perish", "Judgement", 
+        0, 0, 0, 
+        999999, 999999, 999999);
+        this.skillCd1 = 0;
+        this.skillCd2 = 0;
+        this.skillCdU = 0;
     }
 
     DecimalFormat df = new DecimalFormat("#,##0");
@@ -76,13 +76,6 @@ public class Gunner extends Hero {
          int damageDealt = damage - enemy.getDefense()/2;
 
         System.out.println(getSkill2() + " deals " + df.format(damageDealt) + " damage!");
-
-        if(enemy.getStunned() > 0){
-            System.out.println(enemy.getName() + " is already frozen! (Stun refreshed to 2 turn)");
-        } else {
-            System.out.println(enemy.getName() + " is frozen solid! (Stun 2 turns)");
-        }
-        enemy.setStun(2);
 
         enemy.setHp(enemy.getHp() - damageDealt);
     }

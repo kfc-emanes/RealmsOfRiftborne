@@ -91,7 +91,17 @@ public class ForestOfReverie {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("You are exploring the forest then suddenly a wild creature appears to attack!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You have sustained serious injuries, but fortunately, a group of students arrived in time to rescue you.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("The forest feels calm and serene as you wander among the tall trees.");
             }
@@ -100,7 +110,17 @@ public class ForestOfReverie {
         if(retreat){
             if(rand.nextBoolean()){
                 System.out.println("You see the forest entrance ahead, but an angry mob blocks your way!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You have sustained serious injuries, but fortunately, a group of students arrived in time to rescue you.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You reach the forest entrance without any problems.");
             }
@@ -146,7 +166,17 @@ public class ForestOfReverie {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("You are exploring deeper into the forest when suddenly a wild creature appears to attack!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You have sustained serious injuries, but fortunately, a group of students arrived in time to rescue you.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You walk deeper into the forest, admiring its mystical beauty.");
             }
@@ -155,7 +185,17 @@ public class ForestOfReverie {
         if(retreat){
             if(rand.nextBoolean()){
                 System.out.println("As you head back, a lurking creature jumps from the shadows!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You have sustained serious injuries, but fortunately, a group of students arrived in time to rescue you.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You return safely from the inner forest area.");
             }
@@ -194,22 +234,27 @@ public class ForestOfReverie {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("You venture into the innermost part of the forest... \n\nSuddenly, a strong creature appears to attack!");
-                eliteBattle.fight(hero, new MudLurker());
+                boolean heroWon = eliteBattle.fight(hero, new MudLurker());
+                if(EliteBattleMechanic.run) {
+                    EliteBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You have sustained serious injuries, but fortunately, a group of students arrived in time to rescue you.");
+                    currentArea = 0; // automatically exits the FOREST OF REVERIE
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You are peacefully exploring the innermost part of the forest \n\nand noticed that the forest has clawed trees and dark atmosphere.");
             }
         }
-        System.out.println();
         
         String[] elderthorn = {
             "You found something unusual in this area.",
-            
             "As you approach, you notice a tree glowing with a faint, eerie light.",
-            
             "As you slowly approach the tree, you feel a surge of dark energy coursing through your body.",
-            
             "Before you can react, the tree transforms into a menacing creature!",
-            
         };
 
         // Array Iteration
@@ -228,7 +273,9 @@ public class ForestOfReverie {
                 explore = true;
                 retreat = false;
                 boolean heroWon = battle.fight(hero, new Elderthorn());
-                if(heroWon){
+                if(BattleMechanic.run) {
+                    BattleMechanic.run = false;
+                } else if (heroWon) {
                     goldGained = (int) Math.round(2500 * rand.nextDouble(1.50, 1.60)); // random multiplier 1.50 - 1.59
                     expGained = (int) Math.round(450 * rand.nextDouble(1.20, 1.30)); // random multiplier 1.20 - 1.29
                     //temp design for drop
@@ -248,12 +295,15 @@ public class ForestOfReverie {
                     System.out.println();
                     System.out.println("You peacefully exit the Forest Of Reverie...");
                     System.out.println();
+                    currentArea = 0; // automatically exits the FOREST OF REVERIE
+                    exit = true;
+                    break;
                 } else {
                     System.out.println("You have sustained serious injuries, but fortunately, a group of students arrived in time to rescue you.");
+                    currentArea = 0; // automatically exits the FOREST OF REVERIE
+                    exit = true;
+                    break;
                 }
-                currentArea = 0; // automatically exits the FOREST OF REVERIE
-                exit = true;
-                break;
             } else if (choice == 'n'){
                 System.out.println("\nYou chose to avoid the Forest Guardian, Elderthorn and head back to the previous area.");
                 retreat = true;
@@ -299,7 +349,4 @@ public class ForestOfReverie {
         System.out.println();
 
     }
-    
-
 }
-

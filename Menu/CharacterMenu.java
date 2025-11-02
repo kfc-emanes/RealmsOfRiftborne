@@ -38,6 +38,10 @@ public class CharacterMenu extends Narration{
                         hero = innerCharacterMenuHandler.playerMage();
                         break;
 
+                    case 4:
+                        hero = new Test();
+                        break;
+                        
                     default:
                         System.out.println();
                         System.out.println("┌─────────────────────────────────────┐");

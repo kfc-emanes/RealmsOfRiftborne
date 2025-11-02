@@ -89,7 +89,17 @@ public class ReveriesEdge {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("A corrupted beast emerges from the shadows!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You collapse, but are rescued and taken back to safety.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You hear whispers carried by the wind, but nothing appears.");
             }
@@ -98,7 +108,17 @@ public class ReveriesEdge {
         if(retreat){
             if(rand.nextBoolean()){
                 System.out.println("You try to leave, but a lurking shade attacks!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You collapse, but are rescued and taken back to safety.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You safely return to the forest boundary.");
             }
@@ -141,7 +161,17 @@ public class ReveriesEdge {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("A shadowy creature blocks your path!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You collapse, but are rescued and taken back to safety.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You walk through the dim mist, hearing distant growls...");
             }
@@ -150,7 +180,17 @@ public class ReveriesEdge {
         if(retreat){
             if(rand.nextBoolean()){
                 System.out.println("Something follows you as you retreat, preparing to strike!");
-                mobBattle.fight(hero, randomMob());
+                boolean heroWon = mobBattle.fight(hero, randomMob());
+                if(MobBattleMechanic.run) {
+                    MobBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You collapse, but are rescued and taken back to safety.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("You carefully retrace your steps to the outer edge.");
             }
@@ -188,7 +228,17 @@ public class ReveriesEdge {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("You walk through an eerie clearing... and the ground trembles!");
-                eliteBattle.fight(hero, new FadingWarden());
+                boolean heroWon = eliteBattle.fight(hero, new FadingWarden());
+                if(EliteBattleMechanic.run) {
+                    EliteBattleMechanic.run = false;
+                } else if (heroWon) {
+                    // reward here
+                } else {
+                    System.out.println("You collapse, but are rescued and taken back to safety.");
+                    currentArea = 0;
+                    exit = true;
+                    return;
+                }
             } else {
                 System.out.println("The place feels corrupted — twisted roots and ash cover the ground.");
             }
@@ -223,31 +273,38 @@ public class ReveriesEdge {
                 explore = true;
                 retreat = false;
                 boolean heroWon = battle.fight(hero, new Morgrath());
-
-                if(heroWon){
-                    goldGained = (int) Math.round(2800 * rand.nextDouble(1.50, 1.60));
-                    expGained = (int) Math.round(500 * rand.nextDouble(1.20, 1.30));
-
+                if(BattleMechanic.run) {
+                    BattleMechanic.run = false;
+                } else if (heroWon) {
+                    goldGained = (int) Math.round(2500 * rand.nextDouble(1.50, 1.60)); // random multiplier 1.50 - 1.59
+                    expGained = (int) Math.round(450 * rand.nextDouble(1.20, 1.30)); // random multiplier 1.20 - 1.29
+                    //temp design for drop
                     System.out.println("┌────────────────────────────────────────────────┐");
                     System.out.println("│                CONGRATULATIONS!!!              │");
                     System.out.println("│                                                │");
+                    System.out.println("│                                                │");
                     System.out.println("│    You have obtained:                          │");
+                    System.out.println("│                                                │");
                     System.out.println("│               Gold: " + df.format(goldGained) + "                      │");
                     System.out.println("│               Exp : " + df.format(expGained) + "                        │");
                     System.out.println("│                                                │");
+                    System.out.println("│                                                │");
                     System.out.println("└────────────────────────────────────────────────┘");
-
                     hero.levelUp(expGained);
                     System.out.println("The shadow fades... Reverie's Edge grows silent once again.");
+                    System.out.println();
                     System.out.println("You leave the cursed borderlands behind.");
                     System.out.println();
+                    currentArea = 0; // automatically exits the REVERIE EDGE
+                    exit = true;
+                    break;
                 } else {
                     System.out.println("Morgrath's power overwhelms you — darkness consumes your vision.");
                     System.out.println("You collapse, but are rescued and taken back to safety.");
+                    currentArea = 0; // automatically exits the REVERIE EDGE
+                    exit = true;
+                    break;
                 }
-                currentArea = 0;
-                exit = true;
-                break;
             } else if (choice == 'n'){
                 System.out.println("\nYou turn away from the dark presence and retreat cautiously.");
                 retreat = true;
