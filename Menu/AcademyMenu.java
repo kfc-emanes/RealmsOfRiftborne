@@ -2,7 +2,7 @@ package Menu;
 
 import Hero.*;
 import Library.LibraryAcademy;
-import Narration.SwordsmanPlot;
+//import Narration.SwordsmanPlot;
 import TrainingGround.*;
 import DesignRelated.*;
 import Office.*;
@@ -18,7 +18,7 @@ public class AcademyMenu extends Menu{
         IntroTitle introHandler = new IntroTitle();
         MenuRelated menuRelatedHanlder = new MenuRelated();
         ShopRelated shopPromptHandler = new ShopRelated();
-        SwordsmanPlot swordsmanPlotHandler = new SwordsmanPlot();
+        //SwordsmanPlot swordsmanPlotHandler = new SwordsmanPlot();
         
         while (academyMapMenu) {
             
@@ -49,7 +49,7 @@ public class AcademyMenu extends Menu{
                             hero.setVisitedLibrary(true);
                         }
 
-                        if(hero.getHaveDefeatedArea3Boss()) { 
+                        /*if(hero.getHaveDefeatedArea3Boss()) { 
                             if(hero.getSwordmanCharacterChosen()) {
 
                                 scanner.nextLine();
@@ -58,6 +58,7 @@ public class AcademyMenu extends Menu{
 
                             } 
                         }
+                            */
 
                         libraryHandler.libraryAcademy(hero);
 

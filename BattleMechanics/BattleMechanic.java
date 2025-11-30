@@ -51,16 +51,17 @@ public class BattleMechanic {
                 System.out.println("   [ 2 ] Skill 1 - "+ player.getSkill1() + " (Mana Cost: " + player.scaledCost(player.getManaCostSkill1()) + ") (Cooldown: " + player.getCooldown1() + ")");
                 System.out.println("   [ 3 ] Skill 2 - "+ player.getSkill2() + " (Mana Cost: " + player.scaledCost(player.getManaCostSkill2()) + ") (Cooldown: " + player.getCooldown2() + ")");
                 System.out.println("   [ 4 ] Ultimate - "+ player.getUltimate() + " (Mana Cost: " + player.scaledCost(player.getManaCostUltimate()) + ") (Cooldown: " + player.getCooldownU() + ")");
-                System.out.println("   [ 5 ] Run Away!");
+                System.out.println("   [ 5 ] Inventory");
+                System.out.println("   [ 6 ] Run Away!");
                 System.out.println("+--------------------------------------------------------------------------------+");
                 System.out.print(">>> ");
 
                 try {
                     choice = Integer.parseInt(scanner.nextLine().trim());
-                    if (choice >= 1 && choice <= 5) break;
-                    else System.out.println("\nPlease select a valid choice [1-5]\n\n\n");
+                    if (choice >= 1 && choice <= 6) break;
+                    else System.out.println("\nPlease select a valid choice [1-6]\n\n\n");
                 } catch (Exception e) {
-                    System.out.println("\nInvalid input! Please enter a number between 1 and 5.\n\n\n");
+                    System.out.println("\nInvalid input! Please enter a number between 1 and 6.\n\n\n");
                 }
             }
 
@@ -70,8 +71,15 @@ public class BattleMechanic {
             System.out.println("<<==========================================================================>>");
             System.out.println();
             System.out.println("Player's Turn:");
+            if(choice == 5) {
+                    player.getInventory().useItem(player);
+                    System.out.println();
+                    System.out.println("<<==========================================================================>>");
+                    System.out.println();
+                    continue;
+                }
             if (player.getStunned() <= 0) {
-                if(choice == 5) {
+                if(choice == 6) {
                     if (runAway(player, enemy)) {
                         restoreStats(player);
                         return false;
@@ -192,8 +200,12 @@ public class BattleMechanic {
                     return false;
                 }
                 break;
-            
+
             case 5:
+                // inventory
+                break;
+
+            case 6:
                 // run away
                 break;
 
@@ -269,6 +281,7 @@ public class BattleMechanic {
     public void setOriginalStats(Hero player) {
         this.origHp = player.getHp();
         this.origMana = player.getMana();
+        player.setHpCap(player.getHp());
         player.setManaCap(player.getMana());
     }
 

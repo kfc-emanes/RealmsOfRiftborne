@@ -3,6 +3,7 @@ package Menu;
 import Hero.*;
 import Narration.*;
 import Area.*;
+import Shop.*;
 import DesignRelated.*;
 
 import java.util.Scanner;
@@ -22,6 +23,7 @@ public class Menu extends Narration {
         AreaRelated areaHandler = new AreaRelated();
         MagePlot magePlotHandler = new MagePlot();
         InnerCharacterMenu innerCharacterMenuHandler = new InnerCharacterMenu();
+        Shop shop = new Shop();
 
 
         while(true){
@@ -49,7 +51,7 @@ public class Menu extends Narration {
                         System.out.println("         └────────────────────────────┘");
                         System.out.println(">>>>> - - - - - - - - - - - - - - -  - - - <<<<<");
 
-                        if (!hero.hasVisitedAcademy()) {
+                        /*if (!hero.hasVisitedAcademy()) {
                             academyNarration();
                             hero.setHasVisitedAcademy(true);
                         } 
@@ -61,6 +63,7 @@ public class Menu extends Narration {
                             }
 
                         }
+                            */
                         
 
                         handler.academyMapMenu(hero);
@@ -86,10 +89,11 @@ public class Menu extends Narration {
                         }
 
                         //shopFunction();
+                        shop.shop(hero);
                         break;
 
                     case 3:
-                        boolean isInventoryEmpty = false; // default case since wala pay inventory
+                        boolean isInventoryEmpty = true; // default case since wala pay inventory
 
                         shopPromptHandler.inventoryPrompt();
 
@@ -105,6 +109,7 @@ public class Menu extends Narration {
                             System.out.println("└───────────────────────────────────────┘");
                         } else{
                             //inventoryFunction();
+                            hero.getInventory().inventory();
                         }
 
                         break;

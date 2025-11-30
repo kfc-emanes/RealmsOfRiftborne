@@ -377,6 +377,27 @@ public class ForsakenLands {
                         System.out.println();
                         System.out.println("You have conquered the Forsaken Lands.");
                         System.out.println();
+                        System.out.println("");
+                        boolean specialEnding = battle.fight(hero, new Kim());
+                        if(BattleMechanic.run) {
+                            BattleMechanic.run = false;
+                        } else if (specialEnding) {
+                            System.out.println();
+                            System.out.println("With Kim Morvain defeated, a radiant light pierces the Forsaken Lands...");
+                            System.out.println("Life begins to return, and hope is rekindled in your heart.");
+                            System.out.println("You have unlocked the Special Ending: 'Rebirth of the Forsaken Lands'!");
+                            // insert end game prompts here
+                            System.out.println();
+                        } else {
+                            System.out.println();
+                            System.out.println("Kim Morvain's shadow engulfs the land once more...");
+                            System.out.println("Aetherion remains shrouded in darkness.");
+                            System.out.println();
+                            exit();
+                            currentArea = 0; // automatically exits the FORSAKEN LANDS
+                            exit = true;
+                            break;
+                        }
                         exit();
                         currentArea = 0; // automatically exits the FORSAKEN LANDS
                         exit = true;

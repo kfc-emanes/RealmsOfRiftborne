@@ -2,8 +2,10 @@ package Hero;
 
 import java.text.DecimalFormat;
 import java.util.*;
+import Inventory.*;
 
 public class Hero {
+    private Inventory inventory;
     private int hp;
     private int attack;
     private int mana;
@@ -20,7 +22,7 @@ public class Hero {
     private int cooldown2 = 0;
     private int cooldownU = 0; 
     private int skillCd1, skillCd2, skillCdU;
-    private int manaCap;
+    private int manaCap, hpCap;
     private int gold;
     private int stunned = -1;
     private int poisoned = 0;
@@ -47,6 +49,11 @@ public class Hero {
         this.manaCostUltimate = manaCostUltimate;
         setBaseStats(hp, attack, mana, defense);
         setMaxStats(maxAtk, maxMana, maxDef);
+        this.inventory = new Inventory();
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 
     public void basicAttack(Hero hero, Entity enemy) {
@@ -250,6 +257,10 @@ public class Hero {
         return cooldownU;
     }
 
+    public int getHpCap() {
+        return hpCap;
+    }
+
     public int getManaCap() {
         return manaCap;
     }
@@ -319,6 +330,10 @@ public class Hero {
         this.manaCap = manaCap;
     }
 
+    public void setHpCap(int hpCap){
+        this.hpCap = hpCap;
+    }
+
     public void setStun(int stunned){
         this.stunned = stunned;
     }
@@ -372,14 +387,14 @@ public class Hero {
         System.out.println("│    >>>  Stats Updated!  <<<   │");
         System.out.println("└───────────────────────────────┘");
         System.err.println();
-        System.out.println(">>>>>    Current Level: " + level + "    <<<<<");
+        System.out.println(">>>>>     Current Level: " + level + "     <<<<<");
         System.out.println();
         System.out.println(String.format("> Health :  %7s   ->  %7s", df.format(getHp()), df.format(newHp)));
         System.out.println(String.format("> Attack :  %7s   ->  %7s", df.format(getAttack()), df.format(newAtk)));
         System.out.println(String.format("> Mana   :  %7s   ->  %7s", df.format(getMana()), df.format(newMana)));
         System.out.println(String.format("> Defense:  %7s   ->  %7s", df.format(getDefense()), df.format(newDef)));
         System.out.println();
-        System.out.println(">>>>> Current Experience: " + this.experience + " <<<<<");
+        System.out.println(">>>>> Current Experience: " + this.experience+ "/100" + " <<<<<");
         System.out.println();
 
         setHp(newHp);

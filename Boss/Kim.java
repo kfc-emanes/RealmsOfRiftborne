@@ -7,12 +7,12 @@ public class Kim extends Boss {
     private int skillCd1, skillCd2, skillCd3, skillCdU;
 
     public Kim() {
-        super(100000, 50000, 2500, 800, 30, "Kim Morvain - The Vengeful Shadow", "Oblivion Slash", "Abyssal Grasp", "Dark Pulse", "Eternal Shroud", 300, 400, 350, 800);
-//omg stop dadeh dont one hit me
-        this.skillCd1 = 5;
-        this.skillCd2 = 7;  
-        this.skillCd3 = 6;
-        this.skillCdU = 10;
+        super(60000, 3000, 2500, 800, 30, "Kim Morvain - The Vengeful Shadow", "Oblivion Slash", "Abyssal Grasp", "Dark Pulse", "Eternal Shroud", 300, 400, 350, 800);
+        //omg stop dadeh dont one hit me
+        this.skillCd1 = 6;
+        this.skillCd2 = 8;  
+        this.skillCd3 = 8;
+        this.skillCdU = 12;
     }
 
     DecimalFormat df = new DecimalFormat("#,##0");

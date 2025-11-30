@@ -11,6 +11,7 @@ public class Swordsman extends Hero {
             "Blade Dance", "Blinding Silhouette", "Shattered Sun", 
             285, 345, 565, 
             1450, 1700, 725);
+        setGold(99999999); // test purpose
         this.skillCd1 = 5;
         this.skillCd2 = 8;
         this.skillCdU = 10;
