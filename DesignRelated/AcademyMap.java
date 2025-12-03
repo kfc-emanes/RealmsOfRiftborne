@@ -37,8 +37,6 @@ public class AcademyMap {
         System.out.println("╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦");
         System.out.println("");
 
-        //System.out.println("Please ENTER to continue...");
-        //scanner.nextLine();
     }
 
     public void characterInsideLibrary() {
@@ -72,8 +70,6 @@ public class AcademyMap {
         System.out.println("╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦└──────────────────────────────────────────┘╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦");
         System.out.println("");
 
-        //System.out.println("Please ENTER to continue...");
-        //scanner.nextLine();
     }
 
     public void characterInsideTrainingGround() {
@@ -107,8 +103,6 @@ public class AcademyMap {
         System.out.println("╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦└─────────────────────────────────────────────────────────┘╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦");
         System.out.println("");
 
-        //System.out.println("Please ENTER to continue...");
-        //scanner.nextLine();
     }
 
     public void characterInsidePrincipalOffice() {
@@ -141,8 +135,7 @@ public class AcademyMap {
         System.out.println("║       ░░     ░░    = = = = │ + May the odds be in your favor + │ = = = =   ░░      ░░      ░░      ░░      ░░      ░░  .   * ║ ");
         System.out.println("╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦└───────────────────────────────────┘╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦");
         System.out.println("");
-        //System.out.println("Please ENTER to continue...");
-        //scanner.nextLine();
+
     }
 
     public void characterInsideShop() {

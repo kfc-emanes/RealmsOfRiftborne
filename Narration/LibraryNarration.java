@@ -21,12 +21,9 @@ public class LibraryNarration {
         };
 
         for (int i = 0; i < quest1.length; i++) {
-            //scanner.nextLine(); 
             printDelayHandler.printWithDelay(quest1[i], 15); 
             System.out.println("\n");
         }
-
-        //playDialogueNarration(quest1);
 
     }
 
@@ -38,12 +35,9 @@ public class LibraryNarration {
         };
 
         for (int i = 0; i < success1.length; i++) {
-            //scanner.nextLine(); 
             printDelayHandler.printWithDelay(success1[i], 15); 
             System.out.println("\n");
         }
-
-        //playSuccessOrFailNarration(success1);
 
     }
 
@@ -55,12 +49,9 @@ public class LibraryNarration {
         };
 
         for (int i = 0; i < fail1.length; i++) {
-            //scanner.nextLine(); 
             printDelayHandler.printWithDelay(fail1[i], 15); 
             System.out.println("\n");
         }
-
-        //playSuccessOrFailNarration(fail1);
 
     }
 
@@ -73,12 +64,9 @@ public class LibraryNarration {
         };
 
         for (int i = 0; i < quest3.length; i++) {
-            //scanner.nextLine(); 
             printDelayHandler.printWithDelay(quest3[i], 15); 
             System.out.println("\n");
         }
-
-        //playDialogueNarration(quest3);
 
     }
 
@@ -100,14 +88,6 @@ public class LibraryNarration {
         for (int i = 0; i < riddle.length; i++) {  
             printDelayHandler.printLineWithDelay(riddle[i], 25); 
         }
-
-        /*System.out.println("┌───────────────────────────────────────────────────┐");
-        System.out.println("│   Nang maliit ay mestiso, nang lumaki'y negro    │");
-        System.out.println("└───────────────────────────────────────────────────┘");
-        System.out.println("┌─────────────────────────────────────────────────────────┐");
-        System.out.println("│   When young was fair-skinned, when grown became dark.  │");
-        System.out.println("└─────────────────────────────────────────────────────────┘");
-        */
 
         while (continueInput) {
             try {
@@ -172,16 +152,6 @@ public class LibraryNarration {
             printDelayHandler.printLineWithDelay(riddle[i], 25); 
         }
 
-        /*System.out.println("┌────────────────────────────────────────────────────────────┐");
-        System.out.println("│   Walang ulo, walang mata, may bibig na laging umaariba,   │");
-        System.out.println("│               At isang tenga na bubuka-buka                │");
-        System.out.println("└────────────────────────────────────────────────────────────┘");
-        System.out.println("  ┌───────────────────────────────────────────────────────┐");
-        System.out.println("  │   No head, no eyes, a mouth that's always roaring,   │");
-        System.out.println("  │           And an ear that opens and closes.           │");
-        System.out.println("  └───────────────────────────────────────────────────────┘");
-        */
-
         while (continueInput) {
             try {
                 System.out.print("-->| ");
@@ -243,15 +213,6 @@ public class LibraryNarration {
         for (int i = 0; i < riddle.length; i++) {  
             printDelayHandler.printLineWithDelay(riddle[i], 25); 
         }
-
-
-        /*System.out.println("┌──────────────────────────────────────────────────────────────┐");
-        System.out.println("│   Duguang buhok ni Letecia, sinipsip ng kanyang mga bisita   │");
-        System.out.println("└──────────────────────────────────────────────────────────────┘");
-        System.out.println("  ┌────────────────────────────────────────────────────────┐");
-        System.out.println("  │   Letecia's bloody hair was sucked by her visitors.   │");
-        System.out.println("  └────────────────────────────────────────────────────────┘");
-        */
 
         while (continueInput) {
             try {

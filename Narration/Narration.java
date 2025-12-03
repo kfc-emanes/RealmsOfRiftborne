@@ -256,34 +256,6 @@ public class Narration{
         System.out.println();
     }
 
-
-    public void swordsmanStats() { // implemented through revision
-        System.out.println();
-        System.out.println("┌───────────────────────────────────────────┐");
-        System.out.println("│      Kael Solmere - The Blade of Dawn     │");
-        System.out.println("│               Combat Overview             │");
-        System.out.println("│-------------------------------------------│");
-        System.out.println("│  Swordsman (Max Level: 60)                │");
-        System.out.println("│  Basic Attack                             │");
-        System.out.println("│  Skill 1 - Blade Dance                    │");
-        System.out.println("│  Skill 2 - Blinding Silhouette            │");
-        System.out.println("│  Ultimate - Shattered Sun                 │");
-        System.out.println("│                                           │");
-        System.out.println("│  HP (Health Points): 4000                 │");
-        System.out.println("│  MP (Mana Points):    700                 │");
-        System.out.println("│  ATK (Attack):        500                 │");
-        System.out.println("│  DEF (Defence):       350                 │");
-        System.out.println("│  SPD (Speed):         200                 │");
-        System.out.println("└───────────────────────────────────────────┘");
-
-        System.out.println("┌──────────────────────────────┐");
-        System.out.println("│   Press ENTER to continue    │");
-        System.out.println("└──────────────────────────────┘");
-        scanner.nextLine();
-        System.out.println();
-
-    }
-
     public void swordsmanBackstory() { // implemented with print delay
         String[] lines = {
             "┌───────────────────────────────────────────────────────────────────────────────┐",
@@ -360,34 +332,6 @@ public class Narration{
         System.out.println();
     }
 
-
-    public void gunnerStats() { // implemented through revision
-        System.out.println();
-        System.out.println("┌───────────────────────────────────────────┐");
-        System.out.println("│       Aria Caelith - The Void's Eye       │");
-        System.out.println("│       Sharpshooter's Combat Overview      │");
-        System.out.println("│-------------------------------------------│");
-        System.out.println("│  Gunner (Max LeveL: 60)                   │");
-        System.out.println("│  Basic Attack                             │");
-        System.out.println("│  Skill 1 - Flurry Shots                   │");
-        System.out.println("│  Skill 2 - Frostwind Bullet               │");
-        System.out.println("│  Ultimate - Judgement Phantom             │");
-        System.out.println("│                                           │");
-        System.out.println("│  HP (Health Points): 4000                 │");
-        System.out.println("│  MP (Mana Points):    600                 │");
-        System.out.println("│  ATK (Attack):        450                 │");
-        System.out.println("│  DEF (Defence):       300                 │");
-        System.out.println("│  SPD (Speed):         200                 │");
-        System.out.println("└───────────────────────────────────────────┘");
-
-        System.out.println("┌──────────────────────────────┐");
-        System.out.println("│   Press ENTER to continue    │");
-        System.out.println("└──────────────────────────────┘");
-        scanner.nextLine();
-        System.out.println();
-
-    }
-
     public void gunnerBackstory() { // implemented with time delay
 
         String[] lines = {
@@ -422,37 +366,6 @@ public class Narration{
             "│   Press ENTER to continue    │",
             "└──────────────────────────────┘"
         };
-
-
-        /*String[] lines = {
-            "┌───────────────────────────────────────────────────────┐",
-            "│              Aria Caelith - The Void's Eye            |",
-            "│                       Backstory                       │",
-            "├───────────────────────────────────────────────────────┤",
-            "│                                                       │",
-            "│ Aria Caelith grew up in the lawless outskirts of      │",
-            "│ Luthien, where survival demanded more than courage -  │",
-            "│ it demanded precision and ruthlessness. Trained from  │",
-            "│ a young age in firearms and tactical combat, he       │",
-            "│ quickly became a feared gunner and mercenary.         │",
-            "│                                                       │",
-            "│ His family was torn apart by betrayal and political   │",
-            "│ schemes, leaving Aria to forge his own path in a      │",
-            "│ world that respected only strength and cunning.       │",
-            "│                                                       │",
-            "│ Obsessed with the Kim Morvain, an artifact of immense │",
-            "│ destructive potential, he walks the line between      │",
-            "│ vigilante and outlaw, using every shot and strategy   │",
-            "│ to ensure his survival and enforce his own brand of   │",
-            "│ justice. In the shadows, his name is both feared and  │",
-            "│ whispered -Aria Caelith, the gunner who never misses. │",
-            "│                                                       │",
-            "└───────────────────────────────────────────────────────┘",
-            "┌──────────────────────────────┐",
-            "│   Press ENTER to continue    │",
-            "└──────────────────────────────┘"
-        };
-        */
 
         System.out.println(); 
 
@@ -511,68 +424,6 @@ public class Narration{
         scanner.nextLine(); 
         System.out.println();
     }
-
-    public void mageStats() { // implemented with print delay
-
-        String[] lines = {
-            "┌───────────────────────────────────────────┐",
-            "│ Selene Arclight - Weaver of Arcane Flames │",
-            "│        Mage's Combat Overview             │",
-            "│-------------------------------------------│",
-            "│  Mage (Max Level: 60)                     │",
-            "│  Basic Attack                             │",
-            "│  Skill 1 - Stellar Shard                  │",
-            "│  Skill 2 - Chains of Starlight            │",
-            "│  Ultimate - Astral Cataclysm              │",
-            "│                                           │",
-            "│  HP (Health Points): 4000                 │",
-            "│  MP (Mana Points):   1000                 │",
-            "│  ATK (Attack):        550                 │",
-            "│  DEF (Defence):       180                 │",
-            "│  SPD (Speed):         200                 │",
-            "└───────────────────────────────────────────┘",
-            "┌──────────────────────────────┐",
-            "│   Press ENTER to continue    │",
-            "└──────────────────────────────┘"
-        };
-
-        System.out.println(); 
-
-        for (int i = 0; i < lines.length; i++) {
-            printLineWithDelay(lines[i], 25);
-        }
-
-        scanner.nextLine(); 
-        System.out.println();
-    }
-
-
-    /*public void mageStats() { // implemented through revision
-        System.out.println();
-        System.out.println("┌───────────────────────────────────────────┐");
-        System.out.println("│ Selene Arclight - Weaver of Arcane Flames │");
-        System.out.println("│        Mage's Combat Overview             │");
-        System.out.println("│-------------------------------------------│");
-        System.out.println("│  Mage (Max Level: 60)                     │");
-        System.out.println("│  Basic Attack                             │");
-        System.out.println("│  Skill 1 - Stellar Shard                  │");
-        System.out.println("│  Skill 2 - Chains of Starlight            │");
-        System.out.println("│  Ultimate - Astral Cataclysm              │");
-        System.out.println("│                                           │");
-        System.out.println("│  HP (Health Points): 4000                 │");
-        System.out.println("│  MP (Mana Points):   1000                 │");
-        System.out.println("│  ATK (Attack):        550                 │");
-        System.out.println("│  DEF (Defence):       180                 │");
-        System.out.println("│  SPD (Speed):         200                 │");
-        System.out.println("└───────────────────────────────────────────┘");
-        System.out.println("┌──────────────────────────────┐");
-        System.out.println("│   Press ENTER to continue    │");
-        System.out.println("└──────────────────────────────┘");
-        scanner.nextLine();
-        System.out.println();
-
-    }
-        */
 
     public void mageBackstory() { // implemented with print delay
 
@@ -642,16 +493,10 @@ public class Narration{
                         return;
 
                     case 'n':
-                        /*System.out.println();
-                        System.out.println("┌─────────────────────────────┐");
-                        System.out.println("│   Press Enter to continue   │");
-                        System.out.println("└─────────────────────────────┘");
-                        */
 
                         blankSeparators(blankLines, 50);
 
                         for (int i = 0; i < section.length; i++) {
-                            //scanner.nextLine(); 
                             printWithDelay(section[i], 10); 
                             System.out.println("\n");
                         }
@@ -735,72 +580,15 @@ public class Narration{
     public void blankSeparators(String arr[], int num) {
 
         for (int i = 0; i < arr.length; i++) {
-            //scanner.nextLine(); 
             printLineWithDelay(arr[i], num); 
-            //System.out.println("\n");
         }
     }
 
     public void characterSeparators(String arr[], int num) {
 
         for (int i = 0; i < arr.length; i++) {
-            //scanner.nextLine(); 
             printWithDelay(arr[i], num); 
-            //System.out.println("\n");
         }
     }
-
-
-    // Array Iteration in order to avoid for loop usage repitition
-    /* 
-    public static void playSection(String[] section) {
-        while (true) {
-            try {
-                System.out.println();
-                System.out.println("┌───────────────────────────────────────────┐");
-                System.out.println("│   Do you want to skip narration? (y/n):   │");
-                System.out.println("└───────────────────────────────────────────┘");
-                System.out.print("-->| ");
-
-                String input = scanner.nextLine().trim();
-                if (input.isEmpty()) input = " ";
-                char skipChoice = input.charAt(0);
-
-                switch (skipChoice) {
-                    case 'y':
-                        System.out.println("┌───────────────────────┐");
-                        System.out.println("│   Narration skipped   │");
-                        System.out.println("└───────────────────────┘");
-                        return;
-
-                    case 'n':
-                        System.out.println();
-                        System.out.println("┌─────────────────────────────┐");
-                        System.out.println("│   Press Enter to continue   │");
-                        System.out.println("└─────────────────────────────┘");
-
-                        for (String line : section) {
-                            scanner.nextLine();
-                            System.out.println(line);
-                        }
-                        System.out.println(); 
-                        return; 
-                    
-                    default:
-                        System.out.println();
-                        System.out.println("┌────────────────────────────────────────┐");
-                        System.out.println("│   Choice unclear! Enter 'y' or 'n'.    │");
-                        System.out.println("└────────────────────────────────────────┘");
-                        break;
-                }
-            } catch (Exception e) {
-                System.out.println();
-                System.out.println("┌──────────────────────────────────────────────┐");
-                System.out.println("│   An unexpected error occurred. Try again.   │");
-                System.out.println("└──────────────────────────────────────────────┘");
-                scanner.nextLine(); 
-            }
-        }
-    }
-        */
+    
 }

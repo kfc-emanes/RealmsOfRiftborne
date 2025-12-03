@@ -3,7 +3,6 @@ package Menu;
 import Hero.*;
 import Narration.*;
 import Area.*;
-import Shop.*;
 import DesignRelated.*;
 
 import java.util.Scanner;
@@ -17,22 +16,14 @@ public class Menu extends Narration {
         ForestOfReverie forest = new ForestOfReverie();
         ReveriesEdge reverieEdge = new ReveriesEdge();
         ForsakenLands forsakenLands = new ForsakenLands();
-        //IntroTitle exitHandler = new IntroTitle();
         ShopRelated shopPromptHandler = new ShopRelated();
         MenuRelated menuRelatedHandler = new MenuRelated();
         AreaRelated areaHandler = new AreaRelated();
-        //MagePlot magePlotHandler = new MagePlot();
         InnerCharacterMenu innerCharacterMenuHandler = new InnerCharacterMenu();
-        Shop shop = new Shop();
-
         IntroTitle loadHandler = new IntroTitle();
         Narration separatorHandler = new Narration();
 
         separatorHandler.promptSeparator();
-
-        //Stats stats = new Stats(); for testing
-
-        //stats.forRevision1(hero); for testing
 
         while(true){
 
@@ -47,41 +38,15 @@ public class Menu extends Narration {
                 switch (mainMenuChoice){
                     case 1:
 
-                        //mapHandler.academyMap();
-
-                        //separatorHandler.promptSeparator();
-
                         if (!hero.hasVisitedAcademy()) {
                             academyNarration();
                             hero.setHasVisitedAcademy(true);
-                        } 
-
-                        /*System.out.println();
-                        System.out.println();
-                        System.out.println("     ┌────────────────────────────────────┐");
-                        System.out.println("     │   You are now inside the Academy   │");
-                        System.out.println("     └────────────────────────────────────┘");
-                        System.out.println("         ┌────────────────────────────┐");
-                        System.out.println("         │   Let the magic guide you  │");
-                        System.out.println("         └────────────────────────────┘");
-                        System.out.println();
-                        System.out.println();
-                        */
-
-                        /*if(hero.getHaveDefeatedArea3Boss()) {
-
-                            if(hero.getMageCharacterChosen()) {
-                                magePlotHandler.mageEndingPlot();
-                            }
-
-                        }
-                            */
-                            
+                        }  
                         
                         handler.academyMapMenu(hero);
                         break;
 
-                    case 2:
+                    /*case 2:
 
                         separatorHandler.promptSeparator();
                         shopPromptHandler.shopPrompt();
@@ -101,13 +66,12 @@ public class Menu extends Narration {
                             hero.setConversedWithShop(true);
                         }
 
-                        //shopFunction();
                         shop.shop(hero);
                         break;
+                    */
 
-                    case 3:
-                        boolean isInventoryEmpty = true; // default case since wala pay inventory
-
+                    case 2:
+                
                         separatorHandler.promptSeparator();
                         shopPromptHandler.inventoryPrompt();
 
@@ -116,19 +80,19 @@ public class Menu extends Narration {
                             hero.setHasOpenedInventory(true);
                         }
 
-                        if(!isInventoryEmpty){
+                        if(!hero.getInventory().isEmpty()){
                             System.out.println("┌───────────────────────────────────────┐");
                             System.out.println("│      Hmmm. Nothing to see here.       │");
                             System.out.println("│   Go shop if you want to own items.   │");
                             System.out.println("└───────────────────────────────────────┘");
                         } else{
-                            //inventoryFunction();
+
                             hero.getInventory().inventory();
                         }
 
                         break;
 
-                    case 4:
+                    case 3:
 
                         loadHandler.loadGame();
 
@@ -158,7 +122,7 @@ public class Menu extends Narration {
 
                         break;
 
-                    case 5:
+                    case 4:
 
                         loadHandler.loadGame();
 
@@ -188,7 +152,7 @@ public class Menu extends Narration {
 
                         break;
 
-                    case 6:
+                    case 5:
 
                         loadHandler.loadGame();
 
@@ -218,7 +182,7 @@ public class Menu extends Narration {
 
                         break;
 
-                    case 7:
+                    case 6:
 
                         separatorHandler.promptSeparator();
 
@@ -247,10 +211,8 @@ public class Menu extends Narration {
                         break;
                         
 
-                    case 8:
+                    case 7:
                         boolean confirmExit = true;
-
-                        //separatorHandler.promptSeparator();
 
                         while(confirmExit) {
                             System.out.println("┌───────────────────────────────────────────────────┐");
@@ -266,9 +228,9 @@ public class Menu extends Narration {
                                     case "y":
                                     case "Y":
 
-                                        //separatorHandler.promptSeparator();
                                         loadHandler.exitGame();
-                                        //exitHandler.exitingUnfinishedGame();
+                                        separatorHandler.promptSeparator();
+                                        loadHandler.mystvaleOutroTitle();
 
                                         System.exit(0);
                                         break;

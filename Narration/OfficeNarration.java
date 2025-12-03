@@ -17,7 +17,7 @@ public class OfficeNarration {
             "\"Good day, student,\" the secretary names Niña Montel says, her quill hovering over a glowing parchment.",
             "\"Before seeing Principal Nemeesha, I must verify your experience.\"",
             "She gestures, and a soft light surrounds you as numbers and symbols float in the air.",
-            "\"Let\'s see… your experience will decide if you may proceed.\""
+            "\"Let\'s see... your experience will decide if you may proceed.\""
         };
         
         playEligibleNarration(principalOfficeNarration);
@@ -50,7 +50,7 @@ public class OfficeNarration {
         String[] area3Principal = {
             "Principal Nemeesha's tone grows solemn as she regards you.",
             "\"You\'ve reached a rare level of mastery,\" she says quietly. \"The Forsaken Lands now awaits you.\"",
-            "\"Beyond its gates lie trials unlike any other. Step forward with courage — and wisdom.\""
+            "\"Beyond its gates lie trials unlike any other. Step forward with courage - and wisdom.\""
         };
 
         playEligibleNarration(area3Principal);
@@ -68,7 +68,6 @@ public class OfficeNarration {
         separatorHandler.promptSeparatorResized();
 
         for (int i = 0; i < arr.length; i++) {
-            //scanner.nextLine(); 
             printDelayHandler.printWithDelay(arr[i], 15); 
             System.out.println("\n");
         }

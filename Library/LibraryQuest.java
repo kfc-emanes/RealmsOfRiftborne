@@ -20,32 +20,14 @@ public class LibraryQuest extends LibraryNarration{
 
     public void findTheLostBook(Hero hero) {
         separatorHandler.promptSeparatorResized();
-
-        //questsHandler.bookFinding();
         separatorHandler.promptSeparatorResized();
         
-        /*System.out.println("┌────────────────────────────┐");
-        System.out.println("│   + Find The Lost Book +   │");
-        System.out.println("└────────────────────────────┘");
-        */
-
         boolean found = false;
 
         while (!found) {
             try {
 
                 bookMenuHandler.bookFindingMenu();
-
-                /*System.out.println("+-------------------------------------+");
-                System.out.println("|   The lost book could be here...    |");
-                System.out.println("+-------------------------------------+");
-                System.out.println("| [1] Shelf Fiction                   |");
-                System.out.println("| [2] Shelf Science                   |");
-                System.out.println("| [3] Shelf Mythology                 |");
-                System.out.println("| [4] Shelf Magic and Spells          |");
-                System.out.println("| [5] Shelf History                   |");
-                System.out.println("+-------------------------------------+");
-                */
                 System.out.print("-->| ");
 
                 int shelfChoice = Integer.parseInt(scanner.nextLine());
@@ -171,12 +153,6 @@ public class LibraryQuest extends LibraryNarration{
     public void riddles(Hero hero){
 
         separatorHandler.promptSeparatorResized();
-        /*System.out.println("┌────────────────────────────┐");
-        System.out.println("│   + Decode The Riddles +   │");
-        System.out.println("└────────────────────────────┘");
-        */
-
-        //questsHandler.riddles();
 
         if(hero.isRiddle1Done() && hero.isRiddle2Done() && hero.isRiddle3Done()) {
             System.out.println("┌───────────────────────────────────────────────────┐");
@@ -239,7 +215,6 @@ public class LibraryQuest extends LibraryNarration{
         System.out.println("Press ENTER to continue...");
 
         for (int i = 0; i < array.length; i++) {
-            //scanner.nextLine(); 
             printDelayHandler.printWithDelay(array[i], 10); 
             System.out.println("\n");
         }

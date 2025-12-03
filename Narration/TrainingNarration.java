@@ -12,7 +12,7 @@ public class TrainingNarration {
     public void exploreNarration(){
 
         String[] exploreGym = {
-            "As you enter the Training Ground\'s left wing, the Training Ground bursts with activity - students duel with wands, spar hand-to-hand, and clash swords at the center.",
+            "As you enter the Training Ground\'s left wing, the Training Ground bursts with activity -\nstudents duel with wands, spar hand-to-hand, and clash swords at the center.",
             "Thunderous shots echo from a warded enclosure where firearms meet magic.",
             "A tall coach steps forward, eyes sharp. \"You\'re not part of the current training batch, are you?\"",
             "They study your stance. \"Untaught, but solid. Are you here to watch or to learn?\"",

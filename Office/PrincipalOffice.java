@@ -12,7 +12,6 @@ public class PrincipalOffice extends StatProgress {
     private GunnerPlot gunnerPlotHandler = new GunnerPlot();
     private MagePlot magePlotHandler = new MagePlot();
     private Scanner scanner = new Scanner(System.in);
-    //private Narration separatorHandler = new Narration();
 
     public void principalOffice(Hero hero){
         
@@ -25,7 +24,6 @@ public class PrincipalOffice extends StatProgress {
         System.out.println("┌──────────────────────────────────────────────┐");
         System.out.println("│   Determining your elegibility. Standby~~~   │");
         System.out.println("└──────────────────────────────────────────────┘");
-        //separatorHandler.promptSeparatorResized();
 
 
         boolean eligible = false;
@@ -38,13 +36,14 @@ public class PrincipalOffice extends StatProgress {
                 System.out.println("┌──────────────────────────────────────────────────┐");
                 System.out.println("│   + You may now enter The Forest of Reverie +    │");
                 System.out.println("└──────────────────────────────────────────────────┘");
-                System.out.println("Press ENTER to claim rewards...");
+                System.out.println("| Press ENTER to claim rewards... |");
+                scanner.nextLine();
                 scanner.nextLine();
 
                 currencyProgress(hero);
 
                 eligible = true;
-            } else if (!hero.canEnterArea2() && hero.canEnterArea1() && hero.getHaveDefeatedArea1Boss()) { // else if. set as if for testing
+            } else if (!hero.canEnterArea2() && hero.canEnterArea1() && hero.getHaveDefeatedArea1Boss()) { 
                
 
                 narrationHandler.area2Eligible();
@@ -62,7 +61,8 @@ public class PrincipalOffice extends StatProgress {
                 System.out.println("┌───────────────────────────────────────────┐");
                 System.out.println("│   + You may now enter The Reverie Edge +  │");
                 System.out.println("└───────────────────────────────────────────┘");
-                System.out.println("Press ENTER to claim rewards...");
+                System.out.println("| Press ENTER to claim rewards... |");
+                scanner.nextLine();
                 scanner.nextLine();
 
                 currencyProgress(hero);
@@ -86,7 +86,8 @@ public class PrincipalOffice extends StatProgress {
                 System.out.println("┌───────────────────────────────────────────────┐");
                 System.out.println("│   + You may now enter The Forsaken Lands +    │");
                 System.out.println("└───────────────────────────────────────────────┘");
-                System.out.println("Press ENTER to claim rewards...");
+                System.out.println("| Press ENTER to claim rewards... |");
+                scanner.nextLine();
                 scanner.nextLine();
 
                 currencyProgress(hero);

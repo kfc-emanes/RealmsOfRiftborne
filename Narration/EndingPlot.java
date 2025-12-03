@@ -15,9 +15,13 @@ public class EndingPlot {
 
     public void generalEndingPlot(Hero hero) {
 
-        swordsmanPlotHandler.swordsManEndingPlot();
-        //gunnerPlotHander.gunnerEndingPlot();
-        //magePlotHandler.mageEndingPlot();
+        if (hero.getSwordmanCharacterChosen()) {
+            swordsmanPlotHandler.swordsManEndingPlot();
+        } else if (hero.getGunnerCharacterChosen()) {
+            gunnerPlotHander.gunnerEndingPlot();
+        } else if (hero.getMageCharacterChosen()) {
+            magePlotHandler.mageEndingPlot();
+        }
 
         loadHandler.startGame();
         promptSeparatorHandler.promptSeparator();
@@ -26,11 +30,5 @@ public class EndingPlot {
         System.exit(0);
 
     }
-
-
-
-
-
-
 
 }

@@ -3,7 +3,6 @@ package DesignRelated;
 public class Quests {
     
     public void riddles() {
-        // to be implemented
         System.out.println("                   ┌────────────────────────────┐");
         System.out.println("                   │   + Decode The Riddles +   │");
         System.out.println("          ░░░░░░░░ └────────────────────────────┘");
@@ -36,7 +35,6 @@ public class Quests {
     }
 
     public void bookFinding() {
-        // to be implemented
         System.out.println("                                 ┌────────────────────────────┐                                    ");
         System.out.println("                                 │   + Find The Lost Book +   │                                    ");
         System.out.println("                                 └────────────────────────────┘                                     ");

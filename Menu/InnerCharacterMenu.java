@@ -64,23 +64,10 @@ public class InnerCharacterMenu extends Narration{
 
                                     loadReset.resetGame();
 
-                                    /*System.out.println();
-                                    System.out.println();
-                                    System.out.println("      ┌────────────────────────────────────────────────────────────────────┐");
-                                    System.out.println("      │   The fates allow you to choose again. Another destiny awaits...   │");
-                                    System.out.println("      └────────────────────────────────────────────────────────────────────┘");
-                                    System.out.println();
-                                    System.out.println();
-                                    */
-
                                     hero.resetAllProgress();
 
-                                     //hero.resetCharacterFlags();
                                     CharacterMenu characterMenuHandler = new CharacterMenu();
-                                    //hero = characterMenuHandler.chooseCharacterMenu();
-                                    //hero.setSwordmanCharacterChosen(false);
-                                    //return new Swordsman();
-
+                                
                                     hero = characterMenuHandler.chooseCharacterMenu();
                                     hero.setSwordmanCharacterChosen(hero instanceof Swordsman);
                                     hero.setMageCharacterChosen(false);
@@ -191,23 +178,10 @@ public class InnerCharacterMenu extends Narration{
 
                                     loadReset.resetGame();
 
-                                    /*System.out.println();
-                                    System.out.println();
-                                    System.out.println("      ┌────────────────────────────────────────────────────────────────┐");
-                                    System.out.println("      │   The visions shift... perhaps another path calls your name.   │");
-                                    System.out.println("      └────────────────────────────────────────────────────────────────┘");
-                                    System.out.println();
-                                    System.out.println();
-                                    */
-
                                     hero.resetAllProgress();
 
-                                    //hero.resetCharacterFlags();
                                     CharacterMenu characterMenuHandler = new CharacterMenu();
-                                    //hero = characterMenuHandler.chooseCharacterMenu();
-                                    //hero.setGunnerCharacterChosen(false);
-                                    //return new Gunner();
-
+                                
                                     hero = characterMenuHandler.chooseCharacterMenu();
                                     hero.setSwordmanCharacterChosen(false);
                                     hero.setMageCharacterChosen(false);
@@ -317,22 +291,9 @@ public class InnerCharacterMenu extends Narration{
                                 if (willChangePlayer.equalsIgnoreCase("y")) {
 
                                     loadReset.resetGame();
-
-                                    /*System.out.println();
-                                    System.out.println();
-                                    System.out.println("      ┌───────────────────────────────────────────────────────────────────────────┐");
-                                    System.out.println("      │   The scrolls fade from your grasp -  you seek another legend to become.  │");
-                                    System.out.println("      └───────────────────────────────────────────────────────────────────────────┘");
-                                    System.out.println();
-                                    System.out.println();
-                                    */
-
                                     hero.resetAllProgress();
-                                     //hero.resetCharacterFlags();
+                                   
                                     CharacterMenu characterMenuHandler = new CharacterMenu();
-                                     //hero = characterMenuHandler.chooseCharacterMenu();
-                                    //hero.setMageCharacterChosen(false);
-                                    //return new Mage();
 
                                     hero = characterMenuHandler.chooseCharacterMenu();
                                     hero.setSwordmanCharacterChosen(false);

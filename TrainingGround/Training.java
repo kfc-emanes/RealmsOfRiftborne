@@ -51,8 +51,6 @@ public class Training {
                 
                 wouldAccept = scanner.nextLine().trim();
 
-                //if (scanner.hasNextLine()) scanner.nextLine();
-
                 if(wouldAccept.isEmpty()) {
                     continue;
                 }
@@ -137,8 +135,6 @@ public class Training {
                     
                     continueChoice = scanner.nextLine().trim();
 
-                    //if (scanner.hasNextLine()) scanner.nextLine();
-
                     if(continueChoice.isEmpty()) {
                         continue;
                     }
@@ -185,12 +181,6 @@ public class Training {
                                     hero.setFinishedAllTraining(false);
 
                                     separatorHandler.promptSeparatorResized();
-                                    /*System.out.println();
-                                    System.out.println("┌──────────────────────────────────────┐");
-                                    System.out.println("│   >>> Your progress was reset <<<    │");
-                                    System.out.println("└──────────────────────────────────────┘");
-                                    separatorHandler.promptSeparatorResized();
-                                    */
 
                                 }
 
@@ -297,33 +287,11 @@ public class Training {
             System.out.println("│      You\'ve fallen this time      │");
             System.out.println("│    Ready to give it another go?   │");
             System.out.println("└───────────────────────────────────┘");
-            //separatorHandler.promptSeparatorResized();
 
         }
     }
 
     public void generalTrainingPrompt(Hero hero, String trainingType){
-
-        /*System.out.println();
-        System.out.println("┌───────────────────────────────────┐");
-        System.out.println("│   >>> Training is on-going <<<    │");
-        System.out.println("│      Press Enter to continue      │");
-        System.out.println("└───────────────────────────────────┘");
-
-        String[] timeDelay = {
-            "-- >>> Battle is on going... Please wait... <<< --", 
-            "-- >>> Battle is on going... Please wait... <<< --", 
-            "-- >>> Battle is on going... Please wait... <<< --", 
-            "-- >>> Battle is on going... Please wait... <<< --", 
-            "-- >>> Battle is on going... Please wait... <<< --"
-        };
-        
-
-        for(int i = 0; i < timeDelay.length; i++){
-            scanner.nextLine();
-            System.out.println(timeDelay[i]);
-        }
-            */
 
         loadHandler.onGoingBattle();
             

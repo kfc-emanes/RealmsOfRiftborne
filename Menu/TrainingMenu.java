@@ -38,11 +38,6 @@ public class TrainingMenu {
 
                 switch (choice) {
                     case 1:
-                        /*System.out.println();
-                        System.out.println("┌────────────────────────────┐");
-                        System.out.println("│   + Endurance Training +   │");
-                        System.out.println("└────────────────────────────┘");
-                        */
 
                         if (hero.hasFinishedEndurance()) {
                             System.out.println();
@@ -64,11 +59,6 @@ public class TrainingMenu {
                         break;
 
                     case 2:
-                        /*System.out.println();
-                        System.out.println("┌───────────────────────────┐");
-                        System.out.println("│   + Strength Training +   │");
-                        System.out.println("└───────────────────────────┘");
-                        */
 
                         if (hero.hasFinishedStrength()) {
                             System.out.println();
@@ -90,11 +80,6 @@ public class TrainingMenu {
                         break;
 
                     case 3:
-                        /*System.out.println();
-                        System.out.println("┌───────────────────────────────┐");
-                        System.out.println("│    + Durability Training +    │");
-                        System.out.println("└───────────────────────────────┘");
-                        */
 
                         if (hero.hasFinishedDurability()) {
                             System.out.println();
@@ -106,7 +91,8 @@ public class TrainingMenu {
                             System.out.println("│   Press ENTER to continue    │");
                             System.out.println("└──────────────────────────────┘");
                             scanner.nextLine();
-
+                            scanner.nextLine();
+                            
                             loadHandler.loadGame();
                             separatorHandler.promptSeparator();
                         } else {
@@ -116,11 +102,6 @@ public class TrainingMenu {
                         break;
 
                     case 4:
-                        /*System.out.println();
-                        System.out.println("┌──────────────────────────────────┐");
-                        System.out.println("│   + Mana Refinement Training +   │");
-                        System.out.println("└──────────────────────────────────┘");
-                        */
 
                         if (hero.hasFinishedManaRefinement()) {
                             System.out.println();

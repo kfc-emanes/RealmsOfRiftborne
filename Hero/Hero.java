@@ -645,10 +645,10 @@ public class Hero {
 
     // Area Progress
     // Office Progress______________________________________________________________________________
-    private boolean canEnterArea1 = true; // false original
-    private boolean canEnterArea2 = true;
-    private boolean canEnterArea3 = true;
-    private boolean haveEntered = true;
+    private boolean canEnterArea1 = false; // false original
+    private boolean canEnterArea2 = false;
+    private boolean canEnterArea3 = false;
+    private boolean haveEntered = false;
 
     public boolean haveEntered() {
         return haveEntered;
@@ -684,9 +684,9 @@ public class Hero {
 
     // Modified Area Progress _________________________________________________________________________
 
-    private boolean haveDefeatedArea1Boss = true; // default for checking
-    private boolean haveDefeatedArea2Boss = true; // default for checking
-    private boolean haveDefeatedArea3Boss = true; // default for checking
+    private boolean haveDefeatedArea1Boss = false; 
+    private boolean haveDefeatedArea2Boss = false; 
+    private boolean haveDefeatedArea3Boss = false; 
 
     public void setHaveDefeatedArea1Boss(boolean haveDefeatedArea1Boss) {
         this.haveDefeatedArea1Boss = haveDefeatedArea1Boss;
@@ -704,11 +704,11 @@ public class Hero {
         return haveDefeatedArea2Boss;
     }
 
-    public void setHaveDefeatedArea3Boss(boolean haveDefeatedArea3Boss) { // still in progress
+    public void setHaveDefeatedArea3Boss(boolean haveDefeatedArea3Boss) { 
         this.haveDefeatedArea3Boss = haveDefeatedArea3Boss;
     }
 
-    public boolean getHaveDefeatedArea3Boss() { // still in progress
+    public boolean getHaveDefeatedArea3Boss() { 
         return haveDefeatedArea3Boss;
     }
     
@@ -719,7 +719,7 @@ public class Hero {
     private boolean finishedDurability = false;
     private boolean finishedManaRefinement = false;
     private int numberOfTrainingFinished = 0;
-    private boolean finishedAllTraining = false; // default for checking
+    private boolean finishedAllTraining = false; 
     private boolean haveExploredButExited = false;
     private boolean haveAcceptedButExited = false;
 
@@ -891,11 +891,11 @@ public class Hero {
     this.riddle3Done = false;
 
     // Reset area progress
-    this.canEnterArea1 = true;
+    this.canEnterArea1 = false;
     this.canEnterArea2 = false;
     this.canEnterArea3 = false;
     this.haveEntered = false;
-    this.haveDefeatedArea1Boss = true;
+    this.haveDefeatedArea1Boss = false;
     this.haveDefeatedArea2Boss = false;
     this.haveDefeatedArea3Boss = false;
 
@@ -905,7 +905,7 @@ public class Hero {
     this.finishedDurability = false;
     this.finishedManaRefinement = false;
     this.numberOfTrainingFinished = 0;
-    this.finishedAllTraining = true;
+    this.finishedAllTraining = false;
     this.haveExploredButExited = false;
     this.haveAcceptedButExited = false;
 

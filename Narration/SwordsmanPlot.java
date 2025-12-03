@@ -28,7 +28,7 @@ public class SwordsmanPlot {
             "Narration: The principal rests a hand on your shoulder, voice soft.",
             "Principal: \"You must learn your family's truth... but remember - truth cuts deeper than any blade.\"",
             "Narration: As you leave, the air feels colder. A faint echo follows you - your name, spoken by a voice you no longer recognize.",
-            "Narration: With this revelation, a new path unfolds. The seals guarding The Reverie's Edge now recognize your strength and lineage.\nYou are eligible to enter Area 2. Beyond its gates, greater challenges and truths await."
+            "Narration: With this revelation, a new path unfolds. The seals guarding The Reverie's Edge now recognize your strength and lineage.\nYou are eligible to enter Reveries Edge. Beyond its gates, greater challenges and truths await."
         };
 
         swordsmanPlotNarration(afterArea1Narration1);
@@ -109,6 +109,7 @@ public class SwordsmanPlot {
         swordsmanAfterArea3();
 
         System.out.println("Are you willing to sacrifice yourself? (y/n)");
+        System.out.print("-->|");
         String choice = scanner.nextLine();
 
         if(choice.equalsIgnoreCase("y")) {

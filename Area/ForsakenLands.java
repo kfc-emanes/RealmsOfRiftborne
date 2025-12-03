@@ -4,6 +4,8 @@ import Boss.*;
 import DesignRelated.*;
 import Hero.*;
 import Mobs.*;
+import Narration.*;
+
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -19,6 +21,9 @@ public class ForsakenLands {
     boolean exit = false;
     int goldGained, expGained;
     int currentArea = 0;
+
+    Narration separatorHandler =  new Narration();
+    EndingPlot endingplotHandler = new EndingPlot();
 
     public void enter(Hero hero) {
         hero.setLevel(55); // for testing
@@ -372,6 +377,9 @@ public class ForsakenLands {
                             System.out.println("With Kim Morvain defeated, a radiant light pierces the Forsaken Lands...");
                             System.out.println("Life begins to return, and hope is rekindled in your heart.");
                             System.out.println("You have unlocked the Special Ending: 'Rebirth of the Forsaken Lands'!");
+
+                            separatorHandler.promptSeparator();
+                            endingplotHandler.generalEndingPlot(hero);
                             // insert end game prompts here
                             System.out.println();
                         } else {

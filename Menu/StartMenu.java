@@ -32,7 +32,6 @@ public class StartMenu extends Narration {
 
                 switch (startMenuChoice) {
                     case 1:
-                        //introDisplayHander.startingTheGame();
 
                         if (!hasVisitedPrologue) {
                             prologueNarration();
@@ -46,7 +45,8 @@ public class StartMenu extends Narration {
                     case 2:
                         
                         loadGameHandler.exitGame();
-                        //introDisplayHander.exitingTheGame();
+                        separatorHandler.promptSeparator();
+                        loadGameHandler.mystvaleOutroTitle();
                         
                         return false;
 

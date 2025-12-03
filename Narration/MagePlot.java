@@ -24,7 +24,7 @@ public class MagePlot {
             "Selene: \"...So every incantation I used to survive, every burst of power... it could have been a beacon to him?\"",
             "Principal Voss: \"Yes. The curse was never just a torment - it\'s a leash. And you have walked it blindly until now.\"",
             "Narration: Your jaw tightens. Anger, guilt, and determination mingle in a sudden, hot surge.",
-            "Selene: \"...Then it ends. I will turn my own magic into the weapon he can\'t control. Every spell, every ounce of power - it will be mine to wield. And he will pay.\"",
+            "Selene: \"...Then it ends. I will turn my own magic into the weapon he can\'t control.\nEvery spell, every ounce of power - it will be mine to wield. And he will pay.\"",
             "Narration: The principal studies you quietly, as if seeing the full weight of your resolve for the first time. Outside,\nthe wind whispers through the academy, carrying the echoes of a mage determined to confront the architect of her suffering."
         };
 
@@ -68,7 +68,7 @@ public class MagePlot {
             "Narration: Shame curls in your throat like smoke. You see yourself standing beside Morvain, broken, obedient, complicit.",
             "Selene: \"I was part of this... I was part of *him.*\"",
             "Narration: Your knees weaken. Every breath tastes of guilt.",
-            "Narration: But underneath the guilt, something else stirs—a cold, metallic bite along your spine.",
+            "Narration: But underneath the guilt, something else stirs- a cold, metallic bite along your spine.",
             "Selene: \"...The curse. It\'s still there.\""
         };
 
@@ -138,6 +138,7 @@ public class MagePlot {
         mageAfterArea3();
 
         System.out.println("Are you willing to sacrifice yourself? (y/n)");
+        System.out.println("-->| ");
         String choice = scanner.nextLine();
 
         if(choice.equalsIgnoreCase("y")) {

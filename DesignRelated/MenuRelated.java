@@ -12,13 +12,13 @@ public class MenuRelated {
         System.out.println("                           ░░░░░░░░░░░░░ │   Where do you want to go?   │     ▓▓▓  ");
         System.out.println("       ▓▓▓      ▓▓▓▓▓▓      ░░░░░▒▒▒▒▒▒  └──────────────────────────────┘  ▓▓▓      ");
         System.out.println("                   ▓▓▓▓▓▓   ░░░░░▒▒▓▒▓▒     [ 1 ] Go to Academy         ▓▓▓      ");
-        System.out.println("             ▒        ▓▓▓▓▓ ░░░░░▒▒▓▒▓▒     [ 2 ] Shop            ▓▓▓▓▓▓");
-        System.out.println(" ▓▓▓         ▒           ▓▓ ░░░░░▒▒▒▒▒▒     [ 3 ] Inventory             ▓▓▓       ");
-        System.out.println(" ▓▓▓▓▓▓    ░░▒▒▒           ░░░░░░░░░░░░░    [ 4 ] The Forest of Reverie                ");
-        System.out.println("    ▓▓▓   ░░░▒▒▒▒           ░░░░░▒▒▒▒▒▒     [ 5 ] The Reverie Edge                 ");
-        System.out.println("  ░    ▓▓ ░░░▒▓▓▒           ░░░░░▒▒▓▒▓▒     [ 6 ] The Forsaken Lands           ▓▓▓▓▓▓     ");
-        System.out.println("░░░▒▒    ░░░░▒▒▒▒▒  ▒ ▒ ▒ ▒ ░░░░░▒▒▒▒▒▒     [ 7 ] Character ▓▓▓▓▓");
-        System.out.println("░░░▒▒▒    ░░░▒▒▒▒   ▒▒▒▒▒▒▒▒░░░░░▒▒▓▒▓▒     [ 8 ] Exit Game     ");
+        System.out.println("             ▒        ▓▓▓▓▓ ░░░░░▒▒▓▒▓▒     [ 2 ] Inventory            ▓▓▓▓▓▓");
+        System.out.println(" ▓▓▓         ▒           ▓▓ ░░░░░▒▒▒▒▒▒     [ 3 ] The Forest of Reverie             ▓▓▓       ");
+        System.out.println(" ▓▓▓▓▓▓    ░░▒▒▒           ░░░░░░░░░░░░░    [ 4 ] The Reverie Edge                ");
+        System.out.println("    ▓▓▓   ░░░▒▒▒▒           ░░░░░▒▒▒▒▒▒     [ 5 ] The Forsaken Lands                 ");
+        System.out.println("  ░    ▓▓ ░░░▒▓▓▒           ░░░░░▒▒▓▒▓▒     [ 6 ] Character           ▓▓▓▓▓▓     ");
+        System.out.println("░░░▒▒    ░░░░▒▒▒▒▒  ▒ ▒ ▒ ▒ ░░░░░▒▒▒▒▒▒     [ 7 ] Exit Game ▓▓▓▓▓");
+        System.out.println("░░░▒▒▒    ░░░▒▒▒▒   ▒▒▒▒▒▒▒▒░░░░░▒▒▓▒▓▒        ");
         System.out.println("░░░▒▒     ░░░▒▒▒▒   ▒▒▒▒▒▒▒▒░░░░░▒▒▒▒▒▒            ▓▓▓     ░   ░▒    ▒ ");
         System.out.println("░░░▒▒▒▒▒▒▒░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░    ░ ░ ░     ▓▓▓  ░░░░░▒▒▒▒▒▒");
         System.out.println("                            ░░░░░▒▒▒▒▒▒     ░░░░░          ░░░░░▒▒▓▒▓▒");
@@ -107,7 +107,7 @@ public class MenuRelated {
 
     }
 
-    public void swordsmanCharacterMenu() { // Not implemented
+    public void swordsmanCharacterMenu() { 
         System.out.println();
         System.out.println(" ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ");
         System.out.println("░░░▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒░░░");
@@ -135,12 +135,12 @@ public class MenuRelated {
         System.out.println("░░░▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒░░░");
         System.out.println(" ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ");
         System.out.print("   -->| ");
-        //System.out.println();
+       
 
 
     }
 
-    public void gunnerCharacterMenu() { // Not implemented
+    public void gunnerCharacterMenu() { 
 
         System.out.println();
         System.out.println(" ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ");
@@ -169,13 +169,13 @@ public class MenuRelated {
         System.out.println("░░░▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒░░░");
         System.out.println(" ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ");
         System.out.print("   -->| ");
-        //System.out.println();
+        
 
 
 
     }
 
-    public void mageCharacterMenu() { // Not implemented
+    public void mageCharacterMenu() {
 
         System.out.println();
         System.out.println(" ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ");
@@ -203,7 +203,6 @@ public class MenuRelated {
         System.out.println("░░░▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒░░░");
         System.out.println(" ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ");
         System.out.print("   -->| ");
-        //System.out.println();
         
 
 
@@ -298,9 +297,9 @@ public class MenuRelated {
         System.out.println("░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓      ░░▓▓▓▓▓▓▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         System.out.println("   ░░░░░░░░░░░░░░░░░░░░░░░░░         ░░░░░▒▒▒▒░░░░░░░░░░░░░░░░        ░░░░░░░░░░░░░░░░░░░░░░░░░░");
         System.out.println();
-        System.out.println("      [1] Shelf Fiction                  [2] Shelf Science               [3] Shelf Mythology");
+        System.out.println("     [ 1 ] Shelf Fiction                [ 2 ] Shelf Science             [ 3 ] Shelf Mythology");
         System.out.println("");
-        System.out.println("                  [4] Shelf Magic and Spells             [5] Shelf History");
+        System.out.println("                  [ 4 ] Shelf Magic and Spells          [ 5 ] Shelf History");
         System.out.println();
         
        

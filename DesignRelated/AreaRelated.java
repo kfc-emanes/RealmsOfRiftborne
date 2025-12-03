@@ -2,9 +2,13 @@ package DesignRelated;
 
 import java.util.Scanner;
 
+import Narration.*;
+
 public class AreaRelated {
 
     Scanner scanner = new Scanner(System.in);
+    Narration promptSeparatorHandler = new Narration();
+    IntroTitle loadHandler = new IntroTitle();
     
     public void forestOfReverieEligible() {
         
@@ -76,8 +80,11 @@ public class AreaRelated {
         System.out.println("░░▓░▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒    Vv     Vv   Vv    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░      vv  Vv      ░░  ░░░░░░░░");
         System.out.println("░▓ ░▒▒░░▒▒▒▒▒  ▒▒  ▒      Vv              ░░    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  Vv          Vv  ░   ░░░░░░░░");
         System.out.println("░▓ ░▒▒▒▒▒▒▒    ▒▒  ▒ Vv          Vv      ░░Vv   ░░░░░░░░░░░░░░░░░░░░░░░░   Vv░░   Vv   Vv        Vv          ");
-        System.out.println("Press ENTER to continue...");
+        System.out.println("| Press ENTER to continue... |");
         scanner.nextLine();
+
+        loadHandler.exitGame();
+        promptSeparatorHandler.promptSeparator();
 
     }
 
@@ -149,8 +156,11 @@ public class AreaRelated {
         System.out.println("     ──────────          ──          ──────────   ──     ░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░");
         System.out.println("     ─────     *    ─────    .                 ──────────   ░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
         System.out.println("──────────    .             ─────   .      .      ──────────   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
-        System.out.println("Press ENTER to continue...");
+        System.out.println("| Press ENTER to continue... |");
         scanner.nextLine();
+
+        loadHandler.exitGame();
+        promptSeparatorHandler.promptSeparator();
     }
 
     public void forsakenLandsEligible() {
@@ -221,9 +231,11 @@ public class AreaRelated {
         System.out.println("░░░░    ▒▒▓▒█░░░░░▒▒▒▒                 +       ░░░▓░░▒▒▒▒   +  ▒▒▓▒▓▒ ▒▒▓▒▒▒    ░  ░▓▓▓░░░░░░░░░░░░░░░░░░░░░");
         System.out.println("░░░█  ▒▓▒▒▓▒█░░░░░▒▒   +            +          ░░░▓░░▒▒  +     ▒▒▓▒   ▒▒▓▓ +   ░▓▓░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"); 
         System.out.println("░░░░  ▒▒▓▓▒▒░░░░░░            +          +     ░░░░░░          ▒▒ +   ▒▓  +  ▓░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
-        System.out.println("Press ENTER to continue...");
+        System.out.println("| Press ENTER to continue... |");
         scanner.nextLine();
 
+        loadHandler.exitGame();
+        promptSeparatorHandler.promptSeparator();
         
     }
 }

@@ -37,29 +37,7 @@ public class LibraryAcademy {
                 if (roam.equalsIgnoreCase("y")) {
                     System.out.println();
 
-                    /*System.out.println();
-                    System.out.println("┌─────────────────────────────┐");
-                    System.out.println("│   Press Enter to continue   │");
-                    System.out.println("└─────────────────────────────┘");
-
-                    scanner.nextLine();
-                    */
-
                     loadGameHandler.loadGame();
-
-                    /*String[] timeDelay = {
-                        "-- >>> You are now roaming around... <<< --", 
-                        "-- >>> You are now roaming around... <<< --", 
-                        "-- >>> You are now roaming around... <<< --", 
-                        "-- >>> You are now roaming around... <<< --", 
-                        "-- >>> You are now roaming around... <<< --"
-                    };
-
-                    for (int i = 0; i < timeDelay.length; i++) {
-                        scanner.nextLine();
-                        System.out.println(timeDelay[i]);
-                    }
-                        */
 
                     libraryQuests(hero);
 
@@ -118,7 +96,6 @@ public class LibraryAcademy {
 
             case 2:
                 separatorHandler.promptSeparatorResized();
-                //riddleDesign.riddles();
                 narrationHandler.riddlesNarration();
                 acceptQuest(hero, 2);
                 break;
@@ -163,8 +140,6 @@ public class LibraryAcademy {
                             break;
                     }
                     validInput = true;
-
-                    //displayStats(hero);
 
                 } else if (isAccept.equalsIgnoreCase("n")) {
                     System.out.println();
