@@ -45,36 +45,16 @@ public class PrincipalOffice extends StatProgress {
 
                 eligible = true;
             } else if (!hero.canEnterArea2() && hero.canEnterArea1() && hero.getHaveDefeatedArea1Boss()) { // else if. set as if for testing
-                //if(hero.getHaveDefeatedArea1Boss()) {
+               
 
-                //narrationHandler.area2Eligible();
-
-                /*if(hero.getSwordmanCharacterChosen()) {
-                    swordsmanPlotHandlder.swordsmanAfterArea1(); // currently establishing
-                } if(hero instanceof Gunner) {
-                    gunnerPlotHandler.gunnerAfterArea1();
-                } if(hero.getMageCharacterChosen()) {
-                    // to be implemented
-                }
-                */
-
-                /*if(hero instanceof Swordsman) {
-                    swordsmanPlotHandlder.swordsmanAfterArea1();
-                } 
-                if(hero instanceof Gunner) {
-                    gunnerPlotHandler.gunnerAfterArea1();
-                } 
-                if(hero instanceof Mage) {
-                    magePlotHandler.mageAfterArea1();
-                }
-                    */
+                narrationHandler.area2Eligible();
 
                 if(hero.getSwordmanCharacterChosen()) {
                     swordsmanPlotHandlder.swordsmanAfterArea1();
                 } else if(hero.getGunnerCharacterChosen()) {
                     gunnerPlotHandler.gunnerAfterArea1();
                 } else if(hero.getMageCharacterChosen()) {
-                    narrationHandler.area2Eligible();
+                    magePlotHandler.mageAfterArea1();
                 }
 
                 hero.unlockArea2();
@@ -91,12 +71,14 @@ public class PrincipalOffice extends StatProgress {
 
             }  else if (!hero.canEnterArea3() && hero.canEnterArea2() && hero.getHaveDefeatedArea2Boss()) {
 
+                narrationHandler.area3Eligible();
+
                 if(hero.getSwordmanCharacterChosen()) {
                     swordsmanPlotHandlder.swordsmanAfterArea2(); 
                 } else if (hero.getMageCharacterChosen()) {
                     magePlotHandler.mageAfterArea2();
                 } else if (hero.getGunnerCharacterChosen()) {
-                    narrationHandler.area3Eligible();
+                    gunnerPlotHandler.gunnerAfterArea2();
                 }
                 
                 hero.unlockArea3();
@@ -112,14 +94,6 @@ public class PrincipalOffice extends StatProgress {
                 eligible = true;
             
         }
-        
-
-        if(hero.getGunnerCharacterChosen() && hero.getHaveDefeatedArea3Boss()) {
-            scanner.nextLine();
-            gunnerPlotHandler.gunnerEndingPlot();
-
-        }
-
 
         if (!eligible) {
 

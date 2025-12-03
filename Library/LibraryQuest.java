@@ -14,6 +14,7 @@ public class LibraryQuest extends LibraryNarration{
     private static int whichShelf = new Random().nextInt(5) + 1;
     private StatsProgressLibrary progressHandler = new StatsProgressLibrary();
     Narration separatorHandler = new Narration();
+    Narration printDelayHandler = new Narration();
     Quests questsHandler = new Quests();
     MenuRelated bookMenuHandler = new MenuRelated();
 
@@ -64,7 +65,8 @@ public class LibraryQuest extends LibraryNarration{
 
                     if(hero.getSwordmanCharacterChosen()) {
                         swordsmanHint();
-                    }
+                    } 
+
 
                     ifQuest1Success();
                     progressHandler.randomStatsProgress(hero);
@@ -237,8 +239,9 @@ public class LibraryQuest extends LibraryNarration{
         System.out.println("Press ENTER to continue...");
 
         for (int i = 0; i < array.length; i++) {
-            scanner.nextLine();
-            System.out.println(array[i]);
+            //scanner.nextLine(); 
+            printDelayHandler.printWithDelay(array[i], 10); 
+            System.out.println("\n");
         }
 
         System.out.println();

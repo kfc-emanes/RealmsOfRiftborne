@@ -250,7 +250,10 @@ public class Training {
         System.out.println("┌──────────────────────────────────────────────┐");
         System.out.println("│   >>> Exiting from the Training Ground <<<   │");
         System.out.println("└──────────────────────────────────────────────┘");
-        separatorHandler.promptSeparatorResized();
+
+        loadHandler.exitGame();
+        
+        separatorHandler.promptSeparator();
     }
 
 

@@ -2,7 +2,7 @@ package Menu;
 
 import DesignRelated.*;
 import Hero.*;
-import Narration.Narration;
+import Narration.*;
 
 import java.util.Scanner;
 
@@ -29,15 +29,21 @@ public class InnerCharacterMenu extends Narration{
 
                 switch(choice) {
                     case 1: 
+                        separatorHandler.promptSeparatorResized();
                         swordsmanDetails();
+                        separatorHandler.promptSeparator();
                         break;
 
                     case 2:
+                        separatorHandler.promptSeparatorResized();
                         characterStatsHandler.swordsmanCharacterStats(hero);
+                        separatorHandler.promptSeparator();
                         break;
 
                     case 3:
+                        separatorHandler.promptSeparatorResized();
                         swordsmanBackstory();
+                        separatorHandler.promptSeparator();
                         break;
 
                     case 4:
@@ -84,12 +90,14 @@ public class InnerCharacterMenu extends Narration{
                                 } else if (willChangePlayer.equalsIgnoreCase("n")) {
                                     System.out.println();
                                     System.out.println("Continuing with current character...");
+                                    separatorHandler.promptSeparatorResized();
                                     willChange = false;
                                 } else {
                                     System.out.println();
                                     System.out.println("┌─────────────────────────────────────┐");
                                     System.out.println("│  Invalid input. Please enter y/n.   │");
                                     System.out.println("└─────────────────────────────────────┘");
+                                    separatorHandler.promptSeparatorResized();
                                 }
 
                             } catch (Exception e) {
@@ -104,6 +112,7 @@ public class InnerCharacterMenu extends Narration{
 
                     
                     case 5:
+                        separatorHandler.promptSeparatorResized();
                         isValid = true;
                         return null;
 
@@ -112,6 +121,7 @@ public class InnerCharacterMenu extends Narration{
                         System.out.println("┌─────────────────────────────────────┐");
                         System.out.println("│  Oops! Invalid choice. Try again.   │");
                         System.out.println("└─────────────────────────────────────┘");
+                        separatorHandler.promptSeparatorResized();
                 }
 
 
@@ -146,16 +156,21 @@ public class InnerCharacterMenu extends Narration{
 
                 switch(choice) {
                     case 1: 
+                        separatorHandler.promptSeparatorResized();
                         gunnerDetails();
+                        separatorHandler.promptSeparator();
                         break;
 
                     case 2:
+                        separatorHandler.promptSeparatorResized();
                         characterStatsHandler.gunnerCharacterStats(hero);
-                        
+                        separatorHandler.promptSeparator();
                         break;
 
                     case 3:
+                        separatorHandler.promptSeparatorResized();
                         gunnerBackstory();
+                        separatorHandler.promptSeparator();
                         break;
 
                     case 4:
@@ -201,12 +216,14 @@ public class InnerCharacterMenu extends Narration{
                                 } else if (willChangePlayer.equalsIgnoreCase("n")) {
                                     System.out.println();
                                     System.out.println("Continuing with current character...");
+                                    separatorHandler.promptSeparatorResized();
                                     willChange = false;
                                 } else {
                                     System.out.println();
                                     System.out.println("┌─────────────────────────────────────┐");
                                     System.out.println("│  Invalid input. Please enter y/n.   │");
                                     System.out.println("└─────────────────────────────────────┘");
+                                    separatorHandler.promptSeparatorResized();
                                 }
 
                             } catch (Exception e) {
@@ -229,6 +246,7 @@ public class InnerCharacterMenu extends Narration{
                         System.out.println("┌─────────────────────────────────────┐");
                         System.out.println("│  Oops! Invalid choice. Try again.   │");
                         System.out.println("└─────────────────────────────────────┘");
+                        separatorHandler.promptSeparatorResized();
                 }
 
 
@@ -237,6 +255,7 @@ public class InnerCharacterMenu extends Narration{
                 System.out.println("┌──────────────────────────────────────────┐");
                 System.out.println("│   Invalid input! Please enter a number.  │");
                 System.out.println("└──────────────────────────────────────────┘");
+                separatorHandler.promptSeparatorResized();
             } catch (Exception e) {
                 System.out.println();
                 System.out.println("┌──────────────────────────────────────────────┐");
@@ -264,15 +283,21 @@ public class InnerCharacterMenu extends Narration{
 
                 switch(choice) {
                     case 1: 
+                        separatorHandler.promptSeparatorResized();
                         mageDetails();
+                        separatorHandler.promptSeparator();
                         break;
 
                     case 2:
+                        separatorHandler.promptSeparatorResized();
                         characterStatsHandler.mageCharacterStats(hero);
+                        separatorHandler.promptSeparator();
                         break;
 
                     case 3:
+                        separatorHandler.promptSeparatorResized();
                         mageBackstory();
+                        separatorHandler.promptSeparator();
                         break;
 
                     case 4:
@@ -317,6 +342,7 @@ public class InnerCharacterMenu extends Narration{
                                 else if (willChangePlayer.equalsIgnoreCase("n")) {
                                     System.out.println();
                                     System.out.println("Continuing with current character...");
+                                    separatorHandler.promptSeparatorResized();
                                     willChange = false;
                                 } 
                                 else {
@@ -324,6 +350,7 @@ public class InnerCharacterMenu extends Narration{
                                     System.out.println("┌─────────────────────────────────────┐");
                                     System.out.println("│  Invalid input. Please enter y/n.   │");
                                     System.out.println("└─────────────────────────────────────┘");
+                                    separatorHandler.promptSeparatorResized();
                                 }
 
                             } catch (Exception e) {
@@ -347,6 +374,7 @@ public class InnerCharacterMenu extends Narration{
                         System.out.println("┌─────────────────────────────────────┐");
                         System.out.println("│  Oops! Invalid choice. Try again.   │");
                         System.out.println("└─────────────────────────────────────┘");
+                        separatorHandler.promptSeparatorResized();
                 }
 
 
@@ -355,6 +383,7 @@ public class InnerCharacterMenu extends Narration{
                 System.out.println("┌──────────────────────────────────────────┐");
                 System.out.println("│   Invalid input! Please enter a number.  │");
                 System.out.println("└──────────────────────────────────────────┘");
+                separatorHandler.promptSeparatorResized();
             } catch (Exception e) {
                 System.out.println();
                 System.out.println("┌──────────────────────────────────────────────┐");

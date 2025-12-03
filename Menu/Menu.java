@@ -21,7 +21,7 @@ public class Menu extends Narration {
         ShopRelated shopPromptHandler = new ShopRelated();
         MenuRelated menuRelatedHandler = new MenuRelated();
         AreaRelated areaHandler = new AreaRelated();
-        MagePlot magePlotHandler = new MagePlot();
+        //MagePlot magePlotHandler = new MagePlot();
         InnerCharacterMenu innerCharacterMenuHandler = new InnerCharacterMenu();
         Shop shop = new Shop();
 
@@ -68,7 +68,7 @@ public class Menu extends Narration {
                         System.out.println();
                         */
 
-                        if(hero.getHaveDefeatedArea3Boss()) {
+                        /*if(hero.getHaveDefeatedArea3Boss()) {
 
                             if(hero.getMageCharacterChosen()) {
                                 magePlotHandler.mageEndingPlot();
@@ -76,6 +76,7 @@ public class Menu extends Narration {
 
                         }
                             */
+                            
                         
                         handler.academyMapMenu(hero);
                         break;

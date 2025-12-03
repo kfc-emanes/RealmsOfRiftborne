@@ -297,9 +297,11 @@ public class MenuRelated {
         System.out.println("░░▓▓▓██████████████▒▒▒▒█████      ░░██████▒▒▒▒████████████████      ░░██████▒▒██▒▒██████████████");
         System.out.println("░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓      ░░▓▓▓▓▓▓▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         System.out.println("   ░░░░░░░░░░░░░░░░░░░░░░░░░         ░░░░░▒▒▒▒░░░░░░░░░░░░░░░░        ░░░░░░░░░░░░░░░░░░░░░░░░░░");
+        System.out.println();
         System.out.println("      [1] Shelf Fiction                  [2] Shelf Science               [3] Shelf Mythology");
         System.out.println("");
         System.out.println("                  [4] Shelf Magic and Spells             [5] Shelf History");
+        System.out.println();
         
        
     }

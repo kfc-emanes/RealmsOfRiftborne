@@ -16,7 +16,8 @@ public class TrainingNarration {
             "Thunderous shots echo from a warded enclosure where firearms meet magic.",
             "A tall coach steps forward, eyes sharp. \"You\'re not part of the current training batch, are you?\"",
             "They study your stance. \"Untaught, but solid. Are you here to watch or to learn?\"",
-            "Folding their arms, they add, \"If you want to grow stronger, I can offer a proper session - only if you\'re ready to earn it.\nI am Ray Grayson, top coach of the Academy.\""
+            "Folding their arms, they add, \"If you want to grow stronger, I can offer a proper session - only if you\'re ready to earn it.",
+            "\"I am Ray Grayson, top coach of the Academy.\""
         };
 
         playGymNarration(exploreGym);

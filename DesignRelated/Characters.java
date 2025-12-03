@@ -12,15 +12,22 @@ public class Characters {
     static Scanner scanner = new Scanner(System.in);
     
     public void swordsmanCharacter() {
-     
-        System.out.println();
-        System.out.println("     >>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<");
-        System.out.println();
-        System.out.println("          ┌───────────────────────────────────────────────────────────────────────────────────┐");
-        System.out.println("          │   The winds whisper your choice... The path of the Swordsman is yours to walk.    │");
-        System.out.println("          └───────────────────────────────────────────────────────────────────────────────────┘");
-        System.out.println();
-        System.out.println("     >>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<");
+
+        printdelayHandler.promptSeparatorResized();
+
+        String[] prompt = {
+            ">>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<",
+            "",
+            "      ┌───────────────────────────────────────────────────────────────────────────────────┐",
+            "      │   The winds whisper your choice... The path of the Swordsman is yours to walk.    │",
+            "      └───────────────────────────────────────────────────────────────────────────────────┘",
+            "",
+            ">>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<",
+        };
+
+        for (int i = 0; i < prompt.length; i++) {  
+            printdelayHandler.printLineWithDelay(prompt[i], 100); 
+        }
 
         String[] lines = {
             "",
@@ -93,15 +100,21 @@ public class Characters {
 
     public void gunnerCharacter() {
 
-        System.out.println();
-        System.out.println("  >>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<");
-        System.out.println();
-        System.out.println("        ┌────────────────────────────────────────────────────────────────────────────────┐");
-        System.out.println("        │   The echo of gunfire resounds through the void - you are the chosen Gunner.   │");
-        System.out.println("        └────────────────────────────────────────────────────────────────────────────────┘");
-        System.out.println();
-        System.out.println("  >>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<");
-        System.out.println();
+        printdelayHandler.promptSeparatorResized();
+
+        String[] prompt = {
+            "  >>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<",
+            "",
+            "        ┌────────────────────────────────────────────────────────────────────────────────┐",
+            "        │   The echo of gunfire resounds through the void - you are the chosen Gunner.   │",
+            "        └────────────────────────────────────────────────────────────────────────────────┘",
+            "",
+            "  >>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<",
+        };
+
+        for (int i = 0; i < prompt.length; i++) {  
+            printdelayHandler.printLineWithDelay(prompt[i], 100); 
+        }
 
         String[] lines = {
             "    .            *             .         *          █░░░░░███░░░███░░░░░░░░░░░░░░░░░░░░░███░░░░░░",
@@ -162,43 +175,51 @@ public class Characters {
     }
 
     public void mageCharacter() {
-        // to be implemented
-        System.out.println();
-        System.out.println(">>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<");
-        System.out.println();
-        System.out.println("      ┌────────────────────────────────────────────────────────┐");
-        System.out.println("      │   The stars align, You are now the Mage of destiny.    │");
-        System.out.println("      └────────────────────────────────────────────────────────┘");
-        System.out.println();
-        System.out.println(">>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<");
+
+        printdelayHandler.promptSeparatorResized();
+
+        String[] prompt = {
+            ">>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<",
+            "",
+            "      ┌────────────────────────────────────────────────────────┐",
+            "      │   The stars align, You are now the Mage of destiny.    │",
+            "      └────────────────────────────────────────────────────────┘",
+            "",
+            ">>>>> - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <<<<<"
+        };
+
+        for (int i = 0; i < prompt.length; i++) {  
+            printdelayHandler.printLineWithDelay(prompt[i], 100); 
+        }
+
         System.out.println();
 
         String[] lines = {
-            "        ░░█    ┌────────────────────────────────────┐     █░       .        ",
-            "      ░░░░█    |  Player Character: Selene Arclight |     █░░░░             ",
-            "      ░░░░█    └────────────────────────────────────┘     █░░░░      *      ",
-            "    ░░░░░░▓           *                                   ▓░░░░░░          *  ",
-            "  ░░░░░░░░░░░                                     .     ░░░░░░░░░░░     .         ",
-            "░░░░▓                 .           .        *                    ▓░░░░        ",
-            "░░░▓▓  ▓█      *                                            ▓█  ▓▓░░░      ",
-            "░░░░▓▓▓▓▓▓█                                               █▓▓▓▓▓▓░░░░       ",
-            "░░░░▓  ▓█                                                   ▓█  ▓░░░░   .  ",
-            "░░▓░░         .                      *     .      *             ░░▓░░       ",
-            "  ░░░░█              .                                        █░░░░        ",
-            "    ░░░░█                       .                           █░░░░             ",
-            "      ░░░░█                                               █░░░░              ",
-            "      ░░░░█                                               █░░░░       .      ",
-            "   .    ░░█                  .               .    *       █░░               ",
-            "        ░░░         *                                     ░░░                ",
-            "         ░░░                    *                        ░░░    .   *            ",
-            "  *      ░░░                                             ░░░              .     ",
-            "         ░▓░                        .           *        ░▓░                  ",
-            "    .     ░░                                             ░░                 ",
-            "          ░░           .                                 ░░        .     *    ",
-            "          ░░                  .                          ░░                  ",
-            "  *       ░░░     ┌──────────────────────────────┐      ░░░    *            ",
-            "      .   ░▓░     │   Press ENTER to continue    │      ░▓░                  ",
-            "           ▓░     └──────────────────────────────┘      ░▓              . ",
+            "           ░░█    ┌────────────────────────────────────┐     █░       .        ",
+            "         ░░░░█    |  Player Character: Selene Arclight |     █░░░░             ",
+            "         ░░░░█    └────────────────────────────────────┘     █░░░░      *      ",
+            "       ░░░░░░▓           *                                   ▓░░░░░░          *  ",
+            "     ░░░░░░░░░░░                                     .     ░░░░░░░░░░░     .         ",
+            "   ░░░░▓                 .           .        *                    ▓░░░░        ",
+            "   ░░░▓▓  ▓█      *                                            ▓█  ▓▓░░░      ",
+            "   ░░░░▓▓▓▓▓▓█                                               █▓▓▓▓▓▓░░░░       ",
+            "   ░░░░▓  ▓█                                                   ▓█  ▓░░░░   .  ",
+            "   ░░▓░░         .                      *     .      *             ░░▓░░       ",
+            "     ░░░░█              .                                        █░░░░        ",
+            "       ░░░░█                       .                           █░░░░             ",
+            "         ░░░░█                                               █░░░░              ",
+            "         ░░░░█                                               █░░░░       .      ",
+            "      .    ░░█                  .               .    *       █░░               ",
+            "           ░░░         *                                     ░░░                ",
+            "            ░░░                    *                        ░░░    .   *            ",
+            "     *      ░░░                                             ░░░              .     ",
+            "            ░▓░                        .           *        ░▓░                  ",
+            "       .     ░░                                             ░░                 ",
+            "             ░░           .                                 ░░        .     *    ",
+            "             ░░                  .                          ░░                  ",
+            "     *       ░░░     ┌──────────────────────────────┐      ░░░    *            ",
+            "         .   ░▓░     │   Press ENTER to continue    │      ░▓░                  ",
+            "              ▓░     └──────────────────────────────┘      ░▓              . ",
             ""
         };
 

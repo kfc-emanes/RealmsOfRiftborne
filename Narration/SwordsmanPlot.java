@@ -7,20 +7,22 @@ import java.util.Scanner;
 public class SwordsmanPlot {
 
     private Scanner scanner = new Scanner(System.in);
+    private Narration printDelayHandler = new Narration();
+    private Narration promptSeparatorHandler = new Narration();
 
     public void swordsmanAfterArea1() { // implemented
 
         String[] afterArea1Narration1 = {
             "Narration: You are summoned to the Principal's Office.\nThe corridors feel heavier than usual, each step echoing against the marble floor.",
             "Narration: Whispers follow your name - Kael Solmere. The door is engraved with runes.\nWhen it opens, the scent of old parchment and burning incense fills the air.",
-            "Principal: \"Kael… I know this summons may seem sudden. Sit down. There's something your family kept hidden for too long.\"",
+            "Principal: \"Kael... I know this summons may seem sudden. Sit down. There's something your family kept hidden for too long.\"",
             "Narration: The principal Nemeesha Brightwell avoids your gaze, her tone heavy with reluctance.",
             "Kael: \"What are you talking about? Is this about the curse or my family's past?\"",
             "Principal: \"Yes... and more. Your parents weren't victims. They were hunted - slain - by Kim Morvain.\"",
             "Narration: The name pierces through you. The room seems to tremble; for a heartbeat, you hear a whisper - soft and familiar.",
             "Kael: \"No... that can't be. They tried to stop him, didn't they?\"",
             "Principal: \"They defied him, Kael. Your parents once served Kim Morvain,\nbut when they learned his true power, they turned against him.\nTheir betrayal saved lives - but doomed your bloodline.\"",
-            "Narration: Silence wraps around you. The curse that plagues your family - the whispers, the visions—now pulse stronger in your chest.",
+            "Narration: Silence wraps around you. The curse that plagues your family - the whispers, the visions - now pulse stronger in your chest.",
             "Kael: \"Then the curse... it started because of them?\"",
             "Principal: \"Because of their choice. Kim Morvain's vengeance is eternal. Every Solmere heir bears it.\"",
             "Narration: The principal rests a hand on your shoulder, voice soft.",
@@ -53,134 +55,71 @@ public class SwordsmanPlot {
 
     }
 
-    // ending plot for Swordsman
-    // dapat ma discover niya na the very first Solmere was Kim Morvain
-    // kun i utilize gihapon an idea ni ray na papatayon an sadiri, then pwede na inin iya after area 3 tapos dapat mangyari ini sa area 3
-
-    /*public void swordsmanAfterArea3() { // already implemented
-
+    public void swordsmanAfterArea3() {
         String[] afterArea3Narration1 = {
-            
-            "Narration: The Louraine hovers beside you, its faint glow illuminating the dim library.",
-            "Narration: On the ancient pedestal rests a manuscript, bound in cracked leather and etched with symbols that tighten your chest.",
-            "Narration: The spirit gestures silently, and the pages flip open to a passage that burns into your eyes.",
-            "Kael: \"This… this can\'t be... it says... 'Kim Morvain was one of them… the first Solmere...'\"",
-            "Narration: Your hands tremble as the words sink in.\nThe manuscript tells of a mage obsessed with immortality, who tore his soul apart and bound it to his descendants.",
-            "Kael: \"So... the curse, the visions, the whispers... it\'s not just his doing... it\'s me. I... I\'m him.\"",
-            "Narration: Shadows in the library lean closer, the air heavy with the weight of history and blood.\nThe power surging inside you isn\'t yours - it\'s Morvain awakening through your veins.",
-            "Kael: \"No... this can\'t be real. I can\'t... I won\'t let him live again... not through me!\"",
-            "Narration: The Louraine hovers silently, offering no comfort, only the manuscript and the truth it carries.",
-            "Kael: \"You cannot kill what you are made of... but maybe... maybe I can end it all here.\"",
-            "Narration: Your reflection in the polished floor wavers, a ghostly echo of both Kael and Kim Morvain.\nThe power inside threatens to consume reason.",
-            "Kael: \"If I live... he lives. If I die... maybe... maybe it ends.\"",
-            "Narration: For a heartbeat, the library is silent. The wandering spirit fades,\nleaving you alone with the manuscript, the revelation, and the terrible clarity of what must be decided."
+            "Narration: The remnants of Kim Morvain\'s shadow dissolve around you, but the air still feels thick, heavy with whispers.\nFaces of your ancestors flicker in the corners of your vision, their eyes full of rage and sorrow.",
+            "Kael: \"It\'s not over... not yet. The curse... it\'s still here. It never truly left.\"",
+            "Narration: The wind inside the chamber rises, carrying voices from the past.\nThey are your family, bound in eternal torment, their betrayal echoing through generations.",
+            "Whispering Voices: \"Traitor... Solmere... blood... forever...\"",
+            "Kael: \"I understand now. I\'ve fought, I\'ve bled... but the only way to end this... is me.\"",
+            "Narration: The shadows swirl around you, tugging at your very being.\nThe academy trembles, as if sensing the magnitude of the choice."
         };
 
         swordsmanPlotNarration(afterArea3Narration1);
+
     }
-        */
 
-    /*public void swordsmanAfterDeath() { // polish the narration markers
-
-        String[] afterDeath1 = { // have implemented
-
-            "Narration: Darkness. Cold and endless.\nYou float weightless, as if the world itself has stopped breathing.\nThen a faint voice breaks through - your own.",
-            "You: \"...Kael?\"",
-            "Narration: Light flickers where Kael once stood.\nThe floor beneath you is glass - and beneath it, his body lies still.",
-            "You: \"What... why am I in my room? Why are you here?\"",
-            "Louraine: \"You saw what he chose. His end... was also yours.\" Louraine, the wandering spirit, suddenly appeared.",
-            "You: \"No... I\'m not him. I was only playing his story. I\'m me!\"",
-            "Narration: The reflection stirs - Kael\s eyes open, and they are yours.",
-            "Kael: \"You guided me here. Every choice, every breath. We were never separate.\"",
-            "You: \"No... I didn\'t make you-\"",
-            "Kael: \"You can\'t kill what you are made of.\"",
-            "Narration: Whispers rise all around you - cold, layered, unending.",
-            "Kael: \"Blood remembers... one ends, another wakes...\"",
-            "You: \"If he\'s gone... why am I still here?\"",
-            "Kael: \"Because something had to survive. And you are what remains.\" - Wandering Spirit",
-            "Narration: A dim light blooms in your chest - the same that once surrounded Kael.",
-            "Kael: You realize his death didn\'t end the curse... it passed to you.",
-            "You:\"...He gave it to me.\"",
-            "Louraine: \"He gave it back.\"",
-            "Narration: The glass cracks. The reflection fades.\nYou stand between two worlds - the player and the played.\nAnd in the dark, Kael\'s fading voice whispers:",
-            "Kael: \"Finish what I couldn\'t...\""
-
+    public void swordsmanSacrifice() {
+        String[] sacrifice = {
+            "Kael: \"I am Kael Solmere. I am your heir. And I will take this burden upon myself. The curse ends here.\"",
+            "Narration: With deliberate steps, you move to the center of the chamber.\nThe whispers grow louder, pleading, accusing, mourning - yet you feel no fear. Only purpose.",
+            "Kael: \"May this sacrifice free every Solmere, every soul chained by my bloodline... including yours, Morvain.\"",
+            "Narration: You raise your hand, channeling every ounce of your life force, every spark of your existence,\ninto the spell that will sever the curse. The shadows writhe, resisting, clawing at your mind, but you hold steady.",
+            "Narration: A blinding light erupts from your chest. The whispers shatter, the shadows dissipate.\nSilence follows - profound, complete, freeing. And in that silence, you feel it: the curse has ended.\nThe Solmere bloodline, burdened for generations, is finally at peace."
         };
 
-        swordsmanPlotNarration(afterDeath1);
+        swordsmanPlotNarration(sacrifice);
+
     }
 
-    public void swordsmanAcceptingFate() { // have implemented
-
-        String[] acceptingfate = {
-
-            "Narration:You stand alone in the dim library, the weight of your bloodline pressing down on you.\nThe whispers swirl around your mind, harsh and unyielding, yet a strange calm settles over you.",
-            "Kael: \"So... this is who I am. Not just Kael Solmere... but the next Kim Morvain. The blood, the power... it is mine to bear.\"",
-            "Narration: You close your eyes, feeling the pulse of ancient magic surge through your veins.\nThe temptation, the power, the curse - all converge within you.",
-            "Kael: \"I cannot escape. I am him. And perhaps... I must be.\"",
-            "Narration: The shadows twist around the library, then vanish. Silence stretches through the empty hall.Suddenly, light.\nCold morning air brushes your face. You open your eyes.\nThe academy is distant, its gates standing before you, unchanged.",
-            "Kael: \"...Again? It starts over...\"",
-            "Narration: The cycle resets. The whispers of your bloodline linger faintly on the breeze, reminding you:\nthe story, the curse, the power - it never ends.And your fate waits… again."
-
+    public void swordsmanLoop() {
+        String[] loop = {
+            "Kael: \"No... I won\'t give in. I can fight this... I\'ll end it without sacrificing myself.\"",
+            "Narration: You step away from the center of the chamber.\nThe whispers rise into a scream, twisting into a chorus of rage, sorrow, and warning.\nThe shadows writhe violently, curling around the walls, the ceiling, the floor... yet, somehow, you survive.",
+            "Kael: \"It\'s over... right? I did it...\"",
+            "Narration: For a heartbeat, the academy seems still, almost normal.\nThe sunlight filters through cracked windows, dust floating lazily in the golden rays. Relief warms your chest.\nThen, a subtle tremor runs through the walls.The floor beneath you shifts imperceptibly.\nThe portraits along the corridors blink, not with eyes, but with mouths, whispering your name.",
+            "Narration: You step outside. The streets seem familiar, yet the air hums with a strange, low vibration.\nThe world is quiet... too quiet. Every shadow stretches just a little too long, every reflection lingers too long in puddles, waiting.",
+            "Kael: \"This... isn\'t right. Something\'s... wrong...\"",
+            "Narration: You walk, but the scenery subtly shifts. Buildings twist,\ntrees curve unnaturally, the sky pulses faintly as if breathing. Somewhere in the distance,\na door opens where there should be none. The wind carries whispers, soft, patient... mocking:",
+            "Whispering Voices: \"Kael... Solmere... you cannot leave... your blood binds you... forever...\"",
+            "Narration: And then, you see it: your own body, walking past you, perfectly still, eyes empty,\nmoving on some invisible path you cannot touch. Behind it, the academy reforms, its towers curling into impossible angles,\ncorridors stretching beyond comprehension, doors opening into rooms you never entered.",
+            "Kael: \"No... no... this... again... I\'m trapped… it\'s... endless..\"",
+            "Narration: The cycle begins anew. Every choice, every defiance, every attempt to escape folds back on itself.\nThe curse is patient. It waits. It watches. And it will never release you.",
+            "Whispering Voices: \"Forever... Kael... forever... Solmere...\"",
+            "Narration: The streets twist once more. You are outside... and inside... and nowhere.\nThe academy breathes, alive, eternal. And you... are still walking, still running, still trapped."
         };
 
-        swordsmanPlotNarration(acceptingfate);
+        swordsmanPlotNarration(loop);
+
     }
 
-    public void swordsmanEndingPlot() {
-        IntroTitle outroHandler = new IntroTitle();
+    public void swordsManEndingPlot() {
 
+        promptSeparatorHandler.promptSeparatorResized();
         swordsmanAfterArea3();
 
-        boolean validChoice = false;
+        System.out.println("Are you willing to sacrifice yourself? (y/n)");
+        String choice = scanner.nextLine();
 
-        while (!validChoice) {
-            System.out.println("┌───────────────────────────────────────────────────────────────────┐");
-            System.out.println("│   Will you bear the weight of your bloodline and end the curse,   │");
-            System.out.println("│   or preserve yourself and let the shadows persist? (y/n)         │");
-            System.out.println("└───────────────────────────────────────────────────────────────────┘");
-
-            try {
-                String willingChoice = scanner.nextLine().trim();
-
-                if (willingChoice.equalsIgnoreCase("y")) {
-                    System.out.println("┌───────────────────────────────────────────────────────┐");
-                    System.out.println("│   You have accepted the fate of being the next heir.  │");
-                    System.out.println("└───────────────────────────────────────────────────────┘");
-                    System.out.println();
-
-                    swordsmanAcceptingFate();
-                    validChoice = true;
-                } else if (willingChoice.equalsIgnoreCase("n")) {
-                    System.out.println("┌───────────────────────────────────────────────────────────────┐");
-                    System.out.println("│   You have chosen to preserve yourself, letting the shadows   │");
-                    System.out.println("│   continue. Your bloodline\'s fate remains uncertain.         │");
-                    System.out.println("└───────────────────────────────────────────────────────────────┘");
-                    System.out.println();
-
-                    swordsmanAfterDeath();
-                    validChoice = true;
-                } else {
-                    System.out.println("┌────────────────────────────────────────┐");
-                    System.out.println("│   Choice unclear! Enter 'y' or 'n'.    │");
-                    System.out.println("└────────────────────────────────────────┘");
-                }
-
-            } catch (Exception e) {
-                System.out.println("┌──────────────────────────────────────────────┐");
-                System.out.println("│   An unexpected error occurred. Try again.   │");
-                System.out.println("└──────────────────────────────────────────────┘");
-                scanner.nextLine();
-            }
+        if(choice.equalsIgnoreCase("y")) {
+            promptSeparatorHandler.promptSeparatorResized();
+            swordsmanSacrifice();
+        } else {
+            promptSeparatorHandler.promptSeparatorResized();
+            swordsmanLoop();
         }
 
-        outroHandler.outroGameDoneTemporary();
-
-        System.out.println("\nThank you for playing Mystvale Academy.");
-        System.exit(0); 
     }
-
-    */
 
     public void swordsmanPlotNarration(String[] array) {
 
@@ -190,8 +129,9 @@ public class SwordsmanPlot {
 
 
         for (int i = 0; i < array.length; i++) {
-            scanner.nextLine();
-            System.out.println(array[i]);
+            //scanner.nextLine(); 
+            printDelayHandler.printWithDelay(array[i], 10); 
+            System.out.println("\n");
         }
 
         System.out.println();

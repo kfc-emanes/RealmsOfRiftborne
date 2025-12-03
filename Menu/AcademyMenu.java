@@ -2,6 +2,7 @@ package Menu;
 
 import Hero.*;
 import Library.LibraryAcademy;
+import Narration.EndingPlot;
 import Narration.Narration;
 //import Narration.SwordsmanPlot;
 import TrainingGround.*;
@@ -23,8 +24,11 @@ public class AcademyMenu extends Menu{
         Narration separatorHandler = new Narration();
 
         IntroTitle loadHandler = new IntroTitle();
+        EndingPlot endingplotHandler = new EndingPlot();
         
         separatorHandler.promptSeparator();
+
+        endingplotHandler.generalEndingPlot(hero);
         
         while (academyMapMenu) {
             

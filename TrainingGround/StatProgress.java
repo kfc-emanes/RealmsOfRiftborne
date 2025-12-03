@@ -94,7 +94,10 @@ public class StatProgress {
     public void currencyProgress(Hero hero) {
         Stats statsHandler = new Stats();
 
-        statsHandler.sackOfGoldAfterTraining(hero);
+        int gold = 2500;
+        int xp = 1000; // for testing
+
+        statsHandler.sackOfGoldAfterTraining(hero, gold, xp);
 
     }
 
