@@ -24,6 +24,7 @@ public class AcademyMenu extends Menu{
         
         while (academyMapMenu) {
             
+            separatorHandler.promptSeparator();
             menuRelatedHanlder.academyMapMenu();
             System.out.print("-->| ");
 

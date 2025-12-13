@@ -75,4 +75,56 @@ public class ShopRelated {
         System.out.println("                     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
 
     }
+
+    public void potion() {
+
+        System.out.println("         ▒▒▒");
+        System.out.println("                  ░░░  ░░░");
+        System.out.println("");
+        System.out.println("      ███         ░░░  ░░░");
+        System.out.println("   ████████");
+        System.out.println("      ███");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("          ░░░░░░░░░░");
+        System.out.println("          ░░░░░░░░░░");
+        System.out.println("      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
+        System.out.println("          ▓▓▒▒▒▒▒▒▓▓");
+        System.out.println("          ▓▓▒▒▒▒▒▒██");
+        System.out.println("          ██      ██");
+        System.out.println("    ▓▓▓▓██          ██▓▓▓▓");
+        System.out.println("  ▓▓                      ▓▓");
+        System.out.println("  ▓▓      ██              ▓▓");
+        System.out.println("▓▓      ██                  ██");
+        System.out.println("▓▓▒▒▒▒▒▒██      ░░░░░░      ██");
+        System.out.println("▓▓▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░▓▓");
+        System.out.println("██▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▒▒▓▓");
+        System.out.println("  ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓");
+        System.out.println("  ▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓");
+        System.out.println("    ▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓");
+        System.out.println("          ▓▓▓▓▓▓▓▓▓▓");
+
+
+
+    }
+
+    public void empty() {
+
+        System.out.println("            ░░░░░░░░░░░░░░░░░░");
+        System.out.println("      ░░░░░░                  ░░░░░░");
+        System.out.println("   ░░░▒▒▒      ▓▓▓▓▓▓▓▓▓▓▓▓         ░░░");
+        System.out.println("░░░▒▒▒      ▓▓▓▓▓▓      ▓▓▓▓▓▓         ░░░");
+        System.out.println("░░░▒▒▒               ▓▓▓▓▓▓▓▓▓         ░░░");
+        System.out.println("░░░▒▒▒            ▓▓▓▓▓▓               ░░░");
+        System.out.println("   ░░░▒▒▒                        ▒▒▒░░░");
+        System.out.println("      ▒▒▒▒▒▒         ▓▓▓      ▒▒▒▒▒▒");
+        System.out.println("            ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+        System.out.println("");
+        System.out.println("        ░░░");
+        System.out.println("     ░░░░░░");
+        System.out.println("        ");
+        System.out.println("     ░░░");
+        System.out.println("");
+        System.out.println("         ░░░");
+    }
 }

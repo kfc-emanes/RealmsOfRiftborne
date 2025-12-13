@@ -2,6 +2,7 @@ package Narration;
 
 import java.util.Scanner;
 import DesignRelated.*;
+import Hero.*;
 
 public class LibraryNarration {
 
@@ -11,7 +12,7 @@ public class LibraryNarration {
     Narration separatorHandler = new Narration();
     Quests questHandler = new Quests();
 
-    public void findTheLostBookNarration(){
+    public void findTheLostBookNarration(Hero hero){
         String[] quest1 = {
             "The library hums with ancient energy.",
             "Stacks of tomes rise like towers.",
@@ -24,6 +25,8 @@ public class LibraryNarration {
             printDelayHandler.printWithDelay(quest1[i], 15); 
             System.out.println("\n");
         }
+
+        hero.setVisitedRiddles(true);
 
     }
 
@@ -44,7 +47,7 @@ public class LibraryNarration {
     public void ifQuest1Fail(){
         String[] fail1 = {
             "You search carefully, but the shelf holds nothing but cobwebs and old parchment.",
-            "\"Hmm… no luck? Don\'t worry. Even the books in this place like to hide.\"",  
+            "\"Hmm... no luck? Don\'t worry. Even the books in this place like to hide.\"",  
             "\"Perhaps next time, they\'ll reveal themselves to you.\""
         };
 
@@ -55,7 +58,7 @@ public class LibraryNarration {
 
     }
 
-    public void riddlesNarration(){
+    public void riddlesNarration(Hero hero){
         String[] quest3 = {
             "As you approach the Restricted Section, you see the librarian Lourdes by a flickering candle.",
             "An ancient tome lies open, letters moving across its pages.",
@@ -68,25 +71,56 @@ public class LibraryNarration {
             System.out.println("\n");
         }
 
+        hero.setVisitedRiddles(true);
+
     }
 
-    public boolean riddle1() {
+    public boolean riddle1(Hero hero) {
         boolean continueInput = true;
         boolean isCorrect = false;
 
         questHandler.riddles();
 
-        String[] riddle = {
-            "┌───────────────────────────────────────────────────┐",
-            "│   Nang maliit ay mestiso, nang lumaki'y negro    │",
-            "└───────────────────────────────────────────────────┘",
-            "┌─────────────────────────────────────────────────────────┐",
-            "│   When young was fair-skinned, when grown became dark.  │",
-            "└─────────────────────────────────────────────────────────┘"
+        String[] riddle1Swordsman = {
+            "┌──────────────────────────────────┐",
+            "│  I pass from parent to child,    │",
+            "│  a weight both proud and wild.   │",
+            "│  I bind the past to the now,     │",
+            "│  What am I that all must endow?  │",
+            "└──────────────────────────────────┘"
         };
 
-        for (int i = 0; i < riddle.length; i++) {  
-            printDelayHandler.printLineWithDelay(riddle[i], 25); 
+
+        String[] riddle1Gunner = {
+            "┌──────────────────────────────────────────────────┐",
+            "│  I see what's moving though my eyes are still,   │",
+            "│  I trace the angle, speed, and will.             │",
+            "│  Not magic, not radar, a gift and a blight -     │",
+            "│  What lets me read motion in the dark of night?  │",
+            "└──────────────────────────────────────────────────┘",
+        };
+
+        String[] riddle1Mage = {
+            "┌───────────────────────────────────┐",
+            "│  I give strength but cause pain,  │",
+            "│  a gift wrapped in fear.          │",
+            "│  Use me too freely,               │",
+            "│  and suffering draws near.        │",
+            "└───────────────────────────────────┘"
+        };
+
+        if(hero.getSwordmanCharacterChosen()) {
+            for (int i = 0; i < riddle1Swordsman.length; i++) {  
+                printDelayHandler.printLineWithDelay(riddle1Swordsman[i], 25); 
+            }
+        } else if(hero.getGunnerCharacterChosen()) {
+            for (int i = 0; i < riddle1Gunner.length; i++) {  
+                printDelayHandler.printLineWithDelay(riddle1Gunner[i], 25); 
+            }
+        } else if(hero.getMageCharacterChosen()) {
+            for (int i = 0; i < riddle1Mage.length; i++) {  
+                printDelayHandler.printLineWithDelay(riddle1Mage[i], 25); 
+            }
         }
 
         while (continueInput) {
@@ -94,7 +128,7 @@ public class LibraryNarration {
                 System.out.print("-->| ");
                 String answer1 = scanner.nextLine();
 
-                if (answer1.equalsIgnoreCase("Abo ng sigarilyo") || answer1.equalsIgnoreCase("Cigarette ash")) {
+                if ((answer1.equalsIgnoreCase("Vision") && hero.getGunnerCharacterChosen()) || (answer1.equalsIgnoreCase("Curse") && hero.getMageCharacterChosen()) || (answer1.equalsIgnoreCase("Legacy") && hero.getSwordmanCharacterChosen())) {
                     System.out.println();
                     System.out.println("┌───────────────────────┐");
                     System.out.println("│   Nice! You got it!   │");
@@ -131,33 +165,62 @@ public class LibraryNarration {
     }
 
 
-    public boolean riddle2() {
+    public boolean riddle2(Hero hero) {
         boolean continueInput = true;
         boolean isCorrect = false;
 
         questHandler.riddles();
 
-        String[] riddle = {
-            "┌────────────────────────────────────────────────────────────┐",
-            "│   Walang ulo, walang mata, may bibig na laging umaariba,   │",
-            "│               At isang tenga na bubuka-buka                │",
-            "└────────────────────────────────────────────────────────────┘",
-            "  ┌───────────────────────────────────────────────────────┐",
-            "  │   No head, no eyes, a mouth that's always roaring,   │",
-            "  │           And an ear that opens and closes.           │",
-            "  └───────────────────────────────────────────────────────┘"
+        String[] riddle2Swordsman = {
+            "┌───────────────────────────────────────┐",
+            "│  I lie in wait, unseen, unheard,      │",
+            "│  Revealed to those who seek my word.  │",
+            "│  I guide the path if you are wise,    │",
+            "│  What am I that opens eyes?           │",
+            "└───────────────────────────────────────┘"
         };
 
-        for (int i = 0; i < riddle.length; i++) {  
-            printDelayHandler.printLineWithDelay(riddle[i], 25); 
+
+        String[] riddle2Gunner = {
+            "┌──────────────────────────────────────────────────────┐",
+            "│  I leave the barrel in a single line,                │",
+            "│  but I'll curve and twist if the user will refine.   │",
+            "│  Through steel or air I find my way -                │",
+            "│  What am I that strikes where foes don't stay?       │",
+            "└──────────────────────────────────────────────────────┘"
+        };
+
+        String[] riddle2Mage = {
+            "┌─────────────────────────────┐",
+            "│  I am woven, not stitched,  │",
+            "│  cast, not thrown.          │",
+            "│  Shaped by intention,       │",
+            "│  from thought I am grown.   │",
+            "└─────────────────────────────┘"
+        };
+
+        if(hero.getSwordmanCharacterChosen()) {
+            for (int i = 0; i < riddle2Swordsman.length; i++) {  
+                printDelayHandler.printLineWithDelay(riddle2Swordsman[i], 25); 
+            }
+        } else if(hero.getGunnerCharacterChosen()) {
+            for (int i = 0; i < riddle2Gunner.length; i++) {  
+                printDelayHandler.printLineWithDelay(riddle2Gunner[i], 25); 
+            }
+        } else if(hero.getMageCharacterChosen()) {
+            for (int i = 0; i < riddle2Mage.length; i++) {  
+                printDelayHandler.printLineWithDelay(riddle2Mage[i], 25); 
+            }
         }
+
+        
 
         while (continueInput) {
             try {
                 System.out.print("-->| ");
                 String answer2 = scanner.nextLine();
 
-                if (answer2.equalsIgnoreCase("Kawali") || answer2.equalsIgnoreCase("Frying pan")) {
+                if ((answer2.equalsIgnoreCase("Bullet") && hero.getGunnerCharacterChosen()) || (answer2.equalsIgnoreCase("Spell") && hero.getMageCharacterChosen()) || (answer2.equalsIgnoreCase("Secret") && hero.getSwordmanCharacterChosen())) {
                     System.out.println();
                     System.out.println("┌────────────────────────┐");
                     System.out.println("│   Correct! Good job!   │");
@@ -195,23 +258,51 @@ public class LibraryNarration {
         return isCorrect;
     }
 
-    public boolean riddle3() {
+    public boolean riddle3(Hero hero) {
         boolean continueInput = true;
         boolean isCorrect = false;
 
         questHandler.riddles();
 
-        String[] riddle = {
-            "┌──────────────────────────────────────────────────────────────┐",
-            "│   Duguang buhok ni Letecia, sinipsip ng kanyang mga bisita   │",
-            "└──────────────────────────────────────────────────────────────┘",
-            "  ┌────────────────────────────────────────────────────────┐",
-            "  │   Letecia's bloody hair was sucked by her visitors.   │",
-            "  └────────────────────────────────────────────────────────┘"
+        String[] riddle3Swordsman = {
+            "┌──────────────────────────────────────────┐",
+            "│  I test the brave, I test the wise,      │",
+            "│  I challenge strength and sharpen ties.  │",
+            "│  Step through me and you may grow,       │",
+            "│  What am I that heroes know?             │",
+            "└──────────────────────────────────────────┘"
         };
 
-        for (int i = 0; i < riddle.length; i++) {  
-            printDelayHandler.printLineWithDelay(riddle[i], 25); 
+        String[] riddle3Gunner = {
+            "┌───────────────────────────────────────────┐",
+            "│  They gave me power but took my lease,    │",
+            "│  my days burn quick, my nights decrease.  │",
+            "│  A borrowed spark that costs the prime -  │",
+            "│  What is this price measured as in time?  │",
+            "└───────────────────────────────────────────┘"
+        };
+
+        String[] riddle3Mage  = {
+            "┌──────────────────────────────┐",
+            "│  Silent yet heavy,           │",
+            "│  I follow her path.          │",
+            "│  Not a shadow, not a curse,  │",
+            "│  but born of her past.       │",
+            "└──────────────────────────────┘"
+        };
+
+        if(hero.getSwordmanCharacterChosen()) {
+            for (int i = 0; i < riddle3Swordsman.length; i++) {  
+                printDelayHandler.printLineWithDelay(riddle3Swordsman[i], 25); 
+            }
+        } else if(hero.getGunnerCharacterChosen()) {
+            for (int i = 0; i < riddle3Gunner.length; i++) {  
+                printDelayHandler.printLineWithDelay(riddle3Gunner[i], 25); 
+            }
+        } else if(hero.getMageCharacterChosen()) {
+            for (int i = 0; i < riddle3Mage.length; i++) {  
+                printDelayHandler.printLineWithDelay(riddle3Mage[i], 25); 
+            }
         }
 
         while (continueInput) {
@@ -220,7 +311,7 @@ public class LibraryNarration {
 
                 String answer3 = scanner.nextLine();
 
-                if (answer3.equalsIgnoreCase("Spaghetti")) {
+                if ((answer3.equalsIgnoreCase("Time") && hero.getGunnerCharacterChosen()) || (answer3.equalsIgnoreCase("Guilt") && hero.getMageCharacterChosen()) || (answer3.equalsIgnoreCase("Trials") && hero.getSwordmanCharacterChosen())) {
                     separatorHandler.promptSeparatorResized();
                     System.out.println("┌─────────────────────────┐");
                     System.out.println("│   Correct! Well done!   │");

@@ -2,9 +2,13 @@ package Inventory;
 
 import java.util.*;
 import Hero.*;
+import DesignRelated.*;
+import Narration.*;
 
 public class Inventory {
     Scanner sc = new Scanner(System.in);
+    ShopRelated shopHandler = new ShopRelated();
+    Narration separatorHandler = new Narration();
 
     private int capacity;
     private int smallHealthPotion;
@@ -28,20 +32,33 @@ public class Inventory {
         System.out.println();
         System.out.println();
 
-        if(smallHealthPotion > 0)  System.out.println("Small Health Potions: " + smallHealthPotion);
-        if(mediumHealthPotion > 0) System.out.println("Medium Health Potions: " + mediumHealthPotion);
-        if(largeHealthPotion > 0)  System.out.println("Large Health Potions: " + largeHealthPotion);
-
-        if(smallManaPotion > 0)    System.out.println("Small Mana Potions: " + smallManaPotion);
-        if(mediumManaPotion > 0)   System.out.println("Medium Mana Potions: " + mediumManaPotion);
-        if(largeManaPotion > 0)    System.out.println("Large Mana Potions: " + largeManaPotion);
-
-        if(isEmpty()) {
-            //insert inventory empty art here
-            System.out.println("Your inventory is empty!");
+        if(!isEmpty()) {
+            separatorHandler.promptSeparatorResized();
+            shopHandler.potion();
+            System.out.println();
         }
 
-        System.out.print("\n\nPress enter to continue...");
+        if(smallHealthPotion > 0)  System.out.println("[ = ] Small Health Potions: " + smallHealthPotion);
+        if(mediumHealthPotion > 0) System.out.println("[ = ] Medium Health Potions: " + mediumHealthPotion);
+        if(largeHealthPotion > 0)  System.out.println("[ = ] Large Health Potions: " + largeHealthPotion);
+
+        if(smallManaPotion > 0)    System.out.println("[ = ] Small Mana Potions: " + smallManaPotion);
+        if(mediumManaPotion > 0)   System.out.println("[ = ] Medium Mana Potions: " + mediumManaPotion);
+        if(largeManaPotion > 0)    System.out.println("[ = ] Large Mana Potions: " + largeManaPotion);
+
+        if(isEmpty()) {
+            shopHandler.empty();
+            System.out.println();
+            System.out.println("┌──────────────────────────────┐");
+            System.out.println("│ + Your inventory is empty! + │");
+            System.out.println("└──────────────────────────────┘");
+        }
+
+        System.out.println();
+        System.out.println("┌──────────────────────────────┐");
+        System.out.println("│  Press ENTER to continue...  │");
+        System.out.println("└──────────────────────────────┘");
+
         sc.nextLine();
 
         System.out.println();
@@ -50,69 +67,106 @@ public class Inventory {
 
     public void useItem(Hero hero){
         if (isEmpty()) {
-            System.out.println("Your inventory is empty!");
+            shopHandler.empty();
+            System.out.println();
+            System.out.println("┌──────────────────────────────┐");
+            System.out.println("│ + Your inventory is empty! + │");
+            System.out.println("└──────────────────────────────┘");
+
             return;
         }
 
         String input = "";
         while (!input.equals("0")) {
             while(true){
+
+                System.out.println("┌─────────────────────────────────┐");
+                System.out.println("│ >>>  Select an item to use  <<< │");
+                System.out.println("└─────────────────────────────────┘");
+                System.out.println();
                 try {
-                    System.out.println("\nSelect an item to use:");
-                    if (smallHealthPotion > 0)  System.out.println("[SH] Small Health Potion (" + smallHealthPotion + ")");
-                    if (mediumHealthPotion > 0) System.out.println("[MH] Medium Health Potion (" + mediumHealthPotion + ")");
-                    if (largeHealthPotion > 0)  System.out.println("[LH] Large Health Potion (" + largeHealthPotion + ")");
+                    
+                    if (smallHealthPotion > 0)  System.out.println("[ SH ] Small Health Potion (" + smallHealthPotion + ")");
+                    if (mediumHealthPotion > 0) System.out.println("[ MH ] Medium Health Potion (" + mediumHealthPotion + ")");
+                    if (largeHealthPotion > 0)  System.out.println("[ LH ] Large Health Potion (" + largeHealthPotion + ")");
 
-                    if (smallManaPotion > 0)    System.out.println("[SM] Small Mana Potion (" + smallManaPotion + ")");
-                    if (mediumManaPotion > 0)   System.out.println("[MM] Medium Mana Potion (" + mediumManaPotion + ")");
-                    if (largeManaPotion > 0)    System.out.println("[LM] Large Mana Potion (" + largeManaPotion + ")");
+                    if (smallManaPotion > 0)    System.out.println("[ SM ] Small Mana Potion (" + smallManaPotion + ")");
+                    if (mediumManaPotion > 0)   System.out.println("[ MM ] Medium Mana Potion (" + mediumManaPotion + ")");
+                    if (largeManaPotion > 0)    System.out.println("[ LM ] Large Mana Potion (" + largeManaPotion + ")");
 
-                    System.out.println("[0] Exit");
-                    System.out.print(">>> ");
+                    System.out.println("[ 0 ] Exit");
+                    System.out.print("-->| ");
                     input = sc.nextLine().trim().toUpperCase();
 
                     switch (input) {
                         case "SH":
                             if (smallHealthPotion > 0) useSmallHealthPotion(hero);
-                            else System.out.println("You don't have a Small Health Potion!");
+                            else System.out.println("┌───────────────────────────────────────────┐");
+                                 System.out.println("│ + You don't have a Small Health Potion! + │");
+                                 System.out.println("└───────────────────────────────────────────┘");
+
                             break;
 
                         case "MH":
                             if (mediumHealthPotion > 0) useMediumHealthPotion(hero);
-                            else System.out.println("You don't have a Medium Health Potion!");
+                            else System.out.println("┌────────────────────────────────────────────┐");
+                                 System.out.println("│ + You don't have a Medium Health Potion! + │");
+                                 System.out.println("└────────────────────────────────────────────┘");
+
                             break;
 
                         case "LH":
                             if (largeHealthPotion > 0) useLargeHealthPotion(hero);
-                            else System.out.println("You don't have a Large Health Potion!");
+                            else System.out.println("┌───────────────────────────────────────────┐");
+                                 System.out.println("│ + You don't have a Large Health Potion! + │");
+                                 System.out.println("└───────────────────────────────────────────┘");
+
                             break;
 
                         case "SM":
                             if (smallManaPotion > 0) useSmallManaPotion(hero);
-                            else System.out.println("You don't have a Small Mana Potion!");
+                            else System.out.println("┌─────────────────────────────────────────┐");
+                                 System.out.println("│ + You don't have a Small Mana Potion! + │");
+                                 System.out.println("└─────────────────────────────────────────┘");
+
                             break;
 
                         case "MM":
                             if (mediumManaPotion > 0) useMediumManaPotion(hero);
-                            else System.out.println("You don't have a Medium Mana Potion!");
+                            else System.out.println("┌──────────────────────────────────────────┐");
+                                 System.out.println("│ + You don't have a Medium Mana Potion! + │");
+                                 System.out.println("└──────────────────────────────────────────┘");
+
                             break;
 
                         case "LM":
                             if (largeManaPotion > 0) useLargeManaPotion(hero);
-                            else System.out.println("You don't have a Large Mana Potion!");
+                            else System.out.println("┌─────────────────────────────────────────┐");
+                                 System.out.println("│ + You don't have a Large Mana Potion! + │");
+                                 System.out.println("└─────────────────────────────────────────┘");
+
                             break;
 
                         case "0":
-                            System.out.println("Exited.");
+                            System.out.println("┌──────────────────┐");
+                            System.out.println("│  >>> Exited <<<  │");
+                            System.out.println("└──────────────────┘");
+
                             break;
 
                         default:
-                            System.out.println("Invalid input! Please try again.");
+                            System.out.println("┌──────────────────────────────────────┐");
+                            System.out.println("│   Invalid input! Please try again.   │");
+                            System.out.println("└──────────────────────────────────────┘");
+
                     }
 
                     break;
                 } catch (Exception e) {
-                    System.out.println("An error occurred. Please try again.");
+                    System.out.println("┌──────────────────────────────────────────┐");
+                    System.out.println("│   An error occurred. Please try again.   │");
+                    System.out.println("└──────────────────────────────────────────┘");
+
                     sc.nextLine();
                 }
             }
@@ -142,8 +196,10 @@ public class Inventory {
         hero.setHp(Math.min(hero.getHp() + healAmount, hero.getHpCap()));
         smallHealthPotion--;
 
-        System.out.println("You used a Small Health Potion (+20%).");
-        System.out.println("HP: healed " + healAmount + " -> " + hero.getHp());
+        System.out.println("┌───────────────────────────────────────────┐");
+        System.out.println("│ + You used a Small Health Potion (+20%) + │");
+        System.out.println("└───────────────────────────────────────────┘");
+        System.out.println("│  [ HP : healed ]" + healAmount + " -> " + hero.getHp());
     }
 
     public void useMediumHealthPotion(Hero hero){
@@ -151,8 +207,10 @@ public class Inventory {
         hero.setHp(Math.min(hero.getHp() + healAmount, hero.getHpCap()));
         mediumHealthPotion--;
 
-        System.out.println("You used a Medium Health Potion (+45%).");
-        System.out.println("HP: healed " + healAmount + " -> " + hero.getHp());
+        System.out.println("┌────────────────────────────────────────────┐");
+        System.out.println("│ + You used a Medium Health Potion (+45%) + │");
+        System.out.println("└────────────────────────────────────────────┘");
+        System.out.println("| [ HP : healed ]" + healAmount + " -> " + hero.getHp());
     }
 
     public void useLargeHealthPotion(Hero hero){
@@ -160,8 +218,10 @@ public class Inventory {
         hero.setHp(Math.min(hero.getHp() + healAmount, hero.getHpCap()));
         largeHealthPotion--;
 
-        System.out.println("You used a Large Health Potion (+70%).");
-        System.out.println("HP: healed " + healAmount + " -> " + hero.getHp());
+        System.out.println("┌───────────────────────────────────────────┐");
+        System.out.println("│ + You used a Large Health Potion (+70%) + │");
+        System.out.println("└───────────────────────────────────────────┘");
+        System.out.println("| [ HP : healed ]" + healAmount + " -> " + hero.getHp());
     }
 
     public void useSmallManaPotion(Hero hero){
@@ -169,8 +229,10 @@ public class Inventory {
         hero.setMana(Math.min(hero.getMana() + manaAmount, hero.getManaCap()));
         smallManaPotion--;
 
-        System.out.println("You used a Small Mana Potion (+20%).");
-        System.out.println("Mana: restored " + manaAmount + " -> " + hero.getMana());
+        System.out.println("┌─────────────────────────────────────────┐");
+        System.out.println("│ + You used a Small Mana Potion (+20%) + │");
+        System.out.println("└─────────────────────────────────────────┘");
+        System.out.println("| [ Mana : restored ]" + manaAmount + " -> " + hero.getMana());
     }
 
     public void useMediumManaPotion(Hero hero){
@@ -178,8 +240,10 @@ public class Inventory {
         hero.setMana(Math.min(hero.getMana() + manaAmount, hero.getManaCap()));
         mediumManaPotion--;
 
-        System.out.println("You used a Medium Mana Potion (+45%).");
-        System.out.println("Mana: restored " + manaAmount + " -> " + hero.getMana());
+        System.out.println("┌──────────────────────────────────────────┐");
+        System.out.println("│ + You used a Medium Mana Potion (+45%) + │");
+        System.out.println("└──────────────────────────────────────────┘");
+        System.out.println("| [ Mana : restored ]" + manaAmount + " -> " + hero.getMana());
     }
 
     public void useLargeManaPotion(Hero hero){
@@ -187,8 +251,10 @@ public class Inventory {
         hero.setMana(Math.min(hero.getMana() + manaAmount, hero.getManaCap()));
         largeManaPotion--;
 
-        System.out.println("You used a Large Mana Potion (+70%).");
-        System.out.println("Mana: restored " + manaAmount + " -> " + hero.getMana());
+        System.out.println("┌─────────────────────────────────────────┐");
+        System.out.println("│ + You used a Large Mana Potion (+70%) + │");
+        System.out.println("└─────────────────────────────────────────┘");
+        System.out.println("| [ Mana : restored ]" + manaAmount + " -> " + hero.getMana());
     }
 
     // ==== SETTERS ====

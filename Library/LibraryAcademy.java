@@ -46,6 +46,7 @@ public class LibraryAcademy {
                     System.out.println("┌───────────────────────────────────┐");
                     System.out.println("│   >>> Departing the library. <<<  │");
                     System.out.println("└───────────────────────────────────┘");
+                    loadGameHandler.exitGame();
                     separatorHandler.promptSeparatorResized();
                     return;
                 } else {
@@ -90,13 +91,21 @@ public class LibraryAcademy {
         switch (quests) {
             case 1:
                 separatorHandler.promptSeparatorResized();
-                narrationHandler.findTheLostBookNarration();
+
+                if(!hero.hasVisitedBookFinding()) {
+                    narrationHandler.findTheLostBookNarration(hero);
+                }
+
                 acceptQuest(hero, 1);
                 break;
 
             case 2:
                 separatorHandler.promptSeparatorResized();
-                narrationHandler.riddlesNarration();
+
+                if(!hero.hasVisitedRiddles()) {
+                    narrationHandler.riddlesNarration(hero);
+                }
+
                 acceptQuest(hero, 2);
                 break;
         }

@@ -1,6 +1,8 @@
 package Shop;
 
 import Hero.*;
+import DesignRelated.*;
+import Narration.*;
 import Inventory.Inventory;
 
 import java.util.*;
@@ -9,6 +11,9 @@ import java.text.DecimalFormat;
 public class Shop {
     Scanner sc = new Scanner(System.in);
     DecimalFormat df = new DecimalFormat("#,###.##");
+    IntroTitle loadHandler = new IntroTitle();
+    Narration separatorHandler = new Narration();
+
 
     private int[] itemPrice = {
         450,    // Small Health Potion
@@ -69,26 +74,42 @@ public class Shop {
                     System.out.println("  \t        | │                                                         │ |");
                     System.out.println("  \t        |_│_________________________________________________________│_|");
                     System.out.println("  \t         \\___________________________________________________________/");
-                    System.out.print(">>> ");
+                    System.out.print("-->| ");
                     choice = sc.nextInt();
 
                     if(choice < 1 || choice > 7){
-                        System.out.println("\nInvalid choice. Please enter a number between 1 and 7.\n\n");
+                        System.out.println();
+                        System.out.println("┌──────────────────────────────────────────────────────────┐");
+                        System.out.println("│  Invalid choice. Please enter a number between 1 and 3.  │");
+                        System.out.println("└──────────────────────────────────────────────────────────┘");
+                        System.out.println("\n\n");
                         continue;
                     }
 
                     break;
 
                 } catch (Exception e) {
-                    System.out.println("\nInvalid input. Please enter a number corresponding to your choice.\n\n");
+                    System.out.println();
+                    System.out.println("┌────────────────────────────────────────┐");
+                    System.out.println("│  Invalid input. Please enter a number  │");
+                    System.out.println("└────────────────────────────────────────┘");
+                    System.out.println("\n\n");
                     sc.nextLine(); // Clear the invalid input
                 }
             }
 
             if(choice == 7){
+
                 System.out.println();
                 System.out.println();
-                System.out.println("\nThank you for visiting Mystvale Academy Shop! See you again!\n\n");
+                System.out.println("┌─────────────────────────────────────────────────┐");
+                System.out.println("│  Thank you for visiting Mystvale Academy Shop!  │");
+                System.out.println("│                 See you again!                  │");
+                System.out.println("└─────────────────────────────────────────────────┘");
+                System.out.println();
+
+                separatorHandler.promptSeparatorResized();
+                loadHandler.exitGame();
                 return;
             }
 
@@ -97,22 +118,30 @@ public class Shop {
                 while(true){
                     try{
                         System.out.println();
-                        System.out.println("You have selected: " + getItem(choice));
-                        System.out.println("[1] Purchase Item");
-                        System.out.println("[2] View Item Details");
-                        System.out.println("[3] Cancel");
-                        System.out.print(">>> ");
+                        System.out.println("[ You have selected ] : " + getItem(choice));
+                        System.out.println("[ 1 ] Purchase Item");
+                        System.out.println("[ 2 ] View Item Details");
+                        System.out.println("[ 3 ] Cancel");
+                        System.out.print("-->| ");
                         select = sc.nextInt();
 
                         if(select < 1 || select > 3){
-                            System.out.println("\nInvalid choice. Please enter a number between 1 and 3.\n\n");
+                            System.out.println();
+                            System.out.println("┌──────────────────────────────────────────────────────────┐");
+                            System.out.println("│  Invalid choice. Please enter a number between 1 and 3.  │");
+                            System.out.println("└──────────────────────────────────────────────────────────┘");
+                            System.out.println("\n\n");
                             continue;
                         }
 
                         break;
 
                     } catch (Exception e) {
-                        System.out.println("\nInvalid input. Please enter a number corresponding to your choice.\n\n");
+                        System.out.println();
+                        System.out.println("┌────────────────────────────────────────┐");
+                        System.out.println("│  Invalid input. Please enter a number  │");
+                        System.out.println("└────────────────────────────────────────┘");
+                        System.out.println("\n\n");
                         sc.nextLine(); // Clear the invalid input
                     }
                 }
@@ -126,7 +155,12 @@ public class Shop {
                         itemDetails(choice);
                         break;
                     case 3:
-                        System.out.println("\nTransaction cancelled.\n\n");
+                        System.out.println();
+                        System.out.println("┌───────────────────────────────┐");
+                        System.out.println("│ >>> Transaction cancelled <<< │");
+                        System.out.println("└───────────────────────────────┘");
+                        System.out.println("\n\n");
+
                         loop = false;
                         break;
                 }
@@ -138,14 +172,43 @@ public class Shop {
         System.out.println();
 
         switch (choice) {
-            case 1 -> System.out.println("Small Health Potion: Restores 20% HP.");
-            case 2 -> System.out.println("Medium Health Potion: Restores 45% HP.");
-            case 3 -> System.out.println("Large Health Potion: Restores 70% HP.");
-            case 4 -> System.out.println("Small Mana Potion: Restores 20% Mana.");
-            case 5 -> System.out.println("Medium Mana Potion: Restores 45% Mana.");
-            case 6 -> System.out.println("Large Mana Potion: Restores 70% Mana.");
-            default -> System.out.println("Invalid choice.");
+            case 1 -> {
+                System.out.println("┌────────────────────────────────────────────┐");
+                System.out.println("│ [ Small Health Potion] : Restores 20% HP.  │");
+                System.out.println("└────────────────────────────────────────────┘");
+            }
+            case 2 -> {
+                System.out.println("┌──────────────────────────────────────────────┐");
+                System.out.println("│ [ Medium Health Potion ] : Restores 45% HP.  │");
+                System.out.println("└──────────────────────────────────────────────┘");
+            }
+            case 3 -> {
+                System.out.println("┌─────────────────────────────────────────────┐");
+                System.out.println("│ [ Large Health Potion ] : Restores 70% HP.  │");
+                System.out.println("└─────────────────────────────────────────────┘");
+            }
+            case 4 -> {
+                System.out.println("┌─────────────────────────────────────────────┐");
+                System.out.println("│ [ Small Mana Potion ] : Restores 20% Mana.  │");
+                System.out.println("└─────────────────────────────────────────────┘");
+            }
+            case 5 -> {
+                System.out.println("┌──────────────────────────────────────────────┐");
+                System.out.println("│ [ Medium Mana Potion ] : Restores 45% Mana.  │");
+                System.out.println("└──────────────────────────────────────────────┘");
+            }
+            case 6 -> {
+                System.out.println("┌─────────────────────────────────────────────┐");
+                System.out.println("│ [ Large Mana Potion ] : Restores 70% Mana.  │");
+                System.out.println("└─────────────────────────────────────────────┘");
+            }
+            default -> {
+                System.out.println("┌───────────────────┐");
+                System.out.println("│  Invalid choice.  │");
+                System.out.println("└───────────────────┘");
+            }
         }
+
 
         System.out.println();
     }
@@ -165,22 +228,29 @@ public class Shop {
         // Ask for amount
         while (true) {
             try {
-                System.out.print("\n\nEnter Amount to Purchase: ");
+                System.out.print("\n\n[ Enter Amount to Purchase] : ");
                 amount = sc.nextInt();
 
                 if (amount <= 0) {
-                    System.out.println("\nInvalid amount. Please enter a positive number.\n\n");
+                    System.out.println("┌──────────────────────────────────────────────────┐");
+                    System.out.println("│  Invalid amount. Please enter a positive number  │");
+                    System.out.println("└──────────────────────────────────────────────────┘");
+
                     continue;
                 }
 
                 if (amount > 99) {
-                    System.out.println("\nYou can only store up to 99 " + getItem(choice) + ".\n\n");
+                    System.out.println("\n [ You can only store up to 99 " + getItem(choice) + " ] \n\n");
                     continue;
                 }
 
                 break;
             } catch (Exception e) {
-                System.out.println("\nInvalid input. Please enter a valid amount.\n\n");
+                System.out.println();
+                System.out.println("┌──────────────────────────────────────────────┐");
+                System.out.println("│  Invalid input. Please enter a valid amount  │");
+                System.out.println("└──────────────────────────────────────────────┘");
+                System.out.println();
                 sc.nextLine();
             }
         }
@@ -200,7 +270,7 @@ public class Shop {
         int availableCapacity = capacity - current;
 
         if (amount > availableCapacity) {
-            System.out.println("\nYou can only purchase " + availableCapacity + " more " + getItem(choice) + "(s).\n");
+            System.out.println("\n| You can only purchase " + availableCapacity + " more " + getItem(choice) + "(s) |\n");
             return;
         }
 
@@ -208,24 +278,37 @@ public class Shop {
         int totalCost = price * amount;
 
         if (hero.getGold() < totalCost) {
-            System.out.println("\nYou do not have enough gold.\n");
+            System.out.println();
+            System.out.println("┌─────────────────────────────────┐");
+            System.out.println("│ + You do not have enough gold + │");
+            System.out.println("└─────────────────────────────────┘");
+            System.out.println();
+
             return;
         }
 
         // Confirm purchase
         while (true) {
-            System.out.println("\nYou are about to purchase " + amount + " " + getItem(choice) + "(s) for " + df.format(totalCost) + "g.");
-            System.out.print("Confirm Purchase? (Y/N): ");
+            System.out.println("\n| You are about to purchase " + amount + " " + getItem(choice) + "(s) for " + df.format(totalCost) + "g. |");
+            System.out.print("| Confirm Purchase? (Y/N): ");
             confirmation = sc.next().trim().toUpperCase();
 
             if (confirmation.equals("Y") || confirmation.equals("N"))
                 break;
 
-            System.out.println("Invalid input. Please enter Y or N.");
+            System.out.println("┌───────────────────────────────────────┐");
+            System.out.println("│  Invalid input. Please enter Y or N.  │");
+            System.out.println("└───────────────────────────────────────┘");
+
         }
 
         if (confirmation.equals("N")) {
-            System.out.println("\nPurchase cancelled.\n\n");
+            System.out.println("\n");
+            System.out.println("┌────────────────────────┐");
+            System.out.println("│ + Purchase cancelled + │");
+            System.out.println("└────────────────────────┘");
+            System.out.println("\n\n");
+
             return;
         }
 
@@ -242,7 +325,7 @@ public class Shop {
             case 6 -> inv.setLargeManaPotion(current + amount);
         }
 
-        System.out.println("\nPurchased " + amount + " " + getItem(choice) + "(s) for " + df.format(totalCost) + "g.");
+        System.out.println("\n[ Purchased ] " + amount + " " + getItem(choice) + "(s) for " + df.format(totalCost) + "g. |");
     }
 
     public int getItemPrice(int choice) {

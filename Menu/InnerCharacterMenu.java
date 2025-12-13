@@ -76,7 +76,9 @@ public class InnerCharacterMenu extends Narration{
 
                                 } else if (willChangePlayer.equalsIgnoreCase("n")) {
                                     System.out.println();
-                                    System.out.println("Continuing with current character...");
+                                    System.out.println("┌──────────────────────────────────────────┐");
+                                    System.out.println("│   Continuing with current character...   │");
+                                    System.out.println("└──────────────────────────────────────────┘");
                                     separatorHandler.promptSeparatorResized();
                                     willChange = false;
                                 } else {
@@ -189,7 +191,9 @@ public class InnerCharacterMenu extends Narration{
 
                                 } else if (willChangePlayer.equalsIgnoreCase("n")) {
                                     System.out.println();
-                                    System.out.println("Continuing with current character...");
+                                    System.out.println("┌──────────────────────────────────────────┐");
+                                    System.out.println("│   Continuing with current character...   │");
+                                    System.out.println("└──────────────────────────────────────────┘");
                                     separatorHandler.promptSeparatorResized();
                                     willChange = false;
                                 } else {
@@ -283,7 +287,7 @@ public class InnerCharacterMenu extends Narration{
                             System.out.println("│  Change character? Progress won't be saved.  │");
                             System.out.println("│      Enter 'y' to confirm, 'n' to cancel     │");
                             System.out.println("└──────────────────────────────────────────────┘");
-                            System.out.print("--> ");
+                            System.out.print("-->| ");
 
                             try {
                                 String willChangePlayer = scanner.nextLine().trim();
@@ -302,7 +306,9 @@ public class InnerCharacterMenu extends Narration{
                                 } 
                                 else if (willChangePlayer.equalsIgnoreCase("n")) {
                                     System.out.println();
-                                    System.out.println("Continuing with current character...");
+                                    System.out.println("┌──────────────────────────────────────────┐");
+                                    System.out.println("│   Continuing with current character...   │");
+                                    System.out.println("└──────────────────────────────────────────┘");
                                     separatorHandler.promptSeparatorResized();
                                     willChange = false;
                                 } 

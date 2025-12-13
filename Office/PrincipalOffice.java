@@ -2,6 +2,7 @@ package Office;
 
 import Hero.*;
 import Narration.*;
+import DesignRelated.*;
 import java.util.Scanner;
 import TrainingGround.StatProgress;
 
@@ -11,6 +12,8 @@ public class PrincipalOffice extends StatProgress {
     private SwordsmanPlot swordsmanPlotHandlder = new SwordsmanPlot();
     private GunnerPlot gunnerPlotHandler = new GunnerPlot();
     private MagePlot magePlotHandler = new MagePlot();
+    private IntroTitle loadHandler = new IntroTitle();
+    private Narration separatorHandler = new Narration();
     private Scanner scanner = new Scanner(System.in);
 
     public void principalOffice(Hero hero){
@@ -20,15 +23,18 @@ public class PrincipalOffice extends StatProgress {
             hero.setHaveEntered(true);
         }
 
-        System.out.println();
-        System.out.println("┌──────────────────────────────────────────────┐");
-        System.out.println("│   Determining your elegibility. Standby~~~   │");
-        System.out.println("└──────────────────────────────────────────────┘");
+        System.out.println("┌────────────────────────────────────────┐");
+        System.out.println("│  Press ENTER to determine eligibility  │");
+        System.out.println("└────────────────────────────────────────┘");
+        scanner.nextLine();
 
+        separatorHandler.promptSeparator();
+        loadHandler.elibility();
+        separatorHandler.promptSeparator();
 
         boolean eligible = false;
 
-        if (!hero.canEnterArea1() && hero.hasFinishedAllTraining()) {
+        if (hero.canEnterArea1() && hero.hasFinishedAllTraining()) {
             
                 narrationHandler.area1Eligible();
                 hero.unlockArea1();
@@ -36,11 +42,14 @@ public class PrincipalOffice extends StatProgress {
                 System.out.println("┌──────────────────────────────────────────────────┐");
                 System.out.println("│   + You may now enter The Forest of Reverie +    │");
                 System.out.println("└──────────────────────────────────────────────────┘");
-                System.out.println("| Press ENTER to claim rewards... |");
-                scanner.nextLine();
+                System.out.println("│  Press ENTER to claim rewards...  │");
+                System.out.println("└───────────────────────────────────┘");
                 scanner.nextLine();
 
+                separatorHandler.promptSeparatorResized();
+
                 currencyProgress(hero);
+                scanner.nextLine();
 
                 eligible = true;
             } else if (!hero.canEnterArea2() && hero.canEnterArea1() && hero.getHaveDefeatedArea1Boss()) { 
@@ -61,11 +70,14 @@ public class PrincipalOffice extends StatProgress {
                 System.out.println("┌───────────────────────────────────────────┐");
                 System.out.println("│   + You may now enter The Reverie Edge +  │");
                 System.out.println("└───────────────────────────────────────────┘");
-                System.out.println("| Press ENTER to claim rewards... |");
-                scanner.nextLine();
+                System.out.println("│  Press ENTER to claim rewards...  │");
+                System.out.println("└───────────────────────────────────┘");
                 scanner.nextLine();
 
+                separatorHandler.promptSeparatorResized();
+
                 currencyProgress(hero);
+                scanner.nextLine();
 
                 eligible = true;
 
@@ -86,11 +98,14 @@ public class PrincipalOffice extends StatProgress {
                 System.out.println("┌───────────────────────────────────────────────┐");
                 System.out.println("│   + You may now enter The Forsaken Lands +    │");
                 System.out.println("└───────────────────────────────────────────────┘");
-                System.out.println("| Press ENTER to claim rewards... |");
-                scanner.nextLine();
+                System.out.println("│  Press ENTER to claim rewards...  │");
+                System.out.println("└───────────────────────────────────┘");
                 scanner.nextLine();
 
+                separatorHandler.promptSeparatorResized();
+                
                 currencyProgress(hero);
+                scanner.nextLine();
 
                 eligible = true;
             
@@ -102,11 +117,20 @@ public class PrincipalOffice extends StatProgress {
             System.out.println("│         You are not eligible for any outside premises            │");
             System.out.println("│   Finish your training or defeat more boss to gain elibility     │");
             System.out.println("└──────────────────────────────────────────────────────────────────┘");
-            System.out.println("┌───────────────────────────────────────────────────┐");
-            System.out.println("│   >>> Exiting from the Principal\'s Office <<<    │");
-            System.out.println("└───────────────────────────────────────────────────┘");
+            System.out.println("│  Press ENTER to continue  │");
+            System.out.println("└───────────────────────────┘");
+            scanner.nextLine();
+            
 
         }
+
+        separatorHandler.promptSeparatorResized();
+
+        System.out.println("┌───────────────────────────────────────────────────┐");
+        System.out.println("│   >>> Exiting from the Principal's Office <<<     │");
+        System.out.println("└───────────────────────────────────────────────────┘");
+            
+        loadHandler.exitGame();
     }
 
 }

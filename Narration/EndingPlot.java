@@ -3,7 +3,6 @@ package Narration;
 import Hero.*;
 import DesignRelated.*;
 
-
 public class EndingPlot {
 
     SwordsmanPlot swordsmanPlotHandler = new SwordsmanPlot();

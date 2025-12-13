@@ -594,6 +594,8 @@ public class Hero {
     private boolean riddle1Done = false;
     private boolean riddle2Done = false;
     private boolean riddle3Done = false;
+    private boolean hasVisitedRiddles = false;
+    private boolean hasVisitedBookFinding = false;
 
     public boolean isLibraryQuest1Done() { 
         return libraryQuest1Done; 
@@ -643,11 +645,27 @@ public class Hero {
         return isAllRiddlesDone();
     }
 
+    public void setVisitedRiddles(boolean done) {
+        this.hasVisitedRiddles = done;
+    }
+
+    public boolean hasVisitedRiddles() {
+        return hasVisitedRiddles;
+    }
+
+    public void setVisitedBookFinding(boolean done) {
+        this.hasVisitedBookFinding = done;
+    }
+
+    public boolean hasVisitedBookFinding() {
+        return hasVisitedBookFinding;
+    }
+
     // Area Progress
     // Office Progress______________________________________________________________________________
-    private boolean canEnterArea1 = true; // false original
-    private boolean canEnterArea2 = true;
-    private boolean canEnterArea3 = true;
+    private boolean canEnterArea1 = false; 
+    private boolean canEnterArea2 = false;
+    private boolean canEnterArea3 = false;
     private boolean haveEntered = false;
 
     public boolean haveEntered() {

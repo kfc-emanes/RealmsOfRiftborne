@@ -45,12 +45,12 @@ public class LibraryQuest extends LibraryNarration{
                     System.out.println("└───────────────────────────────────────────────────────┘");
                     separatorHandler.promptSeparatorResized();
 
+                    ifQuest1Success();
+
                     if(hero.getSwordmanCharacterChosen()) {
                         swordsmanHint();
-                    } 
-
-
-                    ifQuest1Success();
+                    }
+                    
                     progressHandler.randomStatsProgress(hero);
                     found = true;
                 } else {
@@ -96,8 +96,8 @@ public class LibraryQuest extends LibraryNarration{
         System.out.println("│ bear, both gift and bane, Will guide your hand through  │");
         System.out.println("│ fear and pain.                                          │");
         System.out.println("└─────────────────────────────────────────────────────────┘");
-
-        System.out.println("Press ENTER to continue...");
+        System.out.println("│   Press ENTER to continue    │");
+        System.out.println("└──────────────────────────────┘");
         scanner.nextLine();
 
     }
@@ -105,47 +105,48 @@ public class LibraryQuest extends LibraryNarration{
     public void mageHint() {
 
         String[] foundHintNarration = {
-            "Narration: Your fingers brush against a glowing, ancient page. The symbols twist unnaturally, almost as if they are alive.",
-            "Narration: Confusion prickles at your mind. The lines speak of power, of cycles, of a destiny you feel you might share.",
-            "Narration: Whispers rise from the page, soft and haunting: 'Chosen… conduit... destiny...' You shiver, unsure if it is imagination or fate.",
-            "Narration: You pause. The words resonate strangely, echoing something personal. Could this truly be about you?",
-            "Narration: Heart racing, you turn the page. Cryptic verses hint at the Nullstar Relic, your link to forces beyond comprehension.",
-            "Narration: Conflicted and bewildered, you realize: this text doesn\'t just tell a story - it is speaking directly to you, guiding your path."
+            "Narration: Your hand hovers over a faintly glowing page. Strange symbols ripple across it, as if alive with ancient magic.",
+            "Narration: A shiver runs down your spine. The text speaks of power, curses, and a path intertwined with your own fate.",
+            "Narration: Soft murmurs echo from the tome: 'Awaken... chosen... the path of the Arclight...' You pause, unsure if the whispers are real or conjured by your mind.",
+            "Narration: The words resonate deeply, stirring memories and visions of your training and the burdens you bear. Could this truly be meant for you?",
+            "Narration: Heart pounding, you turn the page. Cryptic passages hint at the Forsaken Lands and a power that could end Morvain's schemes.",
+            "Narration: Bewildered yet compelled, you realize this tome does more than tell history—it reaches out to guide your steps, testing your courage and wisdom."
         };
 
         hintNarration(foundHintNarration);
 
-        System.out.println("┌───────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│ Shadowed Choice: A looming hand that seeks your might, Will test your │");
-        System.out.println("│ will and guide your fight. Each riddle solved, each verse unbound,    │");
-        System.out.println("│ Reveals the truth that must be found.                                 │");
-        System.out.println("└───────────────────────────────────────────────────────────────────────┘");
-
-        System.out.println("Press ENTER to continue...");
+        System.out.println("┌────────────────────────────────────────────────────────────────────────┐");
+        System.out.println("│ Flickering Glyphs: A hidden spark whispers your path, Secrets entwined │");
+        System.out.println("│ with power and curse. Solve the riddle, unveil the lines,              │");
+        System.out.println("│ and let the ancient magic guide your hand.                             │");
+        System.out.println("└────────────────────────────────────────────────────────────────────────┘");
+        System.out.println("│   Press ENTER to continue    │");
+        System.out.println("└──────────────────────────────┘");
         scanner.nextLine();
     }
 
     public void gunnerHint() {
 
         String[] foundHintNarration = {
-            "Narration: Your fingers brush over a dusty page, the ink shimmering faintly under the light.",
-            "Narration: Confusion clouds your mind. The words speak of danger, of hidden hands... of a responsibility you feel you might bear.",
-            "Narration: Whispers rise from the parchment: 'Catalyst... rogue... choices...' You shiver, unsure if it's a warning or your own intuition.",
-            "Narration: You pause. The text seems to resonate personally, echoing something only you could understand.",
-            "Narration: Heart pounding, you study the verses. They hint at threats and powers beyond what you\'ve faced.",
-            "Narration: Conflicted yet alert, you realize: the book doesn\'t just tell a story - it is speaking to you, guiding your path forward."
+            "Narration: Your fingers graze a cold, metallic page, faint Aether energy crackling beneath your touch.",
+            "Narration: Unease prickles at your senses. The text speaks of experiments, stolen power, and a destiny tied to precision and sacrifice.",
+            "Narration: Whispered syllables rise from the page: 'Aether... marksman... vengeance...' You shiver, unsure if it is warning or fate.",
+            "Narration: You pause, heart racing. The words strike a chord within you, echoing the trials and torment only you have endured.",
+            "Narration: Each line hints at hidden threats and untold abilities, powers you might wield or must confront.",
+            "Narration: Conflicted yet driven, you realize: this is not mere record-keeping - the book calls to you, guiding your path to end Project LUCENT."
         };
 
         hintNarration(foundHintNarration);
 
         separatorHandler.promptSeparatorResized();
-        System.out.println("┌────────────────────────────────────────────────────────────────────────┐");
-        System.out.println("│ Whispered Danger: The streets were still, yet voices stir, Rogue hands │");
-        System.out.println("│ reach where secrets were. Your path is fraught, the choices keen, What │");
-        System.out.println("│ seems unseen is yet between.                                           │");
-        System.out.println("└────────────────────────────────────────────────────────────────────────┘");
-
-        System.out.println("Press ENTER to continue...");
+        
+        System.out.println("┌─────────────────────────────────────────────────────────────────────────┐");
+        System.out.println("│ Aethered Echoes: Shadows shift where silence should reign, Precision    │");
+        System.out.println("│ bends fate and hidden hands move. Each step measured, each strike told, │");
+        System.out.println("│ The unseen marks the path you must hold.                                │");
+        System.out.println("└─────────────────────────────────────────────────────────────────────────┘");
+        System.out.println("│   Press ENTER to continue    │");
+        System.out.println("└──────────────────────────────┘");
         scanner.nextLine();
     }
 
@@ -178,7 +179,7 @@ public class LibraryQuest extends LibraryNarration{
  
         switch(whatRiddle){
             case 1:
-                isCorrect = riddle1();
+                isCorrect = riddle1(hero);
                 
                 if(isCorrect){
                     hero.setRiddle1Done(true);
@@ -186,7 +187,7 @@ public class LibraryQuest extends LibraryNarration{
                 break;
 
             case 2: 
-                isCorrect = riddle2();
+                isCorrect = riddle2(hero);
                 
                 if(isCorrect){
                     hero.setRiddle2Done(true);
@@ -195,7 +196,7 @@ public class LibraryQuest extends LibraryNarration{
                 break;
 
             case 3:
-                isCorrect = riddle3();
+                isCorrect = riddle3(hero);
                 
                 if(isCorrect) {
                     hero.setRiddle3Done(true);
@@ -211,8 +212,14 @@ public class LibraryQuest extends LibraryNarration{
 
     public void hintNarration(String[] array) {
 
-        System.out.println("Narration Ahead! Not Skippable");
-        System.out.println("Press ENTER to continue...");
+        System.out.println("┌────────────────────────────────────┐");
+        System.out.println("│   Narration Ahead! Not Skippable   │");
+        System.out.println("└────────────────────────────────────┘");
+        System.out.println("│  Press ENTER to continue  │");
+        System.out.println("└───────────────────────────┘");
+        scanner.nextLine();
+
+        System.out.println();
 
         for (int i = 0; i < array.length; i++) {
             printDelayHandler.printWithDelay(array[i], 10); 

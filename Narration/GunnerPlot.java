@@ -13,26 +13,26 @@ public class GunnerPlot {
 
         String[] afterArea1Narration2 = {
             "Narration: When you were called to the principal\'s office, the air grew heavier the moment you stepped inside.\nAncient inscriptions carved into the floor glowed faintly, as if stirred from sleep.\nThe principal shut the door slowly, watching Aria with measured intent.\nSomething in this room had awakened the moment he arrived. Aria\'s hand drifted near his holster - instinct, not fear.",
-            "Principal: \"You felt it, didn\'t you?\"",
+            "Principal Nemeesha: \"You felt it, didn\'t you?\"",
             "Aria: \"...The hum under the courtyard? I thought I imagined it.\"",
-            "Principal: \"Imagined?\" A dry laugh. \"Those wards haven\'t responded in forty years, Mr. Caelith.\"",
+            "Principal Nemeesha: \"Imagined?\" A dry laugh. \"Those wards haven\'t responded in forty years, Mr. Caelith.\"",
             "Narration: Aria\'s Aether flared briefly, tightening his breath.",
             "Aria: \"What did they react to?\"",
             "Narration: The principal moved to the window, watching the faintly glowing courtyard.",
-            "Principal: \"Aether Pulse residue. Only those altered by it can trigger the wards.\"",
+            "Principal Nemeesha: \"Aether Pulse residue. Only those altered by it can trigger the wards.\"",
             "Narration: A familiar pain crept along Aria\'s spine - memories of metal tables and burning nerves.",
             "Aria: \"So the academy knows about Project LUCENT.\"",
-            "Principal: \"Pieces of it.\" He turned, gaze sharpening.\n\"But when you entered the grounds,\nthe runes lit up. They recognized the signature in your blood.\"",
+            "Principal Nemeesha: \"Pieces of it.\" He turned, gaze sharpening.\n\"But when you entered the grounds,\nthe runes lit up. They recognized the signature in your blood.\"",
             "Narration: Aria\'s voice dropped.",
             "Aria: \"My power is classified. Morvain covered every trace.\"",
-            "Principal: \"Kim Morvain is clever... not flawless.\" A hint of sorrow crossed his face. \"And you carry something even he couldn\'t erase.\"",
+            "Principal Nemeesha: \"Kim Morvain is clever... not flawless.\" A hint of sorrow crossed his face. \"And you carry something even he couldn\'t erase.\"",
             "Narration: Silence tightened between them.",
             "Aria: \"...What do the runes think I am?\"",
             "Narration: The principal exhaled slowly.",
-            "Principal: \"Not a threat.\" A beat of hesitation. \"But not entirely human either.\"",
+            "Principal Nemeesha: \"Not a threat.\" A beat of hesitation. \"But not entirely human either.\"",
             "Narration: Aria\'s jaw clenched.",
             "Aria: \"So the academy reacted to me.\"",
-            "Principal: \"Not just reacted.\" He touched a faintly glowing ward on his desk. \"It awakened.\""
+            "Principal Nemeesha: \"Not just reacted.\" He touched a faintly glowing ward on his desk. \"It awakened.\""
         };
 
 
@@ -46,20 +46,20 @@ public class GunnerPlot {
         String[] afterArea2Narration2 = {
             "Narration: You enter the principal\'s office, still smelling of smoke and scorched earth from the battle at Reverie\'s Edge.\nEvery muscle aches, your mind sharp despite the exhaustion.\nYou expected a routine debrief... but the air here feels heavier, charged with the quiet gravity of secrets long buried.",
             "Narration: Principal Nemeesha sits behind the desk, calm as ever, but his gaze carries the weight of something you aren\'t ready to hear.\nHe motions to the seat, but you remain standing, sensing this is no ordinary conversation.",
-            "Principal: \"You\'ve proven yourself today,\" he says, voice steady. But there\'s a shadow behind it - something unsaid.",
+            "Principal Nemeesha: \"You\'ve proven yourself today,\" he says, voice steady. But there\'s a shadow behind it - something unsaid.",
             "Aria: \"I didn\'t come here for praise.\"",
-            "Principal: \"No. Not this time.\"",
-            "Principal: \"Aria... you were never meant to survive Project LUCENT.\"",
+            "Principal Nemeesha: \"No. Not this time.\"",
+            "Principal Nemeesha: \"Aria... you were never meant to survive Project LUCENT.\"",
             "Narration: Your heart skips. Every muscle tenses.",
             "Aria: \"...I... what?\"",
-            "Principal: \"Your designation in the records was marked \'Non-Survivable.\'\nMorvain intended for the first surge of the M-13 experiment to end your life.\nEvery needle, every injection, every test was calculated to break you… permanently.\"",
+            "Principal Nemeesha: \"Your designation in the records was marked \'Non-Survivable.\'\nMorvain intended for the first surge of the M-13 experiment to end your life.\nEvery needle, every injection, every test was calculated to break you… permanently.\"",
             "Narration: The words hit harder than any gunshot. Your mind flashes back to metal tables, flashing lights, and burning nerves.",
             "Aria: \"...Then I was... a mistake.\"",
             "Narration: Your hands clench, nails digging into your palms. \"Everything he did... every trial, every pain... was meant to kill me.\"",
-            "Principal: \"Not all mistakes are failures, Aria. You survived because the M-13 Surge evolved -\nan anomaly even Morvain could not control. That is why you are here. That is why you can fight him.\"",
+            "Principal Nemeesha: \"Not all mistakes are failures, Aria. You survived because the M-13 Surge evolved -\nan anomaly even Morvain could not control. That is why you are here. That is why you can fight him.\"",
             "Narration: A fire ignites inside you - anger, defiance, and the raw need to settle the score.",
             "Aria: \"...If I was never meant to live, then every moment\nI\'ve survived is owed to me. I\'ll make sure Morvain pays for what he tried to do.\"",
-            "Principal: \"The Forsaken Lands will not wait for you.\nMorvain has prepared for every contingency. And yet... you are the one anomaly that might undo him.\"",
+            "Principal Nemeesha: \"The Forsaken Lands will not wait for you.\nMorvain has prepared for every contingency. And yet... you are the one anomaly that might undo him.\"",
             "Narration: Your Aether flares subtly, your chest tightening with determination. Pain, survival, and purpose fuse into resolve.",
             "Aria: \"I survived him once. I\'ll survive him again... and I\'ll finish what he started. No matter what it takes.\"",
             "Narration: The principal leans back silently, letting the words hang.\nThe boy who was never meant to exist is now a storm about to strike the Forsaken Lands."
@@ -165,7 +165,12 @@ public class GunnerPlot {
         promptSeparatorHandler.promptSeparatorResized();
         gunnerAfterArea3();
 
-        System.out.println("Ignore the tablet? (y/n)");
+        System.out.println("┌────────────────────────────────────────────────┐");
+        System.out.println("│   The obsidian tablet hums with unseen power   │");
+        System.out.println("│  Will you confront its message, or turn away?  │");
+        System.out.println("│                     (y/n)                      │");
+        System.out.println("└────────────────────────────────────────────────┘");
+        System.out.println("-->| ");
         String choice = scanner.nextLine();
 
         if(choice.equalsIgnoreCase("y")) {
@@ -180,9 +185,13 @@ public class GunnerPlot {
 
     public void gunnerPlotNarration(String[] array) {
         
-        System.out.println("┌─────────────────────────────────────────────────────────────┐");
-        System.out.println("│ Narration Ahead! Not Skippable │ Press ENTER to continue... │");
-        System.out.println("└─────────────────────────────────────────────────────────────┘");
+        System.out.println("┌────────────────────────────────────┐");
+        System.out.println("│   Narration Ahead! Not Skippable   │");
+        System.out.println("└────────────────────────────────────┘");
+        System.out.println("│  Press ENTER to continue  │");
+        System.out.println("└───────────────────────────┘");
+        scanner.nextLine();
+        System.out.println();
 
         for (int i = 0; i < array.length; i++) {
             //scanner.nextLine(); 

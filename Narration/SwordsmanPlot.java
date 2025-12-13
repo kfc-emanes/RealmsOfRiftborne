@@ -15,18 +15,18 @@ public class SwordsmanPlot {
         String[] afterArea1Narration1 = {
             "Narration: You are summoned to the Principal's Office.\nThe corridors feel heavier than usual, each step echoing against the marble floor.",
             "Narration: Whispers follow your name - Kael Solmere. The door is engraved with runes.\nWhen it opens, the scent of old parchment and burning incense fills the air.",
-            "Principal: \"Kael... I know this summons may seem sudden. Sit down. There's something your family kept hidden for too long.\"",
+            "Principal Nemeesha: \"Kael... I know this summons may seem sudden. Sit down. There's something your family kept hidden for too long.\"",
             "Narration: The principal Nemeesha Brightwell avoids your gaze, her tone heavy with reluctance.",
             "Kael: \"What are you talking about? Is this about the curse or my family's past?\"",
-            "Principal: \"Yes... and more. Your parents weren't victims. They were hunted - slain - by Kim Morvain.\"",
+            "Principal Nemeesha: \"Yes... and more. Your parents weren't victims. They were hunted - slain - by Kim Morvain.\"",
             "Narration: The name pierces through you. The room seems to tremble; for a heartbeat, you hear a whisper - soft and familiar.",
             "Kael: \"No... that can't be. They tried to stop him, didn't they?\"",
-            "Principal: \"They defied him, Kael. Your parents once served Kim Morvain,\nbut when they learned his true power, they turned against him.\nTheir betrayal saved lives - but doomed your bloodline.\"",
+            "Principal Nemeesha: \"They defied him, Kael. Your parents once served Kim Morvain,\nbut when they learned his true power, they turned against him.\nTheir betrayal saved lives - but doomed your bloodline.\"",
             "Narration: Silence wraps around you. The curse that plagues your family - the whispers, the visions - now pulse stronger in your chest.",
             "Kael: \"Then the curse... it started because of them?\"",
-            "Principal: \"Because of their choice. Kim Morvain's vengeance is eternal. Every Solmere heir bears it.\"",
+            "Principal Nemeesha: \"Because of their choice. Kim Morvain's vengeance is eternal. Every Solmere heir bears it.\"",
             "Narration: The principal rests a hand on your shoulder, voice soft.",
-            "Principal: \"You must learn your family's truth... but remember - truth cuts deeper than any blade.\"",
+            "Principal Nemeesha: \"You must learn your family's truth... but remember - truth cuts deeper than any blade.\"",
             "Narration: As you leave, the air feels colder. A faint echo follows you - your name, spoken by a voice you no longer recognize.",
             "Narration: With this revelation, a new path unfolds. The seals guarding The Reverie's Edge now recognize your strength and lineage.\nYou are eligible to enter Reveries Edge. Beyond its gates, greater challenges and truths await."
         };
@@ -40,13 +40,13 @@ public class SwordsmanPlot {
 
         String[] afterArea2Narration1 = {
             "Narration: The sky above the academy is gray when the summons comes again.\nYou stand before the Principal's Office, the air heavy with dread.\nInside, the principal Nemeesha Brightwell watches the fog roll past the window, his voice quiet when he finally speaks.",
-            "Principal: \"Kael... you've come so far. It's time you knew the truth.\nYour family - the Solmeres - weren't protectors of light. They once served Kim Morvain.\"",
+            "Principal Nemeesha: \"Kael... you've come so far. It's time you knew the truth.\nYour family - the Solmeres - weren't protectors of light. They once served Kim Morvain.\"",
             "Kael: \"That's impossible. My parents died fighting him!\"",
-            "Principal: \"They did. But the curse didn't come from Morvain alone. It came from your own blood.\nYour ancestors turned on them for breaking the oath that bound your lineage to darkness.\"",
+            "Principal Nemeesha: \"They did. But the curse didn't come from Morvain alone. It came from your own blood.\nYour ancestors turned on them for breaking the oath that bound your lineage to darkness.\"",
             "Narration: The words hit like thunder. Shadows twist along the walls, faces flickering within them - faces you almost recognize.",
             "Unknown Whispers: \"Traitors... betrayers of the Oath...\"",
             "Kael: \"Then the ones haunting me - \"",
-            "Principal: \"- are your kin. Bound by rage, unable to forgive. The curse is their punishment, passed down through you.\"",
+            "Principal Nemeesha: \"- are your kin. Bound by rage, unable to forgive. The curse is their punishment, passed down through you.\"",
             "Narration: You leave the office in silence. The wind outside howls like laughter.\nIn your shadow, faint figures move beside you - reminders that the Solmere blood remembers... and never forgets betrayal.",
             "Narration: The revelation weighs on you, yet a path now opens. The gates to the Forsaken Lands recognize your lineage and the trials you've endured.\nYou are now eligible to enter, to face the darkness that awaits beyond and uncover the secrets your blood has carried for generations."
         };
@@ -108,7 +108,12 @@ public class SwordsmanPlot {
         promptSeparatorHandler.promptSeparatorResized();
         swordsmanAfterArea3();
 
-        System.out.println("Are you willing to sacrifice yourself? (y/n)");
+        System.out.println("┌────────────────────────────────────────────────┐");
+        System.out.println("│  The chamber trembles with ancestral whispers  │");
+        System.out.println("│     Will you offer your life to break the      │");
+        System.out.println("│                     (y/n)                      │");
+        System.out.println("└────────────────────────────────────────────────┘");
+
         System.out.print("-->|");
         String choice = scanner.nextLine();
 
@@ -124,10 +129,13 @@ public class SwordsmanPlot {
 
     public void swordsmanPlotNarration(String[] array) {
 
-        System.out.println("┌─────────────────────────────────────────────────────────────┐");
-        System.out.println("│ Narration Ahead! Not Skippable │ Press ENTER to continue... │");
-        System.out.println("└─────────────────────────────────────────────────────────────┘");
-
+        System.out.println("┌────────────────────────────────────┐");
+        System.out.println("│   Narration Ahead! Not Skippable   │");
+        System.out.println("└────────────────────────────────────┘");
+        System.out.println("│  Press ENTER to continue  │");
+        System.out.println("└───────────────────────────┘");
+        scanner.nextLine();
+        System.out.println();
 
         for (int i = 0; i < array.length; i++) {
             //scanner.nextLine(); 

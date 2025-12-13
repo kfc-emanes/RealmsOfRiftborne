@@ -26,7 +26,9 @@ public class TrainingMenu {
         boolean training = true; 
 
         while (training) {
-            
+
+            loadHandler.loadGame();
+            separatorHandler.promptSeparator();
             menuRelatedHandler.trainingMenu();
 
             try {
@@ -45,13 +47,13 @@ public class TrainingMenu {
                             System.out.println("│     You have already mastered Endurance     │");
                             System.out.println("│     Please choose another training type     │");
                             System.out.println("└─────────────────────────────────────────────┘");
-                            System.out.println("┌──────────────────────────────┐");
                             System.out.println("│   Press ENTER to continue    │");
                             System.out.println("└──────────────────────────────┘");
                             scanner.nextLine();
+                            scanner.nextLine();
 
-                            loadHandler.loadGame();
-                            separatorHandler.promptSeparator();
+                            //loadHandler.loadGame();
+                            //separatorHandler.promptSeparator();
                         } else {
                             trainingHandler.generalTrainingPrompt(hero, "endurance");
                             training = false;
@@ -66,13 +68,13 @@ public class TrainingMenu {
                             System.out.println("│     You have already mastered Strength!     │");
                             System.out.println("│     Please choose another training type     │");
                             System.out.println("└─────────────────────────────────────────────┘");
-                            System.out.println("┌──────────────────────────────┐");
                             System.out.println("│   Press ENTER to continue    │");
                             System.out.println("└──────────────────────────────┘");
                             scanner.nextLine();
+                            scanner.nextLine();
 
-                            loadHandler.loadGame();
-                            separatorHandler.promptSeparator();
+                            //loadHandler.loadGame();
+                            //separatorHandler.promptSeparator();
                         } else {
                             trainingHandler.generalTrainingPrompt(hero, "strength");
                             training = false;
@@ -87,14 +89,13 @@ public class TrainingMenu {
                             System.out.println("│     You have already mastered Durability    │");
                             System.out.println("│     Please choose another training type     │");
                             System.out.println("└─────────────────────────────────────────────┘");
-                            System.out.println("┌──────────────────────────────┐");
                             System.out.println("│   Press ENTER to continue    │");
                             System.out.println("└──────────────────────────────┘");
                             scanner.nextLine();
                             scanner.nextLine();
                             
-                            loadHandler.loadGame();
-                            separatorHandler.promptSeparator();
+                            //loadHandler.loadGame();
+                            //separatorHandler.promptSeparator();
                         } else {
                             trainingHandler.generalTrainingPrompt(hero, "durability");
                             training = false;
@@ -109,13 +110,13 @@ public class TrainingMenu {
                             System.out.println("│  You have already mastered Mana Refinement! │");
                             System.out.println("│     Please choose another training type     │");
                             System.out.println("└─────────────────────────────────────────────┘");
-                            System.out.println("┌──────────────────────────────┐");
                             System.out.println("│   Press ENTER to continue    │");
                             System.out.println("└──────────────────────────────┘");
                             scanner.nextLine();
+                            scanner.nextLine();
                             
-                            loadHandler.loadGame();
-                            separatorHandler.promptSeparator();
+                            //loadHandler.loadGame();
+                            //separatorHandler.promptSeparator();
                         } else {
                             trainingHandler.generalTrainingPrompt(hero, "mana refinement");
                             training = false;

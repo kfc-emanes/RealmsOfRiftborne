@@ -378,8 +378,6 @@ public class ForsakenLands {
                             System.out.println("Life begins to return, and hope is rekindled in your heart.");
                             System.out.println("You have unlocked the Special Ending: 'Rebirth of the Forsaken Lands'!");
 
-                            hero.setHaveDefeatedArea3Boss(true);
-
                             separatorHandler.promptSeparator();
                             endingplotHandler.generalEndingPlot(hero);
                             // insert end game prompts here

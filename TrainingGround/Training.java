@@ -115,7 +115,25 @@ public class Training {
                 System.out.println("│   + You have finished your training. Congratulations! +   │");
                 System.out.println("└───────────────────────────────────────────────────────────┘");
 
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
                 statProgressHandler.displayXPandLevel(hero, 2500);
+                System.out.println();
+                System.out.println("┌───────────────────────────────────┐");
+                System.out.println("│  Press ENTER to claim rewards...  │");
+                System.out.println("└───────────────────────────────────┘");
+                scanner.nextLine();
+
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                statProgressHandler.currencyProgress(hero);
+                scanner.nextLine();
 
                 hero.setFinishedAllTraining(true);
                 break;
@@ -140,7 +158,7 @@ public class Training {
                     }
 
                     if (continueChoice.equalsIgnoreCase("y")) {
-                        separatorHandler.promptSeparator();
+                        //separatorHandler.promptSeparator();
                         trainingMenuHandler.trainingMenu(hero);
                         isValidInput = true; 
                     } 
@@ -253,7 +271,7 @@ public class Training {
 
         if(chanceofWin < 7){
             hero.setNumberOfTrainingFinished(hero.getNumberOfTrainingFinished() + 1);
-            System.out.println();
+            separatorHandler.promptSeparatorResized();
             System.out.println("┌────────────────────────────┐");
             System.out.println("│     Success! Well done!    │");
             System.out.println("└────────────────────────────┘");
@@ -282,7 +300,7 @@ public class Training {
 
 
         } else {
-            System.out.println();
+            separatorHandler.promptSeparatorResized();
             System.out.println("┌───────────────────────────────────┐");
             System.out.println("│      You\'ve fallen this time      │");
             System.out.println("│    Ready to give it another go?   │");

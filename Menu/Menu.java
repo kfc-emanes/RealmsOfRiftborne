@@ -23,10 +23,9 @@ public class Menu extends Narration {
         IntroTitle loadHandler = new IntroTitle();
         Narration separatorHandler = new Narration();
 
-        separatorHandler.promptSeparator();
-
         while(true){
 
+            separatorHandler.promptSeparator();
             menuRelatedHandler.mainMenu();
             System.out.print("-->| ");
 
@@ -80,15 +79,7 @@ public class Menu extends Narration {
                             hero.setHasOpenedInventory(true);
                         }
 
-                        if(!hero.getInventory().isEmpty()){
-                            System.out.println("┌───────────────────────────────────────┐");
-                            System.out.println("│      Hmmm. Nothing to see here.       │");
-                            System.out.println("│   Go shop if you want to own items.   │");
-                            System.out.println("└───────────────────────────────────────┘");
-                        } else{
-
                             hero.getInventory().inventory();
-                        }
 
                         break;
 
