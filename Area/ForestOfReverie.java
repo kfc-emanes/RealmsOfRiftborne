@@ -376,13 +376,10 @@ public class ForestOfReverie {
                         System.out.println("You have slain the enemy that guards the forest, every living being within the forest now fears you.");
                         System.out.println();
 
-                        if(hero.getMageCharacterChosen() && hero.getHaveDefeatedArea1Boss()) { // Javines | Plot
-                            magePlotHandler.mageAfterArea1();
-                        }
-
                         System.out.println("You peacefully exit the Forest Of Reverie...");
                         System.out.println();
                         exit();
+                        hero.setHaveDefeatedArea1Boss(true);
                         currentArea = 0; // automatically exits the FOREST OF REVERIE
                         exit = true;
                         break;

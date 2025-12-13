@@ -361,15 +361,14 @@ public class ReveriesEdge {
                         goldGained = (int) Math.round(4000 * rand.nextDouble(1.50, 1.60)); // random multiplier 1.50 - 1.59
                         expGained = (int) Math.round(600 * rand.nextDouble(1.20, 1.30)); // random multiplier 1.20 - 1.29
                         reward.rewards(hero, goldGained, expGained);
-                        // need nako i remove and i move sa front sa plot related shits kaso need ko permission (will do this sa onsite class)
+                        
                         System.out.println("The shadow fades... Reverie's Edge grows silent once again.");
                         System.out.println();
                         System.out.println("You leave the cursed borderlands behind.");
                         System.out.println();
 
-                        if(hero.getGunnerCharacterChosen() && hero.getHaveDefeatedArea2Boss()) { // Javines | Plot
-                            gunnerPlotHandler.gunnerAfterArea2();
-                        }
+                        hero.setHaveDefeatedArea2Boss(true);
+
                         exit();
                         currentArea = 0; // automatically exits the REVERIE EDGE
                         exit = true;
