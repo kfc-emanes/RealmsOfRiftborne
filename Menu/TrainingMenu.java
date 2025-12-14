@@ -10,9 +10,7 @@ import java.util.Scanner;
 public class TrainingMenu {
 
     static Scanner scanner = new Scanner(System.in);
-
-    Narration separationHandler = new Narration();
-    IntroTitle loadHandler = new IntroTitle();
+    private IntroTitle loadHandler = new IntroTitle();
     
     private Training trainingHandler;
 
@@ -52,8 +50,6 @@ public class TrainingMenu {
                             scanner.nextLine();
                             scanner.nextLine();
 
-                            //loadHandler.loadGame();
-                            //separatorHandler.promptSeparator();
                         } else {
                             trainingHandler.generalTrainingPrompt(hero, "endurance");
                             training = false;
@@ -73,8 +69,6 @@ public class TrainingMenu {
                             scanner.nextLine();
                             scanner.nextLine();
 
-                            //loadHandler.loadGame();
-                            //separatorHandler.promptSeparator();
                         } else {
                             trainingHandler.generalTrainingPrompt(hero, "strength");
                             training = false;
@@ -93,9 +87,7 @@ public class TrainingMenu {
                             System.out.println("└──────────────────────────────┘");
                             scanner.nextLine();
                             scanner.nextLine();
-                            
-                            //loadHandler.loadGame();
-                            //separatorHandler.promptSeparator();
+
                         } else {
                             trainingHandler.generalTrainingPrompt(hero, "durability");
                             training = false;
@@ -114,9 +106,7 @@ public class TrainingMenu {
                             System.out.println("└──────────────────────────────┘");
                             scanner.nextLine();
                             scanner.nextLine();
-                            
-                            //loadHandler.loadGame();
-                            //separatorHandler.promptSeparator();
+  
                         } else {
                             trainingHandler.generalTrainingPrompt(hero, "mana refinement");
                             training = false;

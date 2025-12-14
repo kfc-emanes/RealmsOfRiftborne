@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class OfficeNarration {
 
-    Narration printDelayHandler = new Narration();
-    Narration separatorHandler = new Narration();
-
+    private Narration printDelayHandler = new Narration();
+    private Narration separatorHandler = new Narration();
     private static Scanner scanner = new Scanner(System.in);
 
     public void officeNarration(){

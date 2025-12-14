@@ -1,7 +1,5 @@
 package Narration;
 
-//import DesignRelated.*;
-
 import java.util.Scanner;
 
 public class SwordsmanPlot {
@@ -10,7 +8,7 @@ public class SwordsmanPlot {
     private Narration printDelayHandler = new Narration();
     private Narration promptSeparatorHandler = new Narration();
 
-    public void swordsmanAfterArea1() { // implemented
+    public void swordsmanAfterArea1() { 
 
         String[] afterArea1Narration1 = {
             "Narration: You are summoned to the Principal's Office.\nThe corridors feel heavier than usual, each step echoing against the marble floor.",
@@ -36,7 +34,7 @@ public class SwordsmanPlot {
     }
 
 
-    public void swordsmanAfterArea2() { // implemented
+    public void swordsmanAfterArea2() { 
 
         String[] afterArea2Narration1 = {
             "Narration: The sky above the academy is gray when the summons comes again.\nYou stand before the Principal's Office, the air heavy with dread.\nInside, the principal Nemeesha Brightwell watches the fog roll past the window, his voice quiet when he finally speaks.",
@@ -138,7 +136,6 @@ public class SwordsmanPlot {
         System.out.println();
 
         for (int i = 0; i < array.length; i++) {
-            //scanner.nextLine(); 
             printDelayHandler.printWithDelay(array[i], 10); 
             System.out.println("\n");
         }

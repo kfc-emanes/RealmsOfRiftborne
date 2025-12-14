@@ -4,7 +4,6 @@ import Hero.*;
 import Menu.*;
 import Narration.*;
 import TrainingGround.Training;
-import TrainingGround.StatProgress.TrainingSession;
 import DesignRelated.*;
 
 import java.util.Scanner;
@@ -14,8 +13,6 @@ public class Training {
 
     private static Scanner scanner = new Scanner(System.in);
     private static Random random = new Random();
-    private TrainingSession session;
-
     private TrainingMenu trainingMenuHandler = new TrainingMenu(this);
     private TrainingNarration narrationHandler = new TrainingNarration();
     private StatProgress statProgressHandler = new StatProgress();
@@ -101,28 +98,9 @@ public class Training {
     public void startTrainingLoop(Hero hero) {
         boolean continueTraining = true;
 
-        session = new TrainingSession();
-
-        /*int originalHp = hero.getHp();
-        int originalAtk = hero.getAttack();
-        int originalDef = hero.getDefense(); 
-        int originalMana = hero.getMana(); 
-        int originalSpeed = hero.getSpeed();
-        int originalExperience = hero.getExperience();
-        int originalLevel = hero.getLevel();
-
-        int originalMaxHp = hero.getMaxHp();
-        int originalMaxAtk = hero.getMaxAtk();
-        int originalMaxDef = hero.getMaxDef();
-        int originalMaxMana = hero.getMaxMana();
-        */
-
-
         while (continueTraining) {
 
             if(hero.getNumberOfTrainingFinished() == 4){
-
-                //separatorHandler.promptSeparatorResized();
                 System.out.println("┌───────────────────────────────────────────────────────────┐");
                 System.out.println("│   + You have finished your training. Congratulations! +   │");
                 System.out.println("└───────────────────────────────────────────────────────────┘");
@@ -132,7 +110,6 @@ public class Training {
                 System.out.println();
                 System.out.println();
                 System.out.println();
-                //statProgressHandler.displayXPandLevel(hero, 2500);
                 System.out.println();
                 System.out.println("┌───────────────────────────────────┐");
                 System.out.println("│  Press ENTER to claim rewards...  │");
@@ -145,10 +122,6 @@ public class Training {
                 System.out.println();
 
                 if(hero.getNumberOfTrainingFinished() == 4){
-                    // hero.addBonusHp(session.bonusHp);
-                    // hero.addBonusAtk(session.bonusAtk);
-                    // hero.addBonusDef(session.bonusDef);
-                    // hero.addBonusMana(session.bonusMana);
                     statProgressHandler.endurance(hero);
                     statProgressHandler.strength(hero);
                     statProgressHandler.durability(hero);
@@ -157,7 +130,6 @@ public class Training {
                     hero.setFinishedAllTraining(true);
                 }
 
-                //hero.setFinishedAllTraining(true);
                 hero.unlockArea1(true);
               
                 break;
@@ -182,7 +154,6 @@ public class Training {
                     }
 
                     if (continueChoice.equalsIgnoreCase("y")) {
-                        //separatorHandler.promptSeparator();
                         trainingMenuHandler.trainingMenu(hero);
                         isValidInput = true; 
                     } 
@@ -204,37 +175,12 @@ public class Training {
                                 System.out.println("└───────────────────────────────────────────────────┘");
                                 separatorHandler.promptSeparatorResized();
 
-                                session.reset(); 
-
-                                //loadHandler.resetGame();
-
                                 if (hero.getNumberOfTrainingFinished() < 4) {
                                     hero.setFinishedAllTraining(false);
                                     hero.setNumberOfTrainingFinished(0);
                                 }
 
                                 if (!hero.hasFinishedAllTraining()) {
-                                    
-                                    /*
-                                    hero.setHp(originalHp);
-                                    hero.setAttack(originalAtk);
-                                    hero.setDefense(originalDef);
-                                    hero.setMana(originalMana);
-                                    hero.setSpeed(originalSpeed);
-                                    hero.setExperience(originalExperience); 
-                                    hero.setLevel(originalLevel);
-
-                                    hero.setHp(originalHp);
-                                    hero.setAttack(originalAtk);
-                                    hero.setDefense(originalDef);
-                                    hero.setMana(originalMana);
-
-                                    hero.setMaxHp(originalMaxHp);
-                                    hero.setMaxAtk(originalMaxAtk);
-                                    hero.setMaxDef(originalMaxDef);
-                                    hero.setMaxMana(originalMaxMana);
-                                    */
-
 
                                     hero.setFinishedEndurance(false);
                                     hero.setFinishedStrength(false);
@@ -313,7 +259,6 @@ public class Training {
 
     public void sparringMechanism(Hero hero, String trainingType){
         int chanceofWin = random.nextInt(10);
-        //StatProgress statProgressHandler = new StatProgress();
 
         if(chanceofWin < 7){
             hero.setNumberOfTrainingFinished(hero.getNumberOfTrainingFinished() + 1);
@@ -325,50 +270,21 @@ public class Training {
             switch(trainingType.toLowerCase()) {
                 case "endurance":
                     hero.setFinishedEndurance(true);
-                    //session.bonusHp += (int)(200 * random.nextDouble(1.2, 1.5));
                     break;
 
                 case "strength":
                     hero.setFinishedStrength(true);
-                    //session.bonusAtk += (int)(100 * random.nextDouble(1.2, 1.5));
                     break;
 
                 case "durability":
                     hero.setFinishedDurability(true);
-                    //session.bonusDef += (int)(50 * random.nextDouble(1.2, 1.5));
                     break;
 
                 case "mana refinement":
                     hero.setFinishedManaRefinement(true);
-                    //session.bonusMana += (int)(150 * random.nextDouble(1.2, 1.5));
                     break;
 
             }
-
-            /* 
-
-            switch(trainingType.toLowerCase()){
-                case "endurance":
-                    hero.setFinishedEndurance(true);
-                    statProgressHandler.endurance(hero);
-                    break;
-
-                case "strength":
-                    hero.setFinishedStrength(true);
-                    statProgressHandler.strength(hero);
-                    break;
-
-                case "durability":
-                    hero.setFinishedDurability(true);
-                    statProgressHandler.durability(hero);
-                    break;
-
-                case "mana refinement":
-                    hero.setFinishedManaRefinement(true);
-                    statProgressHandler.mana(hero);
-                    break;
-            } 
-                */
 
 
         } else {

@@ -88,7 +88,7 @@ public class Menu extends Narration {
 
                         loadHandler.loadGame();
 
-                        if (hero.canEnterArea1()) {
+                        if (hero.hasUnlockedArea1()) {
 
                             separatorHandler.promptSeparator();
                             areaHandler.forestOfReverieEligible();
@@ -118,7 +118,7 @@ public class Menu extends Narration {
 
                         loadHandler.loadGame();
 
-                        if (hero.canEnterArea2()) {
+                        if (hero.hasUnlockedArea2()) {
 
                             separatorHandler.promptSeparator();
                             areaHandler.reverieEdgeEligible();
@@ -148,7 +148,7 @@ public class Menu extends Narration {
 
                         loadHandler.loadGame();
 
-                        if (hero.canEnterArea3()) {
+                        if (hero.hasUnlockedArea3()) {
 
                             separatorHandler.promptSeparator();
                             areaHandler.forsakenLandsEligible();

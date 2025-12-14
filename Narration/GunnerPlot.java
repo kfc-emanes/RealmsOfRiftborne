@@ -9,7 +9,7 @@ public class GunnerPlot {
     private Narration printDelayHandler = new Narration();
     private Narration promptSeparatorHandler = new Narration();
     
-    public void gunnerAfterArea1() { // not implemented
+    public void gunnerAfterArea1() { 
 
         String[] afterArea1Narration2 = {
             "Narration: When you were called to the principal\'s office, the air grew heavier the moment you stepped inside.\nAncient inscriptions carved into the floor glowed faintly, as if stirred from sleep.\nThe principal shut the door slowly, watching Aria with measured intent.\nSomething in this room had awakened the moment he arrived. Aria\'s hand drifted near his holster - instinct, not fear.",
@@ -41,7 +41,7 @@ public class GunnerPlot {
     }
 
 
-    public void gunnerAfterArea2() { // not implemented
+    public void gunnerAfterArea2() { 
 
         String[] afterArea2Narration2 = {
             "Narration: You enter the principal\'s office, still smelling of smoke and scorched earth from the battle at Reverie\'s Edge.\nEvery muscle aches, your mind sharp despite the exhaustion.\nYou expected a routine debrief... but the air here feels heavier, charged with the quiet gravity of secrets long buried.",
@@ -194,7 +194,6 @@ public class GunnerPlot {
         System.out.println();
 
         for (int i = 0; i < array.length; i++) {
-            //scanner.nextLine(); 
             printDelayHandler.printWithDelay(array[i], 10); 
             System.out.println("\n");
         }

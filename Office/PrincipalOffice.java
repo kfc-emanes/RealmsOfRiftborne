@@ -7,7 +7,6 @@ import java.util.Scanner;
 import TrainingGround.StatProgress;
 
 public class PrincipalOffice extends StatProgress {
-
     private OfficeNarration narrationHandler = new OfficeNarration();
     private SwordsmanPlot swordsmanPlotHandlder = new SwordsmanPlot();
     private GunnerPlot gunnerPlotHandler = new GunnerPlot();
@@ -15,11 +14,12 @@ public class PrincipalOffice extends StatProgress {
     private IntroTitle loadHandler = new IntroTitle();
     private Narration separatorHandler = new Narration();
     private Scanner scanner = new Scanner(System.in);
+    boolean enter = true;
 
-    public void principalOffice(Hero hero){
-        
-        if(!hero.haveEntered()){
-            narrationHandler.officeNarration(); 
+    public void principalOffice(Hero hero) {
+
+        if (!hero.haveEntered()) {
+            narrationHandler.officeNarration();
             hero.setHaveEntered(true);
         }
 
@@ -34,86 +34,87 @@ public class PrincipalOffice extends StatProgress {
 
         boolean eligible = false;
 
-        if (!hero.hasUnlockedArea1() && hero.canEnterArea1() && hero.hasFinishedAllTraining()) {
+        // ===== AREA 1 =====
+        if (!hero.hasUnlockedArea1()
+                && hero.canEnterArea1()
+                && hero.hasFinishedAllTraining()) {
+
+            narrationHandler.area1Eligible();
+            hero.setUnlockArea1(true);
             
-                narrationHandler.area1Eligible();
-                hero.unlockArea1(true);
+            System.out.println("┌──────────────────────────────────────────────────┐");
+            System.out.println("│   + You may now enter The Forest of Reverie +    │");
+            System.out.println("└──────────────────────────────────────────────────┘");
+            System.out.println("│  Press ENTER to claim rewards...  │");
+            System.out.println("└───────────────────────────────────┘");
+            scanner.nextLine();
 
-                System.out.println("┌──────────────────────────────────────────────────┐");
-                System.out.println("│   + You may now enter The Forest of Reverie +    │");
-                System.out.println("└──────────────────────────────────────────────────┘");
-                System.out.println("│  Press ENTER to claim rewards...  │");
-                System.out.println("└───────────────────────────────────┘");
-                scanner.nextLine();
+            separatorHandler.promptSeparatorResized();
+            currencyProgress(hero);
+            scanner.nextLine();
 
-                separatorHandler.promptSeparatorResized();
-
-                currencyProgress(hero);
-                scanner.nextLine();
-
-                eligible = true;
-            } else if (!hero.hasUnlockedArea2() && hero.canEnterArea1() && hero.getHaveDefeatedArea1Boss()) { 
-
-                //narrationHandler.area2Eligible();
-
-                hero.unlockArea2(true);
-
-                if(hero.getSwordmanCharacterChosen()) {
-                    swordsmanPlotHandlder.swordsmanAfterArea1();
-                } else if(hero.getGunnerCharacterChosen()) {
-                    gunnerPlotHandler.gunnerAfterArea1();
-                } else if(hero.getMageCharacterChosen()) {
-                    magePlotHandler.mageAfterArea1();
-                }
-
-                
-
-                System.out.println("┌───────────────────────────────────────────┐");
-                System.out.println("│   + You may now enter The Reverie Edge +  │");
-                System.out.println("└───────────────────────────────────────────┘");
-                System.out.println("│  Press ENTER to claim rewards...  │");
-                System.out.println("└───────────────────────────────────┘");
-                scanner.nextLine();
-
-                separatorHandler.promptSeparatorResized();
-
-                currencyProgress(hero);
-                scanner.nextLine();
-
-                eligible = true;
-
-            }  else if (!hero.hasUnlockedArea3() && hero.canEnterArea2() && hero.getHaveDefeatedArea2Boss()) {
-
-                //narrationHandler.area3Eligible();
-
-                hero.unlockArea3(true);
-
-                if(hero.getSwordmanCharacterChosen()) {
-                    swordsmanPlotHandlder.swordsmanAfterArea2(); 
-                } else if (hero.getMageCharacterChosen()) {
-                    magePlotHandler.mageAfterArea2();
-                } else if (hero.getGunnerCharacterChosen()) {
-                    gunnerPlotHandler.gunnerAfterArea2();
-                }
-                
-                
-            
-                System.out.println("┌───────────────────────────────────────────────┐");
-                System.out.println("│   + You may now enter The Forsaken Lands +    │");
-                System.out.println("└───────────────────────────────────────────────┘");
-                System.out.println("│  Press ENTER to claim rewards...  │");
-                System.out.println("└───────────────────────────────────┘");
-                scanner.nextLine();
-
-                separatorHandler.promptSeparatorResized();
-                
-                currencyProgress(hero);
-                scanner.nextLine();
-
-                eligible = true;
-            
+            eligible = true;
         }
 
+        // ===== AREA 2 =====
+        else if (!hero.hasUnlockedArea2()
+                && hero.canEnterArea2()
+                && hero.getHaveDefeatedArea1Boss()) {
+
+            hero.setUnlockArea2(true);
+
+            if (hero.getSwordmanCharacterChosen()) {
+                swordsmanPlotHandlder.swordsmanAfterArea1();
+            } else if (hero.getGunnerCharacterChosen()) {
+                gunnerPlotHandler.gunnerAfterArea1();
+            } else if (hero.getMageCharacterChosen()) {
+                magePlotHandler.mageAfterArea1();
+            }
+
+            System.out.println("┌───────────────────────────────────────────┐");
+            System.out.println("│   + You may now enter The Reverie Edge +  │");
+            System.out.println("└───────────────────────────────────────────┘");
+            System.out.println("│  Press ENTER to claim rewards...  │");
+            System.out.println("└───────────────────────────────────┘");
+            scanner.nextLine();
+
+            separatorHandler.promptSeparatorResized();
+            currencyProgress(hero);
+            scanner.nextLine();
+
+            eligible = true;
+        }
+
+        // ===== AREA 3 =====
+        else if (!hero.hasUnlockedArea3()
+                && hero.canEnterArea3()
+                && hero.getHaveDefeatedArea2Boss()) {
+
+            hero.setUnlockArea3(true);
+
+            if (hero.getSwordmanCharacterChosen()) {
+                swordsmanPlotHandlder.swordsmanAfterArea2();
+            } else if (hero.getMageCharacterChosen()) {
+                magePlotHandler.mageAfterArea2();
+            } else if (hero.getGunnerCharacterChosen()) {
+                gunnerPlotHandler.gunnerAfterArea2();
+            }
+
+            System.out.println("┌───────────────────────────────────────────────┐");
+            System.out.println("│   + You may now enter The Forsaken Lands +    │");
+            System.out.println("└───────────────────────────────────────────────┘");
+            System.out.println("│  Press ENTER to claim rewards...  │");
+            System.out.println("└───────────────────────────────────┘");
+            scanner.nextLine();
+
+            separatorHandler.promptSeparatorResized();
+            currencyProgress(hero);
+            scanner.nextLine();
+
+            eligible = true;
+        }
+
+        // ===== NOT ELIGIBLE =====
         if (!eligible) {
 
             System.out.println("┌──────────────────────────────────────────────────────────────────┐");
@@ -123,8 +124,6 @@ public class PrincipalOffice extends StatProgress {
             System.out.println("│  Press ENTER to continue  │");
             System.out.println("└───────────────────────────┘");
             scanner.nextLine();
-            
-
         }
 
         separatorHandler.promptSeparatorResized();
@@ -132,8 +131,7 @@ public class PrincipalOffice extends StatProgress {
         System.out.println("┌───────────────────────────────────────────────────┐");
         System.out.println("│   >>> Exiting from the Principal's Office <<<     │");
         System.out.println("└───────────────────────────────────────────────────┘");
-            
+
         loadHandler.exitGame();
     }
-
 }

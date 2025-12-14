@@ -10,13 +10,12 @@ import java.util.Random;
 public class LibraryQuest extends LibraryNarration{
 
     private static Scanner scanner = new Scanner(System.in);
-    Random random = new Random(System.nanoTime());
+    private Random random = new Random(System.nanoTime());
     private static int whichShelf = new Random().nextInt(5) + 1;
     private StatsProgressLibrary progressHandler = new StatsProgressLibrary();
-    Narration separatorHandler = new Narration();
-    Narration printDelayHandler = new Narration();
-    Quests questsHandler = new Quests();
-    MenuRelated bookMenuHandler = new MenuRelated();
+    private Narration separatorHandler = new Narration();
+    private Narration printDelayHandler = new Narration();
+    private MenuRelated bookMenuHandler = new MenuRelated();
 
     public void findTheLostBook(Hero hero) {
         separatorHandler.promptSeparatorResized();

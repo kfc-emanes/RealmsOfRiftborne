@@ -7,10 +7,9 @@ import Hero.*;
 public class LibraryNarration {
 
     private static Scanner scanner = new Scanner(System.in);
-
-    Narration printDelayHandler = new Narration();
-    Narration separatorHandler = new Narration();
-    Quests questHandler = new Quests();
+    private Narration printDelayHandler = new Narration();
+    private Narration separatorHandler = new Narration();
+    private Quests questHandler = new Quests();
 
     public void findTheLostBookNarration(Hero hero){
         String[] quest1 = {
@@ -139,7 +138,7 @@ public class LibraryNarration {
                     continueInput = false;
                 } else if (answer1.isEmpty()) {
                     System.out.println("┌──────────────────────────────────────────────────┐");
-                    System.out.println("│   Input unclear! Answer must be a character\\s   │");
+                    System.out.println("│   Input unclear! Answer must be a character\\s    │");
                     System.out.println("└──────────────────────────────────────────────────┘");
                     separatorHandler.promptSeparatorResized();
                 } else {
@@ -231,7 +230,7 @@ public class LibraryNarration {
                     continueInput = false;
                 } else if (answer2.isEmpty()) {
                     System.out.println("┌──────────────────────────────────────────────────┐");
-                    System.out.println("│   Input unclear! Answer must be a character\\s   │");
+                    System.out.println("│   Input unclear! Answer must be a character\\s    │");
                     System.out.println("└──────────────────────────────────────────────────┘");
                     separatorHandler.promptSeparatorResized();
                 } else {
@@ -311,7 +310,7 @@ public class LibraryNarration {
 
                 String answer3 = scanner.nextLine();
 
-                if ((answer3.equalsIgnoreCase("Time") && hero.getGunnerCharacterChosen()) || (answer3.equalsIgnoreCase("Guilt") && hero.getMageCharacterChosen()) || ((answer3.equalsIgnoreCase("Trials") || answer3.equals("Trial") || (answer3.equalsIgnoreCase("Challenges"))) && hero.getSwordmanCharacterChosen())) {
+                if ((answer3.equalsIgnoreCase("Time") && hero.getGunnerCharacterChosen()) || (answer3.equalsIgnoreCase("Guilt") && hero.getMageCharacterChosen()) || ((answer3.equalsIgnoreCase("Trials") || answer3.equals("Trial") || (answer3.equalsIgnoreCase("Challenges")) || answer3.equalsIgnoreCase("Challenge")) && hero.getSwordmanCharacterChosen())) {
                     separatorHandler.promptSeparatorResized();
                     System.out.println("┌─────────────────────────┐");
                     System.out.println("│   Correct! Well done!   │");
@@ -322,7 +321,7 @@ public class LibraryNarration {
                     continueInput = false;
                 } else if (answer3.isEmpty()) {
                     System.out.println("┌──────────────────────────────────────────────────┐");
-                    System.out.println("│   Input unclear! Answer must be a character\\s   │");
+                    System.out.println("│   Input unclear! Answer must be a character\\s    │");
                     System.out.println("└──────────────────────────────────────────────────┘");
                     separatorHandler.promptSeparatorResized();
                 } else {

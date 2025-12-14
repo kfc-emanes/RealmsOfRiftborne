@@ -86,24 +86,10 @@ public class StatProgress {
         Stats statsHandler = new Stats();
 
         int gold = 2500;
-        int xp = 1000; // for testing
+        int xp = 500; 
 
         statsHandler.sackOfGoldAfterTraining(hero, gold, xp);
 
-    }
-
-    public static class TrainingSession {
-        int bonusHp;
-        int bonusAtk;
-        int bonusDef;
-        int bonusMana;
-
-        public void reset() {
-            bonusHp = 0;
-            bonusAtk = 0;
-            bonusDef = 0;
-            bonusMana = 0;
-        }
     }
 
 }

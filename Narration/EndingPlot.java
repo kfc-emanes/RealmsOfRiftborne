@@ -5,12 +5,12 @@ import DesignRelated.*;
 
 public class EndingPlot {
 
-    SwordsmanPlot swordsmanPlotHandler = new SwordsmanPlot();
-    GunnerPlot gunnerPlotHander = new GunnerPlot();
-    MagePlot magePlotHandler = new MagePlot();
-    IntroTitle loadHandler = new IntroTitle();
-    IntroTitle outroHandler = new IntroTitle();
-    Narration promptSeparatorHandler = new Narration();
+    private SwordsmanPlot swordsmanPlotHandler = new SwordsmanPlot();
+    private GunnerPlot gunnerPlotHander = new GunnerPlot();
+    private MagePlot magePlotHandler = new MagePlot();
+    private IntroTitle loadHandler = new IntroTitle();
+    private IntroTitle outroHandler = new IntroTitle();
+    private Narration promptSeparatorHandler = new Narration();
 
     public void generalEndingPlot(Hero hero) {
 

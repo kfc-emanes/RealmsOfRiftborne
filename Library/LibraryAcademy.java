@@ -77,7 +77,7 @@ public class LibraryAcademy {
         if (!hasAvailableQuest) {
             System.out.println();
             System.out.println("┌──────────────────────────────────────────────────────────────────┐");
-            System.out.println("│   + Congratrulations! You\'ve completed every library quest. +   │");
+            System.out.println("│   + Congratulations! You\'ve completed every library quest. +     │");
             System.out.println("└──────────────────────────────────────────────────────────────────┘");
             return;
         }

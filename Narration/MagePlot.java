@@ -9,7 +9,7 @@ public class MagePlot {
     private Narration printDelayHandler = new Narration();
     private Narration promptSeparatorHandler = new Narration();
     
-    public void mageAfterArea1() { // not implemented
+    public void mageAfterArea1() { 
 
         String[] afterArea1Narration3 = {
             "Narration: You step into the principal\'s office, your robes singed and your hands still humming\nwith residual energy from the Forest of Reverie. Every muscle aches, but your mind is alive, alert to the faintest traces of magic.",
@@ -32,7 +32,7 @@ public class MagePlot {
 
     }
 
-    public void mageAfterArea2() { // not implemented
+    public void mageAfterArea2() { 
 
         String[] afterArea2Narration3 = {
             "Narration: You step into the principal\'s office, every nerve still thrumming from the battle in the Reverie\'s Edge.\nThe lingering scent of burnt Aether hangs in the air, and your hands are scorched from channeling your magic.",
@@ -167,7 +167,6 @@ public class MagePlot {
         System.out.println();
 
         for (int i = 0; i < array.length; i++) {
-            //scanner.nextLine(); 
             printDelayHandler.printWithDelay(array[i], 10); 
             System.out.println("\n");
         }

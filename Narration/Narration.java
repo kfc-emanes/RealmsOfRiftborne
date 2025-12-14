@@ -178,7 +178,7 @@ public class Narration{
         playSection(shop);
     }
 
-    public void shopConversationNarration() { // narration not used | to be followed
+    public void shopConversationNarration() { 
         String[] shopOwner = {
             "You push open the creaking door, and the scent of herbs and aged wood fills the air. Sunlight glints off shelves stacked with mysterious trinkets and glowing vials.",
 
@@ -192,7 +192,7 @@ public class Narration{
         playSection(shopOwner);
     }
 
-    // Inventory Narration | Not Used
+    // Inventory Narration 
     public void inventoryNarration() {
         String[] inventory = {
             "Louraine emerges without a sound, its form quiet and steady beside you.",

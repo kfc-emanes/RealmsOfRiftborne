@@ -15,26 +15,26 @@ public class StatsProgressLibrary extends StatProgress {
             case 1:
                 
                 endurance(hero);
-                displayXPandLevel(hero, 500);
+                displayXPandLevel(hero, 100);
 
                 break;
 
             case 2:
                 
                 durability(hero);
-                displayXPandLevel(hero, 500);
+                displayXPandLevel(hero, 100);
                 break;
 
             case 3:
                 
                 strength(hero);
-                displayXPandLevel(hero, 500);
+                displayXPandLevel(hero, 100);
                 break;
 
             case 4:
 
                 mana(hero);
-                displayXPandLevel(hero, 500);
+                displayXPandLevel(hero, 100);
                 break;
         }
     }

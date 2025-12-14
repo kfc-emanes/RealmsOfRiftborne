@@ -377,7 +377,7 @@ public class ForestOfReverie {
                         System.out.println();
 
                         hero.setHaveDefeatedArea1Boss(true);
-                        hero.setUnlockArea1(true);
+                        hero.unlockArea2(true);
 
                         System.out.println("You peacefully exit the Forest Of Reverie...");
                         System.out.println();

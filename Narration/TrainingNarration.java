@@ -4,10 +4,9 @@ import java.util.Scanner;
 
 public class TrainingNarration {
 
-    Narration printDelayNarration = new Narration();
-    Narration separatorHandler = new Narration();
-
-    Scanner scanner = new Scanner(System.in);
+    private Narration printDelayNarration = new Narration();
+    private Narration separatorHandler = new Narration();
+    private Scanner scanner = new Scanner(System.in);
 
     public void exploreNarration(){
 
@@ -48,7 +47,6 @@ public class TrainingNarration {
         separatorHandler.promptSeparatorResized();
 
         for (int i = 0; i < arr.length; i++) {
-            //scanner.nextLine(); 
             printDelayNarration.printWithDelay(arr[i], 15); 
             System.out.println("\n");
         }

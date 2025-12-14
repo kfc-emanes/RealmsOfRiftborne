@@ -10,10 +10,10 @@ public class InnerCharacterMenu extends Narration{
 
     static Scanner scanner = new Scanner(System.in);
 
-    MenuRelated menuRelatedHandler = new MenuRelated();
-    Characters characterStatsHandler = new Characters();
-    Narration separatorHandler = new Narration();
-    IntroTitle loadReset = new IntroTitle();
+    private MenuRelated menuRelatedHandler = new MenuRelated();
+    private Characters characterStatsHandler = new Characters();
+    private Narration separatorHandler = new Narration();
+    private IntroTitle loadReset = new IntroTitle();
     
 
     public Hero playerSwordsman(Hero hero) {
@@ -252,7 +252,6 @@ public class InnerCharacterMenu extends Narration{
         MenuRelated menuRelatedHandler = new MenuRelated();
         Characters characterStatsHandler = new Characters();
         boolean isValid = false;
-        //hero = null;
 
         while(!isValid) {
             menuRelatedHandler.mageCharacterMenu();

@@ -696,7 +696,7 @@ public class Hero {
 
     // Area Progress
     // Office Progress______________________________________________________________________________
-    private boolean canEnterArea1 = false; 
+    private boolean canEnterArea1 = false; // default
     private boolean canEnterArea2 = false;
     private boolean canEnterArea3 = false;
     private boolean haveEntered = false;
@@ -802,7 +802,7 @@ public class Hero {
     private boolean finishedDurability = false;
     private boolean finishedManaRefinement = false;
     private int numberOfTrainingFinished = 0;
-    private boolean finishedAllTraining = false; 
+    private boolean finishedAllTraining = false; // default
     private boolean haveExploredButExited = false;
     private boolean haveAcceptedButExited = false;
 
