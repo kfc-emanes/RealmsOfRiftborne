@@ -4,7 +4,7 @@ import Boss.*;
 import DesignRelated.Stats;
 import Hero.*;
 import Mobs.*;
-import Narration.*; // Javines | Plot
+import Narration.*; 
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -14,7 +14,7 @@ public class ForestOfReverie {
     DecimalFormat df = new DecimalFormat("#,##0");
     MobBattleMechanic mobBattle = new MobBattleMechanic();
     EliteBattleMechanic eliteBattle = new EliteBattleMechanic();   
-    MagePlot magePlotHandler = new MagePlot(); // Javines | Plot
+    Narration narrationPrinter = new Narration();
     Stats reward = new Stats();
     boolean retreat = false;
     boolean explore = true;
@@ -23,8 +23,7 @@ public class ForestOfReverie {
     int currentArea = 0;
 
     public void enter(Hero hero) {
-        // hero.setLevel(23); // for testing
-        // hero.levelUp(101); // for testing
+        
         System.out.println();
         System.out.println("┌────────────────────────────────────────────┐");
         System.out.println("│   You have entered the Forest of Reverie.  │");
@@ -73,6 +72,11 @@ public class ForestOfReverie {
                 System.out.println();
 
                 if (choice == 'y') {
+
+                    System.out.println("Press ENTER to continue...");
+                    scan.nextLine();
+                    scan.nextLine();
+
                     System.out.println("Exploring the mystical Forest of Reverie...");
                     retreat = false;
                     explore = true;
@@ -113,6 +117,12 @@ public class ForestOfReverie {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("You are exploring the forest then suddenly a wild creature appears to attack!");
+
+                System.out.println();
+                System.out.println("Press ENTER to continue...");
+                scan.nextLine();
+                scan.nextLine();
+
                 boolean heroWon = mobBattle.fight(hero, randomMob());
                 if(MobBattleMechanic.run) {
                     MobBattleMechanic.run = false;
@@ -135,6 +145,12 @@ public class ForestOfReverie {
         if(retreat){
             if(rand.nextBoolean()){
                 System.out.println("You see the forest entrance ahead, but an angry mob blocks your way!");
+
+                System.out.println();
+                System.out.println("Press ENTER to continue...");
+                scan.nextLine();
+                scan.nextLine();
+
                 boolean heroWon = mobBattle.fight(hero, randomMob());
                 if(MobBattleMechanic.run) {
                     MobBattleMechanic.run = false;
@@ -208,6 +224,12 @@ public class ForestOfReverie {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("You are exploring deeper into the forest when suddenly a wild creature appears to attack!");
+
+                System.out.println();
+                System.out.println("Press ENTER to continue...");
+                scan.nextLine();
+                scan.nextLine();
+
                 boolean heroWon = mobBattle.fight(hero, randomMob());
                 if(MobBattleMechanic.run) {
                     MobBattleMechanic.run = false;
@@ -230,6 +252,12 @@ public class ForestOfReverie {
         if(retreat){
             if(rand.nextBoolean()){
                 System.out.println("As you head back, a lurking creature jumps from the shadows!");
+
+                System.out.println();
+                System.out.println("Press ENTER to continue...");
+                scan.nextLine();
+                scan.nextLine();
+
                 boolean heroWon = mobBattle.fight(hero, randomMob());
                 if(MobBattleMechanic.run) {
                     MobBattleMechanic.run = false;
@@ -312,6 +340,13 @@ public class ForestOfReverie {
         if(explore){
             if(rand.nextBoolean()){
                 System.out.println("You venture into the innermost part of the forest... \nSuddenly, a strong creature appears to attack!");
+
+                System.out.println();
+                System.out.println("Press ENTER to continue...");
+                scan.nextLine();
+                scan.nextLine();
+
+
                 boolean heroWon = eliteBattle.fight(hero, new MudLurker());
                 if(EliteBattleMechanic.run) {
                     EliteBattleMechanic.run = false;
@@ -340,6 +375,7 @@ public class ForestOfReverie {
 
         // Array Iteration
         playSection(elderthorn);
+    
         System.out.println();
         System.out.println();
         System.out.println("┌─────────────────────────────────────────────────┐");
@@ -413,15 +449,21 @@ public class ForestOfReverie {
         }
     }
     
-    public static void playSection(String[] section) {
+    public void playSection(String[] section) {
         System.out.println("\n\nPress ENTER to continue...");
         scan.nextLine();
-        
+
         for (int i = 0; i < section.length; i++) {
+            narrationPrinter.printWithDelay(section[i], 10); 
+            System.out.println("\n");
+        }
+        
+        /*for (int i = 0; i < section.length; i++) {
             scan.nextLine();
             System.out.println(section[i]);
             
         }
+            */
         
         System.out.println(); 
     }
