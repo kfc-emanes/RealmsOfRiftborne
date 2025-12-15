@@ -17,7 +17,7 @@ public class Swordsman extends Hero {
         this.skillCdU = 10;
         // levelUp(101); // test purpose
 
-        setSwordmanCharacterChosen(true); // Javines | plot
+        setSwordmanCharacterChosen(true); 
     }
     
     DecimalFormat df = new DecimalFormat("#,##0");

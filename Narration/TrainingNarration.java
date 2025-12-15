@@ -1,13 +1,9 @@
 package Narration;
 
-import java.util.Scanner;
-
 public class TrainingNarration {
 
     private Narration printDelayNarration = new Narration();
     private Narration separatorHandler = new Narration();
-    private Scanner scanner = new Scanner(System.in);
-
     public void exploreNarration(){
 
         String[] exploreGym = {

@@ -184,7 +184,7 @@ public class Narration{
 
             "A small bell jingles. Behind the counter, the shopkeeper peers over his spectacles.",
 
-            "\"Ah! A new face,\" he says. \"Welcome to Mystic Curiosities! I\'m Kabang Cobbleton. Handle the items wisely—they have stories… and secrets.\"",
+            "\"Ah! A new face,\" he says. \"Welcome to Mystic Curiosities! I\'m Kabang Cobbleton. Handle the items wisely-they have stories.. and secrets.\"",
 
             "You nod, heart racing with curiosity. Your adventure in the shop has begun."
         };

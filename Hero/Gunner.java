@@ -11,12 +11,12 @@ public class Gunner extends Hero {
         "Crimson Barrage", "Frostwind Bullet", "Judgement Phantom", 
         150, 275, 450, 
         1500, 1530, 650);
-        setGold(999999999); // test purpose
+        //setGold(999999999); // test purpose
         this.skillCd1 = 4;
         this.skillCd2 = 7;
         this.skillCdU = 10;
 
-        setGunnerCharacterChosen(true); // Javines | plot 
+        setGunnerCharacterChosen(true); 
     }
 
 
