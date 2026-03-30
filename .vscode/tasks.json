@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Game",
+      "type": "shell",
+      "command": "./build.sh",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$javac"
+      ]
+    },
+    {
+      "label": "Run Game",
+      "type": "shell",
+      "command": "java Main",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": "Build Game",
+      "problemMatcher": []
+    }
+  ]
+}
