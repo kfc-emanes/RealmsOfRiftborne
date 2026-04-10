@@ -4,7 +4,13 @@
     {
       "label": "Build Game",
       "type": "shell",
-      "command": "./build.sh",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/build.ps1"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -19,7 +25,13 @@
     {
       "label": "Run Game",
       "type": "shell",
-      "command": "java -cp bin com.ror.Main",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "java -cp bin com.ror.Main"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
