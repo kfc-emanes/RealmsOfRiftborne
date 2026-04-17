@@ -1,6 +1,6 @@
 {
   "code-runner.fileDirectoryAsCwd": false,
   "code-runner.executorMap": {
-    "java": "cd \"$workspaceRoot\" && ./build.sh && java -cp bin com.ror.Main"
+    "java": "cd \"$workspaceRoot\"; powershell -ExecutionPolicy Bypass -File .\\build.ps1; if ($?) { java -cp bin com.ror.Main }"
   }
 }
