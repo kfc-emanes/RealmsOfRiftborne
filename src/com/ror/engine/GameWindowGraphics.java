@@ -12,11 +12,15 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStream;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 final class GameWindowGraphics {
     private static final String UI_IMAGE_DIRECTORY = "assets/images/ui/";
     private static final String ENEMY_IMAGE_DIRECTORY = "assets/images/enemies/";
     private static final String HERO_IMAGE_DIRECTORY = "assets/images/heroes/";
+    private static final int LANDING_SECONDARY_BUTTON_WIDTH = 170;
+    private static final int LANDING_SECONDARY_BUTTON_HEIGHT = 78;
 
     private Font headingFont = new Font("Serif", Font.BOLD, 28);
     private Font bodyFont = new Font("SansSerif", Font.PLAIN, 14);
@@ -27,12 +31,26 @@ final class GameWindowGraphics {
     private int landingBackgroundIndex = 0;
     private final ButtonSkin primaryButtonSkin;
     private final ButtonSkin secondaryButtonSkin;
+    private final BufferedImage landingPlayButtonImage;
+    private final BufferedImage landingAboutButtonImage;
+    private final BufferedImage landingLoadButtonImage;
+    private final BufferedImage landingOptionsButtonImage;
+    private final BufferedImage landingExitButtonImage;
 
     GameWindowGraphics() {
         loadFonts();
         landingBackgroundFrames = loadLandingBackgroundFrames();
         primaryButtonSkin = loadButtonSkin("button-primary");
         secondaryButtonSkin = loadButtonSkin("button-secondary");
+        landingPlayButtonImage = prepareUiButtonSprite("landing-button-sheet.png", new Rectangle(20, 15, 1215, 340));
+        landingAboutButtonImage = normalizeLandingSecondaryButton(
+                prepareUiButtonSprite("landing-button-sheet.png", new Rectangle(25, 325, 610, 280)));
+        landingLoadButtonImage = normalizeLandingSecondaryButton(
+                prepareUiButtonSprite("landing-button-sheet.png", new Rectangle(645, 325, 590, 280)));
+        landingOptionsButtonImage = normalizeLandingSecondaryButton(
+                prepareUiButtonSprite("landing-button-sheet.png", new Rectangle(20, 620, 615, 275)));
+        landingExitButtonImage = normalizeLandingSecondaryButton(
+                prepareUiButtonSprite("landing-button-sheet.png", new Rectangle(640, 620, 615, 275)));
     }
 
     JPanel createCardPanel(Color borderColor, Color panelColor) {
@@ -185,53 +203,68 @@ final class GameWindowGraphics {
 
         JPanel topMenuRow = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         topMenuRow.setOpaque(false);
-        topMenuRow.setMaximumSize(new Dimension(220, 48));
+        topMenuRow.setMaximumSize(new Dimension(320, 102));
         topMenuRow.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JButton playButton = createLandingPlaceholderButton("PLAY", 220, 48);
+        JButton playButton = landingPlayButtonImage != null
+                ? createLandingImageButton(landingPlayButtonImage, 320, "PLAY")
+                : createLandingPlaceholderButton("PLAY", 220, 48);
         playButton.addActionListener(event -> onPlay.run());
         topMenuRow.add(playButton);
 
         JPanel middleMenuRow = new JPanel(new GridLayout(1, 2, 28, 0));
         middleMenuRow.setOpaque(false);
-        middleMenuRow.setMaximumSize(new Dimension(348, 48));
+        middleMenuRow.setMaximumSize(new Dimension(380, 82));
         middleMenuRow.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JButton aboutButton = createLandingPlaceholderButton("ABOUT");
+        JButton aboutButton = landingAboutButtonImage != null
+                ? createLandingImageButton(landingAboutButtonImage,
+                        LANDING_SECONDARY_BUTTON_WIDTH, LANDING_SECONDARY_BUTTON_HEIGHT, "ABOUT")
+                : createLandingPlaceholderButton("ABOUT");
         aboutButton.addActionListener(event -> JOptionPane.showMessageDialog(
                 frame,
                 "Mystvale Academy RPG\nA story-driven fantasy adventure.",
                 "About",
                 JOptionPane.INFORMATION_MESSAGE));
-        JButton loadButton = createLandingPlaceholderButton("LOAD");
+        JButton loadButton = landingLoadButtonImage != null
+                ? createLandingImageButton(landingLoadButtonImage,
+                        LANDING_SECONDARY_BUTTON_WIDTH, LANDING_SECONDARY_BUTTON_HEIGHT, "LOAD")
+                : createLandingPlaceholderButton("LOAD");
         loadButton.addActionListener(event -> JOptionPane.showMessageDialog(
                 frame,
                 "Load is not available yet.",
                 "Load",
-                JOptionPane.INFORMATION_MESSAGE));
-        JButton optionsButton = createLandingPlaceholderButton("OPTIONS");
-        optionsButton.addActionListener(event -> JOptionPane.showMessageDialog(
-                frame,
-                "Options is not available yet.",
-                "Options",
                 JOptionPane.INFORMATION_MESSAGE));
         middleMenuRow.add(aboutButton);
         middleMenuRow.add(loadButton);
 
         JPanel bottomMenuRow = new JPanel(new GridLayout(1, 2, 28, 0));
         bottomMenuRow.setOpaque(false);
-        bottomMenuRow.setMaximumSize(new Dimension(348, 48));
+        bottomMenuRow.setMaximumSize(new Dimension(380, 82));
         bottomMenuRow.setAlignmentX(Component.CENTER_ALIGNMENT);
-        bottomMenuRow.add(optionsButton);
 
-        JButton exitButton = createLandingPlaceholderButton("EXIT");
+        JButton optionsButton = landingOptionsButtonImage != null
+                ? createLandingImageButton(landingOptionsButtonImage,
+                        LANDING_SECONDARY_BUTTON_WIDTH, LANDING_SECONDARY_BUTTON_HEIGHT, "OPTIONS")
+                : createLandingPlaceholderButton("OPTIONS");
+        optionsButton.addActionListener(event -> JOptionPane.showMessageDialog(
+                frame,
+                "Options is not available yet.",
+                "Options",
+                JOptionPane.INFORMATION_MESSAGE));
+
+        JButton exitButton = landingExitButtonImage != null
+                ? createLandingImageButton(landingExitButtonImage,
+                        LANDING_SECONDARY_BUTTON_WIDTH, LANDING_SECONDARY_BUTTON_HEIGHT, "EXIT")
+                : createLandingPlaceholderButton("EXIT");
         exitButton.addActionListener(event -> onExit.run());
+        bottomMenuRow.add(optionsButton);
         bottomMenuRow.add(exitButton);
 
         content.add(topMenuRow);
-        content.add(Box.createVerticalStrut(15));
+        content.add(Box.createVerticalStrut(0));
         content.add(middleMenuRow);
-        content.add(Box.createVerticalStrut(15));
+        content.add(Box.createVerticalStrut(8));
         content.add(bottomMenuRow);
         content.add(Box.createVerticalGlue());
 
@@ -241,7 +274,7 @@ final class GameWindowGraphics {
         constraints.weightx = 1.0;
         constraints.weighty = 1.0;
         constraints.anchor = GridBagConstraints.SOUTH;
-        constraints.insets = new Insets(0, 0, 36, 0);
+        constraints.insets = new Insets(0, 0, 8, 0);
         panel.add(content, constraints);
         return panel;
     }
@@ -387,6 +420,57 @@ final class GameWindowGraphics {
         return button;
     }
 
+    private JButton createLandingImageButton(BufferedImage image, int width, String fallbackText) {
+        int safeWidth = Math.max(1, width);
+        int safeHeight = Math.max(1, (int) Math.round(safeWidth * (image.getHeight() / (double) image.getWidth())));
+        return createLandingImageButton(image, safeWidth, safeHeight, fallbackText);
+    }
+
+    private JButton createLandingImageButton(BufferedImage image, int width, int height, String fallbackText) {
+        int safeWidth = Math.max(1, width);
+        int safeHeight = Math.max(1, height);
+
+        JButton button = new JButton(fallbackText) {
+            @Override
+            protected void paintComponent(Graphics graphics) {
+                Graphics2D g2 = (Graphics2D) graphics.create();
+                g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+                g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+
+                int pressOffset = getModel().isPressed() ? 2 : 0;
+                int hoverInset = getModel().isRollover() ? 4 : 0;
+                int drawX = hoverInset / 2;
+                int drawY = pressOffset + (hoverInset / 2);
+                int drawWidth = Math.max(1, getWidth() - hoverInset);
+                int drawHeight = Math.max(1, getHeight() - hoverInset - pressOffset);
+
+                g2.drawImage(image, drawX, drawY, drawWidth, drawHeight, null);
+
+                if (getModel().isRollover()) {
+                    g2.setColor(new Color(196, 255, 234, 34));
+                    g2.fillRoundRect(drawX + 8, drawY + 8,
+                            Math.max(0, drawWidth - 16), Math.max(0, drawHeight - 16), 18, 18);
+                }
+                g2.dispose();
+            }
+
+            @Override
+            protected void paintBorder(Graphics graphics) {
+            }
+        };
+
+        button.setPreferredSize(new Dimension(safeWidth, safeHeight));
+        button.setMinimumSize(new Dimension(safeWidth, safeHeight));
+        button.setMaximumSize(new Dimension(safeWidth, safeHeight));
+        button.setContentAreaFilled(false);
+        button.setBorderPainted(false);
+        button.setFocusPainted(false);
+        button.setOpaque(false);
+        button.setRolloverEnabled(true);
+        button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        return button;
+    }
+
     private BufferedImage loadImageAsset(String path) {
         try {
             return ImageIO.read(new File(path));
@@ -461,6 +545,149 @@ final class GameWindowGraphics {
         }
 
         return null;
+    }
+
+    private BufferedImage prepareUiButtonImage(String fileName) {
+        BufferedImage raw = loadFirstAvailableImage(
+                "/com/ror/models/assets/images/ui/" + fileName,
+                "src/com/ror/models/assets/images/ui/" + fileName,
+                "assets/images/ui/" + fileName);
+        if (raw == null) return null;
+
+        BufferedImage cleaned = removeCornerBackground(raw);
+        BufferedImage trimmed = cropUiButtonBounds(cleaned);
+        return trimmed;
+    }
+
+    private BufferedImage prepareUiButtonSprite(String fileName, Rectangle sourceBounds) {
+        BufferedImage sheet = loadFirstAvailableImage(
+                "/com/ror/models/assets/images/ui/" + fileName,
+                "src/com/ror/models/assets/images/ui/" + fileName,
+                "assets/images/ui/" + fileName);
+        if (sheet == null || sourceBounds == null) return null;
+
+        Rectangle safeBounds = sourceBounds.intersection(new Rectangle(0, 0, sheet.getWidth(), sheet.getHeight()));
+        if (safeBounds.width <= 0 || safeBounds.height <= 0) return null;
+
+        BufferedImage cropped = new BufferedImage(safeBounds.width, safeBounds.height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = cropped.createGraphics();
+        g2.drawImage(sheet, 0, 0, safeBounds.width, safeBounds.height,
+                safeBounds.x, safeBounds.y, safeBounds.x + safeBounds.width, safeBounds.y + safeBounds.height, null);
+        g2.dispose();
+
+        BufferedImage cleaned = removeCornerBackground(cropped);
+        return cropUiButtonBounds(cleaned);
+    }
+
+    private BufferedImage firstAvailableButton(BufferedImage primary, BufferedImage fallback) {
+        return primary != null ? primary : fallback;
+    }
+
+    private BufferedImage normalizeLandingSecondaryButton(BufferedImage source) {
+        if (source == null) return null;
+        BufferedImage normalized = new BufferedImage(
+                LANDING_SECONDARY_BUTTON_WIDTH, LANDING_SECONDARY_BUTTON_HEIGHT, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = normalized.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+
+        double scale = Math.min(
+                LANDING_SECONDARY_BUTTON_WIDTH / (double) Math.max(1, source.getWidth()),
+                LANDING_SECONDARY_BUTTON_HEIGHT / (double) Math.max(1, source.getHeight()));
+        int drawWidth = Math.max(1, (int) Math.round(source.getWidth() * scale));
+        int drawHeight = Math.max(1, (int) Math.round(source.getHeight() * scale));
+        int drawX = (LANDING_SECONDARY_BUTTON_WIDTH - drawWidth) / 2;
+        int drawY = (LANDING_SECONDARY_BUTTON_HEIGHT - drawHeight) / 2;
+
+        g2.drawImage(source, drawX, drawY, drawWidth, drawHeight, null);
+        g2.dispose();
+        return normalized;
+    }
+
+    private BufferedImage cropUiButtonBounds(BufferedImage source) {
+        int minX = source.getWidth();
+        int minY = source.getHeight();
+        int maxX = -1;
+        int maxY = -1;
+
+        for (int y = 0; y < source.getHeight(); y++) {
+            for (int x = 0; x < source.getWidth(); x++) {
+                int argb = source.getRGB(x, y);
+                if (isUiBackgroundColor(argb)) continue;
+                minX = Math.min(minX, x);
+                minY = Math.min(minY, y);
+                maxX = Math.max(maxX, x);
+                maxY = Math.max(maxY, y);
+            }
+        }
+
+        if (maxX < minX || maxY < minY) return source;
+
+        int padding = 6;
+        int cropX = Math.max(0, minX - padding);
+        int cropY = Math.max(0, minY - padding);
+        int cropWidth = Math.min(source.getWidth() - cropX, (maxX - minX + 1) + (padding * 2));
+        int cropHeight = Math.min(source.getHeight() - cropY, (maxY - minY + 1) + (padding * 2));
+
+        BufferedImage cropped = new BufferedImage(cropWidth, cropHeight, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = cropped.createGraphics();
+        g2.drawImage(source, 0, 0, cropWidth, cropHeight,
+                cropX, cropY, cropX + cropWidth, cropY + cropHeight, null);
+        g2.dispose();
+        return cropped;
+    }
+
+    private BufferedImage removeCornerBackground(BufferedImage source) {
+        BufferedImage cleaned = new BufferedImage(source.getWidth(), source.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = cleaned.createGraphics();
+        g2.drawImage(source, 0, 0, null);
+        g2.dispose();
+
+        boolean[][] visited = new boolean[cleaned.getHeight()][cleaned.getWidth()];
+        floodClearBackground(cleaned, visited, 0, 0);
+        floodClearBackground(cleaned, visited, cleaned.getWidth() - 1, 0);
+        floodClearBackground(cleaned, visited, 0, cleaned.getHeight() - 1);
+        floodClearBackground(cleaned, visited, cleaned.getWidth() - 1, cleaned.getHeight() - 1);
+        return cleaned;
+    }
+
+    private void floodClearBackground(BufferedImage image, boolean[][] visited, int startX, int startY) {
+        if (startX < 0 || startY < 0 || startX >= image.getWidth() || startY >= image.getHeight()) return;
+        if (!isUiBackgroundColor(image.getRGB(startX, startY))) return;
+
+        Deque<Point> queue = new ArrayDeque<>();
+        queue.add(new Point(startX, startY));
+
+        while (!queue.isEmpty()) {
+            Point point = queue.removeFirst();
+            int x = point.x;
+            int y = point.y;
+
+            if (x < 0 || y < 0 || x >= image.getWidth() || y >= image.getHeight()) continue;
+            if (visited[y][x]) continue;
+            visited[y][x] = true;
+
+            if (!isUiBackgroundColor(image.getRGB(x, y))) continue;
+
+            image.setRGB(x, y, 0x00000000);
+            queue.addLast(new Point(x + 1, y));
+            queue.addLast(new Point(x - 1, y));
+            queue.addLast(new Point(x, y + 1));
+            queue.addLast(new Point(x, y - 1));
+        }
+    }
+
+    private boolean isUiBackgroundColor(int argb) {
+        int alpha = (argb >>> 24) & 0xFF;
+        int red = (argb >>> 16) & 0xFF;
+        int green = (argb >>> 8) & 0xFF;
+        int blue = argb & 0xFF;
+
+        if (alpha < 12) return true;
+
+        boolean chromaGreen = green >= 150 && red <= 120 && blue <= 120 && (green - red) >= 40;
+        boolean screenshotWhite = red >= 245 && green >= 245 && blue >= 245;
+        return chromaGreen || screenshotWhite;
     }
 
     private Icon createScaledSpriteIcon(BufferedImage sprite, int targetWidth, int targetHeight) {
